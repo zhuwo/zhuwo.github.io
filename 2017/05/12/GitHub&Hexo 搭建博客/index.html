@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>GitHub&amp;Hexo 搭建博客 | Geek</title>
+  <meta name="description" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <meta name="generator" content="Geek">
+
+  
+  
+  
+
+  
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body class="home-template">
+<div id="perspective" class="perspective effect-movedown">
+  <div class="container">
+    <!-- wrapper -->
+    <div class="wrapper">
+
+      <header class="site-head"  style="background: #24282b url(/img/img-bg.jpg) 0 -20%" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="/img/logo.svg" alt="Blog Logo"/></a> 
+            <h1 class="blog-title">Geek</h1>
+            <h2 class="blog-description"><button id="showMenu">Show Menu</button></h2>
+        </div>
+    </div>
+</header>
+
+      
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2017-05-12T14:19:48.000Z" itemprop="datePublished">
+          2017-05-12
+      </time>
+    
+    
+    | 
+    <a href='/tags/技术-博客/'>技术 博客</a>
+    
+    
+</span>
+    <h1 class="post-title">GitHub&Hexo 搭建博客</h1>
+    <section class="post-content">
+      <p>  初入公司，第一个任务就是自己搭建一个博客。其实之前就一直想试一试自己搭建个博客，但出于懒，一直没有动手。直到，刚入职场，公司老板布置了搭建技术博客的任务，才正式对待这个问题。废话不多说，下面就用Github➕ Hexo的方法搭建一个简单的、属于自己的、可定制的博客。</p>
+<h3 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h3><pre><code>本文主要针对Mac版本，windows版在文章的结尾有简要的说明，但各种差异请自行甄别。
+</code></pre><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>本文利用Github Pages进行远端部署博客后台，用Node.js的一个命令行工具hexo生成博客所需的静态页面。</p>
+<h3 id="1-安装Gitb"><a href="#1-安装Gitb" class="headerlink" title="1. 安装Gitb"></a>1. 安装Gitb</h3><p>搜索git for mac／windows,根据你的操作系统安装不同版本的git，建议地址:<a href="http://adrai.github.io/flowchart.js/" target="_blank" rel="external">Git for Mac</a></p>
+<h3 id="2-安装Node-js"><a href="#2-安装Node-js" class="headerlink" title="2. 安装Node.js"></a>2. 安装Node.js</h3><p>可以去Node.js的官网<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a>下载最新版本,记住：<strong>必须是最新版</strong>。Mac下面可以先安装<a href="http://mxcl.github.com/homebrew/" target="_blank" rel="external">Home brew</a>包管理器，然后用命令brew install node安装最新版<br>如果能够正常使用命令npm，代表安装成功。</p>
+<h3 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3. 安装Hexo"></a>3. 安装Hexo</h3><p>安装完Node.js以后，就可以用Node自带的包管理安装hexo如下：</p>
+<pre><code>npm install hexo-cli -g
+</code></pre><p>如果能够正常使用hexo命令，代表安装成功，直接敲hexo就可以了。    </p>
+<p>至此，环境已经搭建完成，接下来是对环境的补充说明，觉得没有必要的可以掠过这段。但很多人在搭建自己的博客的时候对各个需要搭建的环境并不清晰，我这里简单地理一下关系。</p>
+<pre><code>1. Git主要是将本地生成的静态页面部署到远端
+2. Node.js是Javascript的运行平台，这里主要是hexo生成静态页面的引擎
+3. Hexo是Node.js的一个命令行工具，将Markdown编译为静态页面的工具
+</code></pre><h2 id="Hexo命令和配置"><a href="#Hexo命令和配置" class="headerlink" title="Hexo命令和配置"></a>Hexo命令和配置</h2><p>Hexo 几个常见的命令：</p>
+<ol>
+<li>hexo init [blogname]生成博客，表现为本地的一个文件夹，文件夹名字为[blogname]</li>
+<li>hexo new [passagename]生成一篇博文，可以在[blogname]/source/_posts下面找到名为[passagename].md的文件，</li>
+<li>hexo generate[g]生成静态页面，一般在hexo new命令以后</li>
+<li>hexo deploy[d]将本地代码部署到远端（这里指Github），需要在配置以后才能进行</li>
+</ol>
+<p>Hexo 配置说明：<br>在文件夹[blogname]下面，可以看到有个_config.xml的文件，关于博客的主要配置都在这个文件里面。这里重点关注以下几个方面：</p>
+<pre><code>1. 博客的主要信息：标题、副标题、描述、作者、语言和时区
+title: Geek
+subtitle:
+description:
+author: Huanjian Jiang
+language:
+timezone:
+
+
+
+2. git配置信息：远程类型、仓库地址、分支和提交信息
+deploy:
+type: git
+repo: git@github.com:zhuwo/huanjian.git
+branch: master
+message: Final try
+
+3. 模版
+你可以通过搜索引擎找到网上大量的网页模版，然后将模版的整个文件夹放到[blogname]/themes文件夹下面，然后将theme 后面的参数设置为你想要的模版对应的文件夹名。
+theme: master
+</code></pre><p>过程：</p>
+<ol>
+<li>hexo init 生成博客</li>
+<li>修改配置文件_config.xml</li>
+<li>hexo deploy 部署到Github</li>
+</ol>
+<p>注意点：</p>
+<pre><code>1. 每次添加markdown文件以后都要重新生成静态页面 
+2. 每次本地操作以后都要重新部署到github
+3. 配置项目的：后必须跟一个空格，比方说theme:[空格][模版名]
+</code></pre><h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>作为一个程序员，github的使用是必须的，这里并不累赘复述如何注册github账号，如何在github创建仓库等等。只说明这里创建博客的注意点。</p>
+<pre><code>1. 新建一个仓库后，仓库名必须与GitHub帐户一致，比方说的我的github地址为https://github.com/zhuwo,那么仓库名必须为zhuwo.github.io。这样，最后你的博客地址也就是https://zhuwo.github.io。
+2. 本地部署到github以后，再在仓库的设置页面，将分支改为master（仓库没有数据的时候不能选择分支，也就没有github page）
+</code></pre><p>最后，可以在仓库的设置页面看到github page的地址，就是你的博客地址。欢迎大家访问我的博客<a href="https://zhuwo.github.io" target="_blank" rel="external">Geek</a></p>
+<p>​<br>​    </p>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>Huanjian Jiang</h4>
+    <p>作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-sina-weibo" href="http://v.t.sina.com.cn/share/share.php?title=作为挨踢业的伪设计狮伪技术牛 搬过砖也种过地：爱看、爱听、爱玩儿、爱折腾、机械水电、泥瓦木匠啥都来 ?url=http://yoursite.com/2017/05/12/GitHub&Hexo 搭建博客/" target="_blank">
+        <span class="hidden">weibo</span>
+    </a>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://yoursite.com/2017/05/12/GitHub&Hexo 搭建博客/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/05/12/GitHub&Hexo 搭建博客/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yoursite.com/2017/05/12/GitHub&Hexo 搭建博客/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <a class="newer-posts" href="/2017/05/24/hello-world/">
+        ← Hello World
+    </a>
+    
+    <span class="icon-logo">•</span>
+    
+</nav>
+
+  <div id="comment" class="comments-area">
+    <h4 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h4>
+    
+</div>
+
+</main>
+
+
+      
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">Geek</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<script type="text/javascript" src="/js/menu.js"></script>
+
+
+
+
+
+  </div>
+</div>
+
+<nav  class="outer-nav top horizontal">
+
+          <a class="icon-home"  href="/"><span>Home</span></a>
+
+          <a class="icon-news"  href="/archive"><span>Archive</span></a>
+
+          <a class="icon-image"  href="/images"><span>Images</span></a>
+
+          <a class="icon-wiki"  href="/wiki/2014-10-28-wiki/"><span>Wiki</span></a>
+
+          <a class="icon-Favorites"  href="/favorites"><span>Favorites</span></a>
+
+          <a class="icon-mail"  href="/about/2014-09-11-mabao/"><span>Contact</span></a>
+
+</nav>
+
+</div>
+</body>
+</html>
