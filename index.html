@@ -342,63 +342,16 @@
       
         
           
-            <p>  初入公司，第一个任务就是自己搭建一个博客。其实之前就一直想试一试自己搭建个博客，但出于懒，一直没有动手。直到，刚入职场，公司老板布置了搭建技术博客的任务，才正式对待这个问题。废话不多说，下面就用Github➕ Hexo的方法搭建一个简单的、属于自己的、可定制的博客。</p>
-<h3 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h3><pre><code>本文主要针对Mac版本，windows版在文章的结尾有简要的说明，但各种差异请自行甄别。
-</code></pre><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>本文利用Github Pages进行远端部署博客后台，用Node.js的一个命令行工具hexo生成博客所需的静态页面。</p>
-<h3 id="1-安装Gitb"><a href="#1-安装Gitb" class="headerlink" title="1. 安装Gitb"></a>1. 安装Gitb</h3><p>搜索git for mac／windows,根据你的操作系统安装不同版本的git，建议地址:<a href="http://adrai.github.io/flowchart.js/" target="_blank" rel="external">Git for Mac</a></p>
-<h3 id="2-安装Node-js"><a href="#2-安装Node-js" class="headerlink" title="2. 安装Node.js"></a>2. 安装Node.js</h3><p>可以去Node.js的官网<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a>下载最新版本,记住：<strong>必须是最新版</strong>。Mac下面可以先安装<a href="http://mxcl.github.com/homebrew/" target="_blank" rel="external">Home brew</a>包管理器，然后用命令brew install node安装最新版<br>如果能够正常使用命令npm，代表安装成功。</p>
-<h3 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3. 安装Hexo"></a>3. 安装Hexo</h3><p>安装完Node.js以后，就可以用Node自带的包管理安装hexo如下：</p>
-<pre><code>npm install hexo-cli -g
-</code></pre><p>如果能够正常使用hexo命令，代表安装成功，直接敲hexo就可以了。    </p>
-<p>至此，环境已经搭建完成，接下来是对环境的补充说明，觉得没有必要的可以掠过这段。但很多人在搭建自己的博客的时候对各个需要搭建的环境并不清晰，我这里简单地理一下关系。</p>
-<pre><code>1. Git主要是将本地生成的静态页面部署到远端
-2. Node.js是Javascript的运行平台，这里主要是hexo生成静态页面的引擎
-3. Hexo是Node.js的一个命令行工具，将Markdown编译为静态页面的工具
-</code></pre><h2 id="Hexo命令和配置"><a href="#Hexo命令和配置" class="headerlink" title="Hexo命令和配置"></a>Hexo命令和配置</h2><p>Hexo 几个常见的命令：</p>
-<ol>
-<li>hexo init [blogname]生成博客，表现为本地的一个文件夹，文件夹名字为[blogname]</li>
-<li>hexo new [passagename]生成一篇博文，可以在[blogname]/source/_posts下面找到名为[passagename].md的文件，</li>
-<li>hexo generate[g]生成静态页面，一般在hexo new命令以后</li>
-<li>hexo deploy[d]将本地代码部署到远端（这里指Github），需要在配置以后才能进行</li>
-</ol>
-<p>Hexo 配置说明：<br>在文件夹[blogname]下面，可以看到有个_config.xml的文件，关于博客的主要配置都在这个文件里面。这里重点关注以下几个方面：</p>
-<pre><code>1. 博客的主要信息：标题、副标题、描述、作者、语言和时区
-title: Geek
-subtitle:
-description:
-author: Huanjian Jiang
-language:
-timezone:
-
-
-
-2. git配置信息：远程类型、仓库地址、分支和提交信息
-deploy:
-type: git
-repo: git@github.com:zhuwo/huanjian.git
-branch: master
-message: Final try
-
-3. 模版
-你可以通过搜索引擎找到网上大量的网页模版，然后将模版的整个文件夹放到[blogname]/themes文件夹下面，然后将theme 后面的参数设置为你想要的模版对应的文件夹名。
-theme: master
-</code></pre><p>过程：</p>
-<ol>
-<li>hexo init 生成博客</li>
-<li>修改配置文件_config.xml</li>
-<li>hexo deploy 部署到Github</li>
-</ol>
-<p>注意点：</p>
-<pre><code>1. 每次添加markdown文件以后都要重新生成静态页面 
-2. 每次本地操作以后都要重新部署到github
-3. 配置项目的：后必须跟一个空格，比方说theme:[空格][模版名]
-</code></pre><h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>作为一个程序员，github的使用是必须的，这里并不累赘复述如何注册github账号，如何在github创建仓库等等。只说明这里创建博客的注意点。</p>
-<pre><code>1. 新建一个仓库后，仓库名必须与GitHub帐户一致，比方说的我的github地址为https://github.com/zhuwo,那么仓库名必须为zhuwo.github.io。这样，最后你的博客地址也就是https://zhuwo.github.io。
-2. 本地部署到github以后，再在仓库的设置页面，将分支改为master（仓库没有数据的时候不能选择分支，也就没有github page）
-</code></pre><p>最后，可以在仓库的设置页面看到github page的地址，就是你的博客地址。欢迎大家访问我的博客<a href="https://zhuwo.github.io" target="_blank" rel="external">Geek</a></p>
-<p>​<br>​    </p>
-
-          
+            初入公司，第一个任务就是自己搭建一个博客。其实之前就一直想试一试自己搭建个博客，但出于懒，一直没有动手。直到，刚入职场，公司老板布置了搭建技术博客的任务，才正式对待这个问题。废话不多说，下面就用Github➕ Hexo的方法搭建一个简单的、属于自己的、可定制的博客。
+说明：本文主要针对Mac版本
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/12/GitHub&Hexo 搭建博客/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -508,17 +461,15 @@ theme: master
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/10/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
