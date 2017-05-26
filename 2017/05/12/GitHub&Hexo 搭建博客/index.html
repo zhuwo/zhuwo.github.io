@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Geek">
 <meta property="og:description" content="初入公司，第一个任务就是自己搭建一个博客。其实之前就一直想试一试自己搭建个博客，但出于懒，一直没有动手。直到，刚入职场，公司老板布置了搭建技术博客的任务，才正式对待这个问题。废话不多说，下面就用Github➕ Hexo的方法搭建一个简单的、属于自己的、可定制的博客。">
 <meta property="og:image" content="http://yoursite.com/2017/05/12/GitHub&Hexo%20搭建博客/uploads/hexo_github.png">
-<meta property="og:updated_time" content="2017-05-26T03:18:01.000Z">
+<meta property="og:updated_time" content="2017-05-26T10:08:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GitHub&amp;Hexo 搭建博客">
 <meta name="twitter:description" content="初入公司，第一个任务就是自己搭建一个博客。其实之前就一直想试一试自己搭建个博客，但出于懒，一直没有动手。直到，刚入职场，公司老板布置了搭建技术博客的任务，才正式对待这个问题。废话不多说，下面就用Github➕ Hexo的方法搭建一个简单的、属于自己的、可定制的博客。">
@@ -386,13 +386,13 @@
 </blockquote>
 <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>本文利用Github Pages进行远端部署博客后台，用Node.js的一个命令行工具hexo生成博客所需的静态页面。</p>
 <h3 id="1-安装Gitb"><a href="#1-安装Gitb" class="headerlink" title="1. 安装Gitb"></a>1. 安装Gitb</h3><p>网上搜索git for mac[windows], 根据你的操作系统安装不同版本的git，建议地址: <a href="http://adrai.github.io/flowchart.js/" target="_blank" rel="external">Git_For_Mac</a></p>
-<h3 id="2-安装Node-js"><a href="#2-安装Node-js" class="headerlink" title="2. 安装Node.js"></a>2. 安装Node.js</h3><p>Node.js官网<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a>下载<strong>最新版</strong>。Mac下可先安装<a href="http://mxcl.github.com/homebrew/" target="_blank" rel="external">Home brew</a>包管理器，然后用命令安装最新版;</p>
+<h3 id="2-安装Node-js"><a href="#2-安装Node-js" class="headerlink" title="2. 安装Node.js"></a>2. 安装Node.js</h3><p>Node.js官网<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a>下载<strong>最新版</strong>。Mac下可先安装<a href="http://mxcl.github.com/homebrew/" target="_blank" rel="external">Home brew</a>包管理器，然后用命令安装最新版。</p>
 <pre><code>npm install node
 </code></pre><p>如果能够正常使用命令npm，代表安装成功。</p>
 <pre><code>npm --version
-</code></pre><h3 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3. 安装Hexo"></a>3. 安装Hexo</h3><p>安装完Node.js后，用Node自带的包管理器安装hexo：</p>
+</code></pre><h3 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3. 安装Hexo"></a>3. 安装Hexo</h3><p>安装完Node.js后，用Node自带的包管理器安装hexo。</p>
 <pre><code>npm install hexo-cli -g
-</code></pre><p>能正常使用hexo命令，代表安装成功.</p>
+</code></pre><p>能正常使用hexo命令，代表安装成功。</p>
 <pre><code>hexo --version
 </code></pre><p>至此，环境已经搭建完成。接下来是对环境的补充说明，觉得没有必要的可以掠过这段。但很多人在搭建自己的博客的时候对各个需要搭建的环境并不清晰，我简要地理一下关系。</p>
 <blockquote>
@@ -402,33 +402,24 @@
 <li>Hexo是Node.js的一个命令行工具，能够将Markdown编译为静态页面。</li>
 </ul>
 </blockquote>
-<h2 id="Hexo命令和配置"><a href="#Hexo命令和配置" class="headerlink" title="Hexo命令和配置"></a>Hexo命令和配置</h2><h6 id="Hexo-几个常见的命令"><a href="#Hexo-几个常见的命令" class="headerlink" title="Hexo 几个常见的命令:"></a>Hexo 几个常见的命令:</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 生成一个hexo工程，文件夹[blogname]</span></div><div class="line">hexo init [blogname]</div></pre></td></tr></table></figure>
+<h2 id="Hexo命令和配置"><a href="#Hexo命令和配置" class="headerlink" title="Hexo命令和配置"></a>Hexo命令和配置</h2><h4 id="Hexo-几个常见的命令"><a href="#Hexo-几个常见的命令" class="headerlink" title="Hexo 几个常见的命令:"></a>Hexo 几个常见的命令:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 生成一个hexo工程，文件夹[blogname]</span></div><div class="line">hexo init [blogname]</div></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 生成一篇博文，可以路径[blogname]/source/_posts下面找到[passagename].md的文件</span></div><div class="line">hexo new [passagename]</div></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 生成静态页面</span></div><div class="line">hexo generate[g]</div></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 将本地代码部署到远端（这里指Github），需要在配置以后才能进行</span></div><div class="line">hexo deploy[d]</div></pre></td></tr></table></figure>
-<h6 id="Hexo-配置说明："><a href="#Hexo-配置说明：" class="headerlink" title="Hexo 配置说明："></a>Hexo 配置说明：</h6><p>在项目的主目录下，可以找到_config.xml，博客主要配置信息。重点说明以下参数：</p>
+<h4 id="Hexo-配置说明："><a href="#Hexo-配置说明：" class="headerlink" title="Hexo 配置说明："></a>Hexo 配置说明：</h4><p>在项目的主目录下，可以找到_config.xml，博客主要配置信息。重点说明以下参数：</p>
 <blockquote>
 <ul>
-<li>博客的主要信息：标题、副标题、描述、作者、语言和时区。</li>
+<li>博客的主要信息：标题、副标题、描述、作者、语言和时区</li>
 </ul>
-<ol>
-<li>title: Geek</li>
-<li>subtitle:</li>
-<li>description:</li>
-<li>author: Huanjian Jiang</li>
-<li>language:</li>
-<li>timezone:</li>
-</ol>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">title: Geek</div><div class="line">subtitle:</div><div class="line">description:</div><div class="line">author: Huanjian Jiang</div><div class="line">language:</div><div class="line">timezone:</div></pre></td></tr></table></figure>
+<blockquote>
 <ul>
-<li>git配置信息：远程类型、仓库地址、分支和提交信息。</li>
+<li>git配置信息：远程类型、仓库地址、分支和提交信息</li>
 </ul>
-<ol>
-<li>deploy:</li>
-<li>type: git</li>
-<li>repo:git@github.com:zhuwo/zhuwo.github.io.git</li>
-<li>branch: master</li>
-<li>message: Final try</li>
-</ol>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">    type: git</div><div class="line">    repo: git@github.com:zhuwo/zhuwo.github.io.git</div><div class="line">    branch: master</div><div class="line">    message: Final try</div></pre></td></tr></table></figure>
+<blockquote>
 <ul>
 <li><strong>主题</strong></li>
 </ul>
@@ -437,16 +428,14 @@
 <li>本人推荐的最流行的Hexo的主题next(可调整性强、内容丰富)，详情见它的主页：<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">http://theme-next.iissnan.com/</a></li>
 </ol>
 </blockquote>
-<p>主要过程：</p>
-<blockquote>
+<h4 id="主要过程："><a href="#主要过程：" class="headerlink" title="主要过程："></a>主要过程：</h4><blockquote>
 <ol>
 <li>hexo init 生成博客</li>
 <li>修改配置文件_config.xml</li>
 <li>hexo deploy 部署到Github</li>
 </ol>
 </blockquote>
-<p>注意点：</p>
-<blockquote>
+<h4 id="注意点："><a href="#注意点：" class="headerlink" title="注意点："></a>注意点：</h4><blockquote>
 <ol>
 <li>每次添加markdown文件以后都要重新生成静态页面 </li>
 <li>每次本地操作以后都要重新部署到github</li>
@@ -460,10 +449,12 @@
 <li>本地部署到github以后，再在仓库的设置页面，将分支改为master（仓库没有数据的时候不能选择分支，也就没有github page）</li>
 </ol>
 </blockquote>
-<p>最后，在仓库的设置页面可以看到github page的地址，也就是你的博客地址。<br>欢迎大家访问我的博客<a href="https://zhuwo.github.io" target="_blank" rel="external">Geek</a></p>
+<p>最后，在仓库的设置页面可以看到github page的地址，也就是你的博客地址。</p>
+<hr>
+<p>欢迎大家访问我的博客Geek: <a href="https://zhuwo.github.io" target="_blank" rel="external">https://zhuwo.github.io</a></p>
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=5308028&auto=1&height=66"></iframe>
 
-<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips:"></a>Tips:</h2><ol>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><ol>
 <li>网易云音乐生成外链，代码直接拷贝Markdown文件中</li>
 </ol>
 <h2 id="博客推荐"><a href="#博客推荐" class="headerlink" title="博客推荐"></a>博客推荐</h2><ol>
@@ -688,7 +679,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#说明："><span class="nav-number">1.</span> <span class="nav-text">说明：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境"><span class="nav-number"></span> <span class="nav-text">环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-安装Gitb"><span class="nav-number">1.</span> <span class="nav-text">1. 安装Gitb</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安装Node-js"><span class="nav-number">2.</span> <span class="nav-text">2. 安装Node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-安装Hexo"><span class="nav-number">3.</span> <span class="nav-text">3. 安装Hexo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo命令和配置"><span class="nav-number"></span> <span class="nav-text">Hexo命令和配置</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Hexo-几个常见的命令"><span class="nav-number">0.0.0.1.</span> <span class="nav-text">Hexo 几个常见的命令:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Hexo-配置说明："><span class="nav-number">0.0.0.2.</span> <span class="nav-text">Hexo 配置说明：</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Github"><span class="nav-number"></span> <span class="nav-text">Github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tips"><span class="nav-number"></span> <span class="nav-text">Tips:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#博客推荐"><span class="nav-number"></span> <span class="nav-text">博客推荐</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#说明："><span class="nav-number">1.</span> <span class="nav-text">说明：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境"><span class="nav-number"></span> <span class="nav-text">环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-安装Gitb"><span class="nav-number">1.</span> <span class="nav-text">1. 安装Gitb</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安装Node-js"><span class="nav-number">2.</span> <span class="nav-text">2. 安装Node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-安装Hexo"><span class="nav-number">3.</span> <span class="nav-text">3. 安装Hexo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo命令和配置"><span class="nav-number"></span> <span class="nav-text">Hexo命令和配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hexo-几个常见的命令"><span class="nav-number">0.1.</span> <span class="nav-text">Hexo 几个常见的命令:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hexo-配置说明："><span class="nav-number">0.2.</span> <span class="nav-text">Hexo 配置说明：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主要过程："><span class="nav-number">0.3.</span> <span class="nav-text">主要过程：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意点："><span class="nav-number">0.4.</span> <span class="nav-text">注意点：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Github"><span class="nav-number"></span> <span class="nav-text">Github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tips"><span class="nav-number"></span> <span class="nav-text">Tips</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#博客推荐"><span class="nav-number"></span> <span class="nav-text">博客推荐</span></a></div>
             
 
           </div>
