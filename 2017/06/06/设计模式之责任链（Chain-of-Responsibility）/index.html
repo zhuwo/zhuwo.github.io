@@ -103,15 +103,15 @@
 <meta property="og:url" content="http://yoursite.com/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/index.html">
 <meta property="og:site_name" content="Geek">
 <meta property="og:description" content="1. 目的为了避免请求发送者和接收者耦合在一起，让多个对象都有可能处理请求。将这些接收对象连接成一条链，并且沿着这条链传递请求，直到有对象处理它为止。">
-<meta property="og:image" content="http://yoursite.com/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/media/14967429696224/2-1.png">
-<meta property="og:image" content="http://yoursite.com/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/media/14967429696224/2-2.png">
-<meta property="og:image" content="http://yoursite.com/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/media/14967429696224/2-3.png">
-<meta property="og:image" content="http://yoursite.com/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/media/14967429696224/4-1.png">
-<meta property="og:updated_time" content="2017-06-06T13:48:18.000Z">
+<meta property="og:image" content="http://yoursite.com/images/2-1.png">
+<meta property="og:image" content="http://yoursite.com/images/2-2.png">
+<meta property="og:image" content="http://yoursite.com/images/2-3.png">
+<meta property="og:image" content="http://yoursite.com/images/4-1.png">
+<meta property="og:updated_time" content="2017-06-06T13:53:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式之责任链（Chain of Responsibility）">
 <meta name="twitter:description" content="1. 目的为了避免请求发送者和接收者耦合在一起，让多个对象都有可能处理请求。将这些接收对象连接成一条链，并且沿着这条链传递请求，直到有对象处理它为止。">
-<meta name="twitter:image" content="http://yoursite.com/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/media/14967429696224/2-1.png">
+<meta name="twitter:image" content="http://yoursite.com/images/2-1.png">
 
 
 
@@ -392,10 +392,10 @@
 <h2 id="2-动机"><a href="#2-动机" class="headerlink" title="2. 动机"></a>2. 动机</h2><p>考虑一个用户图形界面中，一个上下文相关的帮助工具。用户只要通过点击界面的任何部分就能够获得帮助信息。帮助的内容取决于界面被选择的部分和它的上下文，比方说：一个对话窗口的按钮和主窗口的的按钮类似，但是它们所提供的帮助信息肯定不一样。如果某部分界面不需要特殊的帮助，那么帮助系统应该展示一个更加一般化的帮助信息（跟当前上下文相关）–例如：将对话框看成一个整体。</p>
 <p>因此，很自然地，根据一般性组织帮助信息——从最具体的到最一般化的。更进一步地，很明显一个帮助请求是被多个用户界面对象之一所处理，具体取决于上下文和可得到的帮助有的具体性。</p>
 <p>这里的问题是，提供帮助的对象并不明显地被开始这个帮助请求的对象（例如，按钮）所知。我们要做的是，将这个发出这个帮助请求的按钮和可能提供帮助的对象解耦合。责任链模式定义了这样的整个发生过程。</p>
-<p>这个模式的想法是，通过给多个对象处理请求的机会，解耦合发送者和接收者。这个请求沿着链被传递，直到其中一个对象处理它。一个简单的用户界面的责任链图，如下图所示。<br><img src="media/14967429696224/2-1.png" alt="图2-1"><br>这个链的第一个对象接收到请求，它要么处理请求，要么把请求推送到链上的下一个候选者，候选者做同样的处理，以此类推。这个产生请求的对象并不清楚谁会处理请求——也就是说这个请求有一个<strong>隐藏的接收者</strong>。</p>
-<p>现在我们假设，用户点击一个标记为“打印”的按钮，用来获得帮助。这个按钮包含在一个对话窗口的实例当中，而这个对话窗口知道它自己属于哪个应用对象。下面的交互图说明了帮助请求是如何沿着链向前推进的。<br><img src="media/14967429696224/2-2.png" alt="图2-2"></p>
+<p>这个模式的想法是，通过给多个对象处理请求的机会，解耦合发送者和接收者。这个请求沿着链被传递，直到其中一个对象处理它。一个简单的用户界面的责任链图，如下图所示。<br><img src="/images/2-1.png" alt="图2-1"><br>这个链的第一个对象接收到请求，它要么处理请求，要么把请求推送到链上的下一个候选者，候选者做同样的处理，以此类推。这个产生请求的对象并不清楚谁会处理请求——也就是说这个请求有一个<strong>隐藏的接收者</strong>。</p>
+<p>现在我们假设，用户点击一个标记为“打印”的按钮，用来获得帮助。这个按钮包含在一个对话窗口的实例当中，而这个对话窗口知道它自己属于哪个应用对象。下面的交互图说明了帮助请求是如何沿着链向前推进的。<br><img src="/images/2-2.png" alt="图2-2"></p>
 <p>在这个例子中，既不是“aPrintButton”也不是“aPrintDialog”处理这个请求；它在“anApplication”的地方停止了，“anApplication”对象最终处理它或者忽略它。产生请求的客户并没有直接引用能够完全处理请求的对象。</p>
-<p>为了将这个请求沿着链往前推，并且保证接收者处于隐藏状态，在这个链上的每个对象都分享一个共同的接口，用来处理请求和获得它在链上的<strong>继承者</strong>。比方说，帮助系统可能定义一个“HelpHandler”类，这个类有相对应的 “HandleHelp”的操作。“HelpHandler”可以成为候选类的父类,或者他可以被定义为一个混入类（MIXIN Class）。然后，想要处理帮助请求的类就继承 “HelpHandler”类，如下图所示。<br><img src="media/14967429696224/2-3.png" alt="图2-3"><br>按钮，对话框和应用类用“HelpHandler”的操作来处理帮助请求。“HelpHandler”的 “HandHelp”操作默认将请求向前推进。子类可以重写这个操作用以在合适环境下的提供帮助；否则，它们可以用默认操作将请求向前推进。</p>
+<p>为了将这个请求沿着链往前推，并且保证接收者处于隐藏状态，在这个链上的每个对象都分享一个共同的接口，用来处理请求和获得它在链上的<strong>继承者</strong>。比方说，帮助系统可能定义一个“HelpHandler”类，这个类有相对应的 “HandleHelp”的操作。“HelpHandler”可以成为候选类的父类,或者他可以被定义为一个混入类（MIXIN Class）。然后，想要处理帮助请求的类就继承 “HelpHandler”类，如下图所示。<br><img src="/images/2-3.png" alt="图2-3"><br>按钮，对话框和应用类用“HelpHandler”的操作来处理帮助请求。“HelpHandler”的 “HandHelp”操作默认将请求向前推进。子类可以重写这个操作用以在合适环境下的提供帮助；否则，它们可以用默认操作将请求向前推进。</p>
 <h2 id="3-应用场景"><a href="#3-应用场景" class="headerlink" title="3. 应用场景"></a>3. 应用场景</h2><p>当遇到下列情况下，使用责任链模式：</p>
 <blockquote>
 <ul>
@@ -404,7 +404,7 @@
 <li>能够处理请求的对象应该可以被动态的指定</li>
 </ul>
 </blockquote>
-<h2 id="4-结构"><a href="#4-结构" class="headerlink" title="4.结构"></a>4.结构</h2><p><img src="media/14967429696224/4-1.png" alt="4-1"></p>
+<h2 id="4-结构"><a href="#4-结构" class="headerlink" title="4.结构"></a>4.结构</h2><p><img src="/images/4-1.png" alt="4-1"></p>
 <h4 id="参与者"><a href="#参与者" class="headerlink" title="参与者"></a>参与者</h4><blockquote>
 <ul>
 <li>Handler(HelpHandler)<ul>
