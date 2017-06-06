@@ -103,15 +103,16 @@
 <meta property="og:url" content="http://yoursite.com/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/index.html">
 <meta property="og:site_name" content="Geek">
 <meta property="og:description" content="1. 目的为了避免请求发送者和接收者耦合在一起，让多个对象都有可能处理请求。将这些接收对象连接成一条链，并且沿着这条链传递请求，直到有对象处理它为止。">
+<meta property="og:image" content="http://yoursite.com/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/home.png">
 <meta property="og:image" content="http://yoursite.com/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/2-1.png">
 <meta property="og:image" content="http://yoursite.com/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/2-2.png">
 <meta property="og:image" content="http://yoursite.com/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/2-3.png">
 <meta property="og:image" content="http://yoursite.com/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/4-1.png">
-<meta property="og:updated_time" content="2017-06-06T14:15:34.000Z">
+<meta property="og:updated_time" content="2017-06-06T14:25:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式之责任链（Chain of Responsibility）">
 <meta name="twitter:description" content="1. 目的为了避免请求发送者和接收者耦合在一起，让多个对象都有可能处理请求。将这些接收对象连接成一条链，并且沿着这条链传递请求，直到有对象处理它为止。">
-<meta name="twitter:image" content="http://yoursite.com/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/2-1.png">
+<meta name="twitter:image" content="http://yoursite.com/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/home.png">
 
 
 
@@ -388,6 +389,7 @@
 
       
         <h2 id="1-目的"><a href="#1-目的" class="headerlink" title="1. 目的"></a>1. 目的</h2><p>为了避免请求发送者和接收者耦合在一起，让多个对象都有可能处理请求。将这些接收对象连接成一条链，并且沿着这条链传递请求，直到有对象处理它为止。</p>
+<img src="/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/home.png" alt="ATM" title="ATM">
 <a id="more"></a>
 <h2 id="2-动机"><a href="#2-动机" class="headerlink" title="2. 动机"></a>2. 动机</h2><p>考虑一个用户图形界面中，一个上下文相关的帮助工具。用户只要通过点击界面的任何部分就能够获得帮助信息。帮助的内容取决于界面被选择的部分和它的上下文，比方说：一个对话窗口的按钮和主窗口的的按钮类似，但是它们所提供的帮助信息肯定不一样。如果某部分界面不需要特殊的帮助，那么帮助系统应该展示一个更加一般化的帮助信息（跟当前上下文相关）–例如：将对话框看成一个整体。</p>
 <p>因此，很自然地，根据一般性组织帮助信息——从最具体的到最一般化的。更进一步地，很明显一个帮助请求是被多个用户界面对象之一所处理，具体取决于上下文和可得到的帮助有的具体性。</p>
@@ -587,7 +589,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
