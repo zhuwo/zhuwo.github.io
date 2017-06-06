@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="技术,博客,Mac,Hexo," />
+  <meta name="keywords" content="技术,设计模式,计算机," />
 
 
 
@@ -96,19 +96,22 @@
 
 
 
-<meta name="description" content="初入公司，第一个任务就是自己搭建一个博客。其实之前就一直想试一试自己搭建个博客，但出于懒，一直没有动手。直到，刚入职场，公司老板布置了搭建技术博客的任务，才正式对待这个问题。废话不多说，下面就用Github➕ Hexo的方法搭建一个简单的、属于自己的、可定制的博客。">
-<meta name="keywords" content="技术,博客,Mac,Hexo">
+<meta name="description" content="1. 目的为了避免请求发送者和接收者耦合在一起，让多个对象都有可能处理请求。将这些接收对象连接成一条链，并且沿着这条链传递请求，直到有对象处理它为止。">
+<meta name="keywords" content="技术,设计模式,计算机">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GitHub&amp;Hexo 搭建博客">
-<meta property="og:url" content="http://yoursite.com/2017/05/12/GitHub&Hexo 搭建博客/index.html">
+<meta property="og:title" content="设计模式之责任链（Chain of Responsibility）">
+<meta property="og:url" content="http://yoursite.com/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/index.html">
 <meta property="og:site_name" content="Geek">
-<meta property="og:description" content="初入公司，第一个任务就是自己搭建一个博客。其实之前就一直想试一试自己搭建个博客，但出于懒，一直没有动手。直到，刚入职场，公司老板布置了搭建技术博客的任务，才正式对待这个问题。废话不多说，下面就用Github➕ Hexo的方法搭建一个简单的、属于自己的、可定制的博客。">
-<meta property="og:image" content="http://yoursite.com/2017/05/12/GitHub&Hexo%20搭建博客/uploads/hexo_github.png">
-<meta property="og:updated_time" content="2017-05-26T10:08:07.000Z">
+<meta property="og:description" content="1. 目的为了避免请求发送者和接收者耦合在一起，让多个对象都有可能处理请求。将这些接收对象连接成一条链，并且沿着这条链传递请求，直到有对象处理它为止。">
+<meta property="og:image" content="http://yoursite.com/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/media/14967429696224/2-1.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/media/14967429696224/2-2.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/media/14967429696224/2-3.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/media/14967429696224/4-1.png">
+<meta property="og:updated_time" content="2017-06-06T13:48:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GitHub&amp;Hexo 搭建博客">
-<meta name="twitter:description" content="初入公司，第一个任务就是自己搭建一个博客。其实之前就一直想试一试自己搭建个博客，但出于懒，一直没有动手。直到，刚入职场，公司老板布置了搭建技术博客的任务，才正式对待这个问题。废话不多说，下面就用Github➕ Hexo的方法搭建一个简单的、属于自己的、可定制的博客。">
-<meta name="twitter:image" content="http://yoursite.com/2017/05/12/GitHub&Hexo%20搭建博客/uploads/hexo_github.png">
+<meta name="twitter:title" content="设计模式之责任链（Chain of Responsibility）">
+<meta name="twitter:description" content="1. 目的为了避免请求发送者和接收者耦合在一起，让多个对象都有可能处理请求。将这些接收对象连接成一条链，并且沿着这条链传递请求，直到有对象处理它为止。">
+<meta name="twitter:image" content="http://yoursite.com/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/media/14967429696224/2-1.png">
 
 
 
@@ -136,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/12/GitHub&Hexo 搭建博客/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/"/>
 
 
 
 
 
-  <title>GitHub&Hexo 搭建博客 | Geek</title>
+  <title>设计模式之责任链（Chain of Responsibility） | Geek</title>
 
 </head>
 
@@ -293,7 +296,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/12/GitHub&Hexo 搭建博客/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Huanjian Jiang">
@@ -310,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">GitHub&Hexo 搭建博客</h1>
+          <h1 class="post-title" itemprop="name headline">设计模式之责任链（Chain of Responsibility）</h1>
         
 
         <div class="post-meta">
@@ -322,8 +325,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-12T22:19:48+08:00">
-                2017-05-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-06T21:44:15+08:00">
+                2017-06-06
               </time>
             
 
@@ -384,89 +387,58 @@
       
 
       
-        <p>  初入公司，第一个任务就是自己搭建一个博客。其实之前就一直想试一试自己搭建个博客，但出于懒，一直没有动手。直到，刚入职场，公司老板布置了搭建技术博客的任务，才正式对待这个问题。废话不多说，下面就用Github➕ Hexo的方法搭建一个简单的、属于自己的、可定制的博客。</p>
-<p><img src="uploads/hexo_github.png" class="img-topic"></p>
+        <h2 id="1-目的"><a href="#1-目的" class="headerlink" title="1. 目的"></a>1. 目的</h2><p>为了避免请求发送者和接收者耦合在一起，让多个对象都有可能处理请求。将这些接收对象连接成一条链，并且沿着这条链传递请求，直到有对象处理它为止。</p>
 <a id="more"></a>
-<h3 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h3><blockquote>
-<p>本文主要针对Mac版本，windows版方法类似。</p>
-</blockquote>
-<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>本文利用Github Pages进行远端部署博客后台，用Node.js的一个命令行工具hexo生成博客所需的静态页面。</p>
-<h3 id="1-安装Gitb"><a href="#1-安装Gitb" class="headerlink" title="1. 安装Gitb"></a>1. 安装Gitb</h3><p>网上搜索git for mac[windows], 根据你的操作系统安装不同版本的git，建议地址: <a href="http://adrai.github.io/flowchart.js/" target="_blank" rel="external">Git_For_Mac</a></p>
-<h3 id="2-安装Node-js"><a href="#2-安装Node-js" class="headerlink" title="2. 安装Node.js"></a>2. 安装Node.js</h3><p>Node.js官网<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a>下载<strong>最新版</strong>。Mac下可先安装<a href="http://mxcl.github.com/homebrew/" target="_blank" rel="external">Home brew</a>包管理器，然后用命令安装最新版。</p>
-<pre><code>npm install node
-</code></pre><p>如果能够正常使用命令npm，代表安装成功。</p>
-<pre><code>npm --version
-</code></pre><h3 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3. 安装Hexo"></a>3. 安装Hexo</h3><p>安装完Node.js后，用Node自带的包管理器安装hexo。</p>
-<pre><code>npm install hexo-cli -g
-</code></pre><p>能正常使用hexo命令，代表安装成功。</p>
-<pre><code>hexo --version
-</code></pre><p>至此，环境已经搭建完成。接下来是对环境的补充说明，觉得没有必要的可以掠过这段。但很多人在搭建自己的博客的时候对各个需要搭建的环境并不清晰，我简要地理一下关系。</p>
+<h2 id="2-动机"><a href="#2-动机" class="headerlink" title="2. 动机"></a>2. 动机</h2><p>考虑一个用户图形界面中，一个上下文相关的帮助工具。用户只要通过点击界面的任何部分就能够获得帮助信息。帮助的内容取决于界面被选择的部分和它的上下文，比方说：一个对话窗口的按钮和主窗口的的按钮类似，但是它们所提供的帮助信息肯定不一样。如果某部分界面不需要特殊的帮助，那么帮助系统应该展示一个更加一般化的帮助信息（跟当前上下文相关）–例如：将对话框看成一个整体。</p>
+<p>因此，很自然地，根据一般性组织帮助信息——从最具体的到最一般化的。更进一步地，很明显一个帮助请求是被多个用户界面对象之一所处理，具体取决于上下文和可得到的帮助有的具体性。</p>
+<p>这里的问题是，提供帮助的对象并不明显地被开始这个帮助请求的对象（例如，按钮）所知。我们要做的是，将这个发出这个帮助请求的按钮和可能提供帮助的对象解耦合。责任链模式定义了这样的整个发生过程。</p>
+<p>这个模式的想法是，通过给多个对象处理请求的机会，解耦合发送者和接收者。这个请求沿着链被传递，直到其中一个对象处理它。一个简单的用户界面的责任链图，如下图所示。<br><img src="media/14967429696224/2-1.png" alt="图2-1"><br>这个链的第一个对象接收到请求，它要么处理请求，要么把请求推送到链上的下一个候选者，候选者做同样的处理，以此类推。这个产生请求的对象并不清楚谁会处理请求——也就是说这个请求有一个<strong>隐藏的接收者</strong>。</p>
+<p>现在我们假设，用户点击一个标记为“打印”的按钮，用来获得帮助。这个按钮包含在一个对话窗口的实例当中，而这个对话窗口知道它自己属于哪个应用对象。下面的交互图说明了帮助请求是如何沿着链向前推进的。<br><img src="media/14967429696224/2-2.png" alt="图2-2"></p>
+<p>在这个例子中，既不是“aPrintButton”也不是“aPrintDialog”处理这个请求；它在“anApplication”的地方停止了，“anApplication”对象最终处理它或者忽略它。产生请求的客户并没有直接引用能够完全处理请求的对象。</p>
+<p>为了将这个请求沿着链往前推，并且保证接收者处于隐藏状态，在这个链上的每个对象都分享一个共同的接口，用来处理请求和获得它在链上的<strong>继承者</strong>。比方说，帮助系统可能定义一个“HelpHandler”类，这个类有相对应的 “HandleHelp”的操作。“HelpHandler”可以成为候选类的父类,或者他可以被定义为一个混入类（MIXIN Class）。然后，想要处理帮助请求的类就继承 “HelpHandler”类，如下图所示。<br><img src="media/14967429696224/2-3.png" alt="图2-3"><br>按钮，对话框和应用类用“HelpHandler”的操作来处理帮助请求。“HelpHandler”的 “HandHelp”操作默认将请求向前推进。子类可以重写这个操作用以在合适环境下的提供帮助；否则，它们可以用默认操作将请求向前推进。</p>
+<h2 id="3-应用场景"><a href="#3-应用场景" class="headerlink" title="3. 应用场景"></a>3. 应用场景</h2><p>当遇到下列情况下，使用责任链模式：</p>
 <blockquote>
 <ul>
-<li>Git主要是本地生成的静态页面部署到远端（Github）；</li>
-<li>Node.js是Javascript的运行平台，本文是hexo生成静态页面的引擎；</li>
-<li>Hexo是Node.js的一个命令行工具，能够将Markdown编译为静态页面。</li>
+<li>超过一个对象能够处理请求，而且处理者并不能够提前被知道。处理者需要被保证是自动识别的</li>
+<li>你想要把问题分发给不止一个对象，并且不需要明显地指定接收者</li>
+<li>能够处理请求的对象应该可以被动态的指定</li>
 </ul>
 </blockquote>
-<h2 id="Hexo命令和配置"><a href="#Hexo命令和配置" class="headerlink" title="Hexo命令和配置"></a>Hexo命令和配置</h2><h4 id="Hexo-几个常见的命令"><a href="#Hexo-几个常见的命令" class="headerlink" title="Hexo 几个常见的命令:"></a>Hexo 几个常见的命令:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 生成一个hexo工程，文件夹[blogname]</span></div><div class="line">hexo init [blogname]</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 生成一篇博文，可以路径[blogname]/source/_posts下面找到[passagename].md的文件</span></div><div class="line">hexo new [passagename]</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 生成静态页面</span></div><div class="line">hexo generate[g]</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 将本地代码部署到远端（这里指Github），需要在配置以后才能进行</span></div><div class="line">hexo deploy[d]</div></pre></td></tr></table></figure>
-<h4 id="Hexo-配置说明："><a href="#Hexo-配置说明：" class="headerlink" title="Hexo 配置说明："></a>Hexo 配置说明：</h4><p>在项目的主目录下，可以找到_config.xml，博客主要配置信息。重点说明以下参数：</p>
-<blockquote>
+<h2 id="4-结构"><a href="#4-结构" class="headerlink" title="4.结构"></a>4.结构</h2><p><img src="media/14967429696224/4-1.png" alt="4-1"></p>
+<h4 id="参与者"><a href="#参与者" class="headerlink" title="参与者"></a>参与者</h4><blockquote>
 <ul>
-<li>博客的主要信息：标题、副标题、描述、作者、语言和时区</li>
+<li>Handler(HelpHandler)<ul>
+<li>定义处理请求的接口 </li>
+<li>[可选]实现继承者链接</li>
+</ul>
+</li>
+<li>ConcreteHandler(PrintButton, PrintDialog)<ul>
+<li>处理它负责的请求</li>
+<li>可以获得它的继承者</li>
+<li>如果ConcreteHandler能够处理请求，那么它处理；否则，它将请求往前推进</li>
+</ul>
+</li>
+<li>Client<ul>
+<li>初始化请求，并将请求传递给链上的第一个ConcreteHandler</li>
+</ul>
+</li>
 </ul>
 </blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">title: Geek</div><div class="line">subtitle:</div><div class="line">description:</div><div class="line">author: Huanjian Jiang</div><div class="line">language:</div><div class="line">timezone:</div></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>git配置信息：远程类型、仓库地址、分支和提交信息</li>
-</ul>
-</blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">    type: git</div><div class="line">    repo: git@github.com:zhuwo/zhuwo.github.io.git</div><div class="line">    branch: master</div><div class="line">    message: Final try</div></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li><strong>主题</strong></li>
-</ul>
+<h2 id="5-结果"><a href="#5-结果" class="headerlink" title="5. 结果"></a>5. 结果</h2><p>责任链模式有以下几点好处和可靠点：</p>
 <ol>
-<li>网上查找Hexo的主题，将主题模版放到路径[blogname]/themes，设置参数theme: master[主题文件夹名]</li>
-<li>本人推荐的最流行的Hexo的主题next(可调整性强、内容丰富)，详情见它的主页：<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">http://theme-next.iissnan.com/</a></li>
+<li><em>降低耦合度</em>。这个模式使得一个对象无需知道具体是哪一个对象处理请求的。一个对象只需要知道，一个请求肯定会被<strong>合适</strong>地处理。发送者和接收者都不知道彼此的存在，整个链中的对象也不需要知道链的结构是怎么样的。</li>
+<li><em>增加了分配责任给对象的灵活性</em>。责任链给了你额外的灵活性，当你要在这些对象之间分发责任的时候。你可以通过增加或者实时地改变链，从而增加或者改变处理一个请求的责任。你可以将这个方法和子类的方法结合，静态地指定处理者。</li>
+<li><em>接收者不需要保证</em>。既然一个请求没有明确的接收者，也就是不必它会被处理——也就是说请求也许会在链的尽头丢失，而从来没有被处理。一个请求也有可能在链没有正确配置的情况下没有得到处理。</li>
 </ol>
-</blockquote>
-<h4 id="主要过程："><a href="#主要过程：" class="headerlink" title="主要过程："></a>主要过程：</h4><blockquote>
+<h2 id="6-实现"><a href="#6-实现" class="headerlink" title="6. 实现"></a>6. 实现</h2><p>以下是责任链模式实现的时候需要考虑的几个问题：</p>
 <ol>
-<li>hexo init 生成博客</li>
-<li>修改配置文件_config.xml</li>
-<li>hexo deploy 部署到Github</li>
+<li>实现继承者链。有两种可能的方法实现继承者链：<br> （a）定义新的链接<br> （b）用已经存在的链接</li>
 </ol>
-</blockquote>
-<h4 id="注意点："><a href="#注意点：" class="headerlink" title="注意点："></a>注意点：</h4><blockquote>
+<p>我们到目前为止的例子，都是定义新的链接，但是通常情况下你能够用已经存在的对象的引用，产生一个继承者链接。比方说，在一个”部分-整体“层次中，可以用父引用定义“部分”的继承者。一个工具集🔧的结构，也许已经用了这样的链接。<br>当用已经存在的链接支持你需要的整条链的时候，它的好处相当明显。它不但节省了定义链接的功夫，而且节省了大量空间。但是当这样的结构不能够反映你的应用所需责任链的时候，你仍然不得不定义一些冗余的链接。</p>
 <ol>
-<li>每次添加markdown文件以后都要重新生成静态页面 </li>
-<li>每次本地操作以后都要重新部署到github</li>
-<li>配置项目的”:”后必须跟一个空格，比方说theme:[空格][模版名]</li>
+<li>链接继承者。如果不存在定义一个链所需要的，已经存在的引用，那么你需要亲自引入它们。在这种情况下，处理者（Handler）不仅定义请求的接口，而且通常也维护继承者。这使得处理者提供了一个HandleRequset的一个默认的实现，也就是将请求传递给集成者。如果一个“ConcreteHandler”对请求不感兴趣，那么它不需要重写向前推进的操作，因为它的默认操作就是把请求向前推进。</li>
+<li>请求的表达。表达请求有各种不同的方法。最简单的，请求是<em>硬编码</em>的操作。这种方法非常便利和安全，但是你只能处理“Handler”类定义的一个固定的请求集合，可扩展性差。<br>一个可供选择的方法就是，使用一个单一的处理函数，它需要一个<em>请求码</em>（例如，整数或者字符串）作为参数。这种方法支持一个可变的请求集合。唯一的要求就是，发送者和接收者需要有一个统一的编码规范。<br>这种方法更加具有灵活性，但是它需要基于代码的条件语句分发请求。此外，也没有<em>类型安全</em>的方法传递参数，因此它们需要手动的被打包和拆包。显而易见，这比直接调用操作的方法更加不安全。<br>为了定位参数传递的问题，我们可以用分离出来的<em>请求对象</em>包装请求参数。一个请求“Request”类能够表达请求，而新的请求类别可以通过继承的方法获得。子类可以定义不同的参数。处理者必需知道请求的类别（也就是说，它们用是哪个子类）来获得参数。<br>为了确定这个请求，Request可以定义一个<em>获取</em>函数，用来返回类的标识。可选择的，接收者也可以通RTTI(运行时类别信息)来实现类别的识别，只要所用的语言支持这种方法。<h2 id="7-已知的应用"><a href="#7-已知的应用" class="headerlink" title="7. 已知的应用"></a>7. 已知的应用</h2>MacApp和ET++叫责任链事件处理，NeXT的APPKit用响应器（Responder）的名字。</li>
 </ol>
-</blockquote>
-<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>作为一个程序员，github的使用是必须的，这里并不累赘复述如何注册github账号，如何在github创建仓库等等，只说明创建博客时的注意点。</p>
-<blockquote>
-<ol>
-<li>新建一个仓库后，仓库名必须与GitHub帐户一致，比方说的我的github地址为<a href="https://github.com/zhuwo" target="_blank" rel="external">https://github.com/zhuwo</a>, 那么仓库名必须为zhuwo.github.io。这样，最后你的博客地址也就是<a href="https://zhuwo.github.io。" target="_blank" rel="external">https://zhuwo.github.io。</a></li>
-<li>本地部署到github以后，再在仓库的设置页面，将分支改为master（仓库没有数据的时候不能选择分支，也就没有github page）</li>
-</ol>
-</blockquote>
-<p>最后，在仓库的设置页面可以看到github page的地址，也就是你的博客地址。</p>
-<hr>
-<p>欢迎大家访问我的博客Geek: <a href="https://zhuwo.github.io" target="_blank" rel="external">https://zhuwo.github.io</a></p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=5308028&auto=1&height=66"></iframe>
-
-<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><ol>
-<li>网易云音乐生成外链，代码直接拷贝Markdown文件中</li>
-</ol>
-<h2 id="博客推荐"><a href="#博客推荐" class="headerlink" title="博客推荐"></a>博客推荐</h2><ol>
-<li><a href="https://notes.wanghao.work/" target="_blank" rel="external">https://notes.wanghao.work/</a></li>
-</ol>
-<p>​<br>​    </p>
 
       
     </div>
@@ -498,11 +470,9 @@
           
             <a href="/tags/技术/" rel="tag"># 技术</a>
           
-            <a href="/tags/博客/" rel="tag"># 博客</a>
+            <a href="/tags/设计模式/" rel="tag"># 设计模式</a>
           
-            <a href="/tags/Mac/" rel="tag"># Mac</a>
-          
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+            <a href="/tags/计算机/" rel="tag"># 计算机</a>
           
         </div>
       
@@ -515,8 +485,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/10/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2017/05/25/Test/" rel="next" title="Test">
+                <i class="fa fa-chevron-left"></i> Test
               </a>
             
           </div>
@@ -524,10 +494,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/25/Test/" rel="prev" title="Test">
-                Test <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -685,7 +651,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#说明："><span class="nav-number">1.</span> <span class="nav-text">说明：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境"><span class="nav-number"></span> <span class="nav-text">环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-安装Gitb"><span class="nav-number">1.</span> <span class="nav-text">1. 安装Gitb</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安装Node-js"><span class="nav-number">2.</span> <span class="nav-text">2. 安装Node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-安装Hexo"><span class="nav-number">3.</span> <span class="nav-text">3. 安装Hexo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo命令和配置"><span class="nav-number"></span> <span class="nav-text">Hexo命令和配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hexo-几个常见的命令"><span class="nav-number">0.1.</span> <span class="nav-text">Hexo 几个常见的命令:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hexo-配置说明："><span class="nav-number">0.2.</span> <span class="nav-text">Hexo 配置说明：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主要过程："><span class="nav-number">0.3.</span> <span class="nav-text">主要过程：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意点："><span class="nav-number">0.4.</span> <span class="nav-text">注意点：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Github"><span class="nav-number"></span> <span class="nav-text">Github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tips"><span class="nav-number"></span> <span class="nav-text">Tips</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#博客推荐"><span class="nav-number"></span> <span class="nav-text">博客推荐</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-目的"><span class="nav-number">1.</span> <span class="nav-text">1. 目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-动机"><span class="nav-number">2.</span> <span class="nav-text">2. 动机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-应用场景"><span class="nav-number">3.</span> <span class="nav-text">3. 应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-结构"><span class="nav-number">4.</span> <span class="nav-text">4.结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参与者"><span class="nav-number">4.0.1.</span> <span class="nav-text">参与者</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-结果"><span class="nav-number">5.</span> <span class="nav-text">5. 结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-实现"><span class="nav-number">6.</span> <span class="nav-text">6. 实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-已知的应用"><span class="nav-number">7.</span> <span class="nav-text">7. 已知的应用</span></a></li></ol></div>
             
 
           </div>

@@ -1,0 +1,828 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="设计模式之责任链（Chain of Responsibility）1. 目的为了避免请求发送者和接收者耦合在一起，让多个对象都有可能处理请求。将这些接收对象连接成一条链，并且沿着这条链传递请求，直到有对象处理它为止。 2. 动机考虑一个用户图形界面中，一个上下文相关的帮助工具。用户只要通过点击界面的任何部分就能够获得帮助信息。帮助的内容取决于界面被选择的部分和它的上下文，比方说：一个对话窗口的按钮">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Geek">
+<meta property="og:url" content="http://yoursite.com/2017/06/06/设计模式之责任链（Chain of Responsibility）/index.html">
+<meta property="og:site_name" content="Geek">
+<meta property="og:description" content="设计模式之责任链（Chain of Responsibility）1. 目的为了避免请求发送者和接收者耦合在一起，让多个对象都有可能处理请求。将这些接收对象连接成一条链，并且沿着这条链传递请求，直到有对象处理它为止。 2. 动机考虑一个用户图形界面中，一个上下文相关的帮助工具。用户只要通过点击界面的任何部分就能够获得帮助信息。帮助的内容取决于界面被选择的部分和它的上下文，比方说：一个对话窗口的按钮">
+<meta property="og:image" content="http://yoursite.com/2017/06/06/设计模式之责任链（Chain%20of%20Responsibility）/media/14967429696224/2-1.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/06/设计模式之责任链（Chain%20of%20Responsibility）/media/14967429696224/2-2.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/06/设计模式之责任链（Chain%20of%20Responsibility）/media/14967429696224/2-3.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/06/设计模式之责任链（Chain%20of%20Responsibility）/media/14967429696224/4-1.png">
+<meta property="og:updated_time" content="2017-06-06T13:35:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Geek">
+<meta name="twitter:description" content="设计模式之责任链（Chain of Responsibility）1. 目的为了避免请求发送者和接收者耦合在一起，让多个对象都有可能处理请求。将这些接收对象连接成一条链，并且沿着这条链传递请求，直到有对象处理它为止。 2. 动机考虑一个用户图形界面中，一个上下文相关的帮助工具。用户只要通过点击界面的任何部分就能够获得帮助信息。帮助的内容取决于界面被选择的部分和它的上下文，比方说：一个对话窗口的按钮">
+<meta name="twitter:image" content="http://yoursite.com/2017/06/06/设计模式之责任链（Chain%20of%20Responsibility）/media/14967429696224/2-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/06/设计模式之责任链（Chain of Responsibility）/"/>
+
+
+
+
+
+  <title> | Geek</title>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Geek</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/06/设计模式之责任链（Chain of Responsibility）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huanjian Jiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/me.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Geek">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-06T17:56:09+08:00">
+                2017-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="设计模式之责任链（Chain-of-Responsibility）"><a href="#设计模式之责任链（Chain-of-Responsibility）" class="headerlink" title="设计模式之责任链（Chain of Responsibility）"></a>设计模式之责任链（Chain of Responsibility）</h1><h2 id="1-目的"><a href="#1-目的" class="headerlink" title="1. 目的"></a>1. 目的</h2><p>为了避免请求发送者和接收者耦合在一起，让多个对象都有可能处理请求。将这些接收对象连接成一条链，并且沿着这条链传递请求，直到有对象处理它为止。</p>
+<h2 id="2-动机"><a href="#2-动机" class="headerlink" title="2. 动机"></a>2. 动机</h2><p>考虑一个用户图形界面中，一个上下文相关的帮助工具。用户只要通过点击界面的任何部分就能够获得帮助信息。帮助的内容取决于界面被选择的部分和它的上下文，比方说：一个对话窗口的按钮和主窗口的的按钮类似，但是它们所提供的帮助信息肯定不一样。如果某部分界面不需要特殊的帮助，那么帮助系统应该展示一个更加一般化的帮助信息（跟当前上下文相关）–例如：将对话框看成一个整体。</p>
+<p>因此，很自然地，根据一般性组织帮助信息——从最具体的到最一般化的。更进一步地，很明显一个帮助请求是被多个用户界面对象之一所处理，具体取决于上下文和可得到的帮助有的具体性。</p>
+<p>这里的问题是，提供帮助的对象并不明显地被开始这个帮助请求的对象（例如，按钮）所知。我们要做的是，将这个发出这个帮助请求的按钮和可能提供帮助的对象解耦合。责任链模式定义了这样的整个发生过程。</p>
+<p>这个模式的想法是，通过给多个对象处理请求的机会，解耦合发送者和接收者。这个请求沿着链被传递，直到其中一个对象处理它。一个简单的用户界面的责任链图，如下图所示。<br><img src="media/14967429696224/2-1.png" alt="图2-1"><br>这个链的第一个对象接收到请求，它要么处理请求，要么把请求推送到链上的下一个候选者，候选者做同样的处理，以此类推。这个产生请求的对象并不清楚谁会处理请求——也就是说这个请求有一个<strong>隐藏的接收者</strong>。</p>
+<p>现在我们假设，用户点击一个标记为“打印”的按钮，用来获得帮助。这个按钮包含在一个对话窗口的实例当中，而这个对话窗口知道它自己属于哪个应用对象。下面的交互图说明了帮助请求是如何沿着链向前推进的。<br><img src="media/14967429696224/2-2.png" alt="图2-2"></p>
+<p>在这个例子中，既不是“aPrintButton”也不是“aPrintDialog”处理这个请求；它在“anApplication”的地方停止了，“anApplication”对象最终处理它或者忽略它。产生请求的客户并没有直接引用能够完全处理请求的对象。</p>
+<p>为了将这个请求沿着链往前推，并且保证接收者处于隐藏状态，在这个链上的每个对象都分享一个共同的接口，用来处理请求和获得它在链上的<strong>继承者</strong>。比方说，帮助系统可能定义一个“HelpHandler”类，这个类有相对应的 “HandleHelp”的操作。“HelpHandler”可以成为候选类的父类,或者他可以被定义为一个混入类（MIXIN Class）。然后，想要处理帮助请求的类就继承 “HelpHandler”类，如下图所示。<br><img src="media/14967429696224/2-3.png" alt="图2-3"><br>按钮，对话框和应用类用“HelpHandler”的操作来处理帮助请求。“HelpHandler”的 “HandHelp”操作默认将请求向前推进。子类可以重写这个操作用以在合适环境下的提供帮助；否则，它们可以用默认操作将请求向前推进。</p>
+<h2 id="3-应用场景"><a href="#3-应用场景" class="headerlink" title="3. 应用场景"></a>3. 应用场景</h2><p>当遇到下列情况下，使用责任链模式：</p>
+<blockquote>
+<ul>
+<li>超过一个对象能够处理请求，而且处理者并不能够提前被知道。处理者需要被保证是自动识别的</li>
+<li>你想要把问题分发给不止一个对象，并且不需要明显地指定接收者</li>
+<li>能够处理请求的对象应该可以被动态的指定</li>
+</ul>
+</blockquote>
+<h2 id="4-结构"><a href="#4-结构" class="headerlink" title="4.结构"></a>4.结构</h2><p><img src="media/14967429696224/4-1.png" alt="4-1"></p>
+<h4 id="参与者"><a href="#参与者" class="headerlink" title="参与者"></a>参与者</h4><blockquote>
+<ul>
+<li>Handler(HelpHandler)<ul>
+<li>定义处理请求的接口 </li>
+<li>[可选]实现继承者链接</li>
+</ul>
+</li>
+<li>ConcreteHandler(PrintButton, PrintDialog)<ul>
+<li>处理它负责的请求</li>
+<li>可以获得它的继承者</li>
+<li>如果ConcreteHandler能够处理请求，那么它处理；否则，它将请求往前推进</li>
+</ul>
+</li>
+<li>Client<ul>
+<li>初始化请求，并将请求传递给链上的第一个ConcreteHandler</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="5-结果"><a href="#5-结果" class="headerlink" title="5. 结果"></a>5. 结果</h2><p>责任链模式有以下几点好处和可靠点：</p>
+<ol>
+<li><em>降低耦合度</em>。这个模式使得一个对象无需知道具体是哪一个对象处理请求的。一个对象只需要知道，一个请求肯定会被<strong>合适</strong>地处理。发送者和接收者都不知道彼此的存在，整个链中的对象也不需要知道链的结构是怎么样的。</li>
+<li><em>增加了分配责任给对象的灵活性</em>。责任链给了你额外的灵活性，当你要在这些对象之间分发责任的时候。你可以通过增加或者实时地改变链，从而增加或者改变处理一个请求的责任。你可以将这个方法和子类的方法结合，静态地指定处理者。</li>
+<li><em>接收者不需要保证</em>。既然一个请求没有明确的接收者，也就是不必它会被处理——也就是说请求也许会在链的尽头丢失，而从来没有被处理。一个请求也有可能在链没有正确配置的情况下没有得到处理。</li>
+</ol>
+<h2 id="6-实现"><a href="#6-实现" class="headerlink" title="6. 实现"></a>6. 实现</h2><p>以下是责任链模式实现的时候需要考虑的几个问题：</p>
+<ol>
+<li>实现继承者链。有两种可能的方法实现继承者链：<br> （a）定义新的链接<br> （b）用已经存在的链接</li>
+</ol>
+<p>我们到目前为止的例子，都是定义新的链接，但是通常情况下你能够用已经存在的对象的引用，产生一个继承者链接。比方说，在一个”部分-整体“层次中，可以用父引用定义“部分”的继承者。一个工具集🔧的结构，也许已经用了这样的链接。<br>当用已经存在的链接支持你需要的整条链的时候，它的好处相当明显。它不但节省了定义链接的功夫，而且节省了大量空间。但是当这样的结构不能够反映你的应用所需责任链的时候，你仍然不得不定义一些冗余的链接。</p>
+<ol>
+<li>链接继承者。如果不存在定义一个链所需要的，已经存在的引用，那么你需要亲自引入它们。在这种情况下，处理者（Handler）不仅定义请求的接口，而且通常也维护继承者。这使得处理者提供了一个HandleRequset的一个默认的实现，也就是将请求传递给集成者。如果一个“ConcreteHandler”对请求不感兴趣，那么它不需要重写向前推进的操作，因为它的默认操作就是把请求向前推进。</li>
+<li>请求的表达。表达请求有各种不同的方法。最简单的，请求是<em>硬编码</em>的操作。这种方法非常便利和安全，但是你只能处理“Handler”类定义的一个固定的请求集合，可扩展性差。<br>一个可供选择的方法就是，使用一个单一的处理函数，它需要一个<em>请求码</em>（例如，整数或者字符串）作为参数。这种方法支持一个可变的请求集合。唯一的要求就是，发送者和接收者需要有一个统一的编码规范。<br>这种方法更加具有灵活性，但是它需要基于代码的条件语句分发请求。此外，也没有<em>类型安全</em>的方法传递参数，因此它们需要手动的被打包和拆包。显而易见，这比直接调用操作的方法更加不安全。<br>为了定位参数传递的问题，我们可以用分离出来的<em>请求对象</em>包装请求参数。一个请求“Request”类能够表达请求，而新的请求类别可以通过继承的方法获得。子类可以定义不同的参数。处理者必需知道请求的类别（也就是说，它们用是哪个子类）来获得参数。<br>为了确定这个请求，Request可以定义一个<em>获取</em>函数，用来返回类的标识。可选择的，接收者也可以通RTTI(运行时类别信息)来实现类别的识别，只要所用的语言支持这种方法。<h2 id="7-已知的应用"><a href="#7-已知的应用" class="headerlink" title="7. 已知的应用"></a>7. 已知的应用</h2>MacApp和ET++叫责任链事件处理，NeXT的APPKit用响应器（Responder）的名字。</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/25/Test/" rel="next" title="Test">
+                <i class="fa fa-chevron-left"></i> Test
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/me.JPG"
+               alt="Huanjian Jiang" />
+          <p class="site-author-name" itemprop="name">Huanjian Jiang</p>
+           
+              <p class="site-description motion-element" itemprop="description">Programmers to be Geek</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zhuwo" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/huanjianjiang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/zhuwoleap" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#设计模式之责任链（Chain-of-Responsibility）"><span class="nav-number">1.</span> <span class="nav-text">设计模式之责任链（Chain of Responsibility）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-目的"><span class="nav-number">1.1.</span> <span class="nav-text">1. 目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-动机"><span class="nav-number">1.2.</span> <span class="nav-text">2. 动机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-应用场景"><span class="nav-number">1.3.</span> <span class="nav-text">3. 应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-结构"><span class="nav-number">1.4.</span> <span class="nav-text">4.结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参与者"><span class="nav-number">1.4.0.1.</span> <span class="nav-text">参与者</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-结果"><span class="nav-number">1.5.</span> <span class="nav-text">5. 结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-实现"><span class="nav-number">1.6.</span> <span class="nav-text">6. 实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-已知的应用"><span class="nav-number">1.7.</span> <span class="nav-text">7. 已知的应用</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Huanjian Jiang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
