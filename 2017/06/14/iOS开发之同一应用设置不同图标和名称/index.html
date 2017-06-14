@@ -115,7 +115,7 @@
 <meta property="og:image" content="http://yoursite.com/2017/06/14/iOS开发之同一应用设置不同图标和名称/scheme_1.jpg">
 <meta property="og:image" content="http://yoursite.com/2017/06/14/iOS开发之同一应用设置不同图标和名称/scheme_2.jpg">
 <meta property="og:image" content="http://yoursite.com/2017/06/14/iOS开发之同一应用设置不同图标和名称/f_results.jpg">
-<meta property="og:updated_time" content="2017-06-14T01:28:41.000Z">
+<meta property="og:updated_time" content="2017-06-14T04:11:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发之同一应用设置不同图标和名称">
 <meta name="twitter:description" content="经常在开发过程中会遇到同一个APP有很多个版本，比如开发调试的版本，AppStore上的版本等。为了便于区分和调试，我们可以针对这些不同的版本选择不一样的图标和应用名称，效果如下图所示：">
@@ -431,11 +431,11 @@
 <h3 id="2-Info-plist"><a href="#2-Info-plist" class="headerlink" title="2. Info.plist"></a>2. Info.plist</h3><p>在创建一个新的Xcode工程后，会在Supporting Files文件夹下自动生成一个名为”&lt;工程名&gt;-Info.plist”的文件，这个是对工程做一些运行期配置的文件。在这个配置文件中，可以配置应用的图标、应用的显示名称和应用的Bundle ID。</p>
 <blockquote>
 <ol>
-<li>配置应用的图标。<br>使用 <strong>\${APP_ICON_NAME}@1x.png</strong>、<strong>\${APP_ICON_NAME}@2x.png</strong>和<strong>\${APP_ICON_NAME}@3x.png</strong>替代图标的名称。<br>==注意==：保证项目中有对应名称的图片！<img src="/2017/06/14/iOS开发之同一应用设置不同图标和名称/info_plist_icon_name.png" alt="info_plist_icon_name" title="info_plist_icon_name">
+<li>配置应用的图标。<br>使用<strong>${APP_ICON_NAME}@1x.png、${APP_ICON_NAME}@2x.png、${APP_ICON_NAME}@3x.png</strong>替代图标的名称。<br>==注意==：保证项目中有对应名称的图片！<img src="/2017/06/14/iOS开发之同一应用设置不同图标和名称/info_plist_icon_name.png" alt="info_plist_icon_name" title="info_plist_icon_name">
 </li>
 </ol>
 <ol>
-<li>配置应用的名称<br>设置<strong>Bundle display name</strong>为<strong>\${APP_DISPLAY_NAME}</strong>，其中<strong>APP_DISPLAY_NAME</strong>是前面<strong>User-Defined Setting</strong>中设置的应用程序名称的配置项。<img src="/2017/06/14/iOS开发之同一应用设置不同图标和名称/info_plist_display_name.png" alt="info_plist_display_name" title="info_plist_display_name">
+<li>配置应用的名称<br>设置<strong>Bundle display name</strong>为<strong>${APP_DISPLAY_NAME}</strong>，其中<strong>APP_DISPLAY_NAME</strong>是前面<strong>User-Defined Setting</strong>中设置的应用程序名称的配置项。<img src="/2017/06/14/iOS开发之同一应用设置不同图标和名称/info_plist_display_name.png" alt="info_plist_display_name" title="info_plist_display_name">
 </li>
 </ol>
 <ol>
