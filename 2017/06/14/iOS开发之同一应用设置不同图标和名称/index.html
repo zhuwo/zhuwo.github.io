@@ -115,7 +115,7 @@
 <meta property="og:image" content="http://yoursite.com/2017/06/14/iOS开发之同一应用设置不同图标和名称/scheme_1.jpg">
 <meta property="og:image" content="http://yoursite.com/2017/06/14/iOS开发之同一应用设置不同图标和名称/scheme_2.jpg">
 <meta property="og:image" content="http://yoursite.com/2017/06/14/iOS开发之同一应用设置不同图标和名称/f_results.jpg">
-<meta property="og:updated_time" content="2017-06-14T04:11:53.000Z">
+<meta property="og:updated_time" content="2017-06-16T01:56:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发之同一应用设置不同图标和名称">
 <meta name="twitter:description" content="经常在开发过程中会遇到同一个APP有很多个版本，比如开发调试的版本，AppStore上的版本等。为了便于区分和调试，我们可以针对这些不同的版本选择不一样的图标和应用名称，效果如下图所示：">
@@ -419,7 +419,7 @@
 </li>
 </ol>
 </blockquote>
-<h2 id="整合所有配置"><a href="#整合所有配置" class="headerlink" title="整合所有配置"></a>整合所有配置</h2><h3 id="1-User-Defined-Setting"><a href="#1-User-Defined-Setting" class="headerlink" title="1. User-Defined Setting"></a>1. User-Defined Setting</h3><p>在Xcode中使用<strong>User-Defined Setting</strong>可以定义一些Xcode编译使用的宏配置（类似于环境变量），为了实现不同环境下App显示的名称和图标不同，可以在<strong>User-Defined Setting</strong>中定义一些有关应用程序名称和应用图标的配置。</p>
+<h2 id="整合所有配置"><a href="#整合所有配置" class="headerlink" title="整合所有配置"></a>整合所有配置</h2><h3 id="User-Defined-Setting"><a href="#User-Defined-Setting" class="headerlink" title="User-Defined Setting"></a>User-Defined Setting</h3><p>在Xcode中使用<strong>User-Defined Setting</strong>可以定义一些Xcode编译使用的宏配置（类似于环境变量），为了实现不同环境下App显示的名称和图标不同，可以在<strong>User-Defined Setting</strong>中定义一些有关应用程序名称和应用图标的配置。</p>
 <blockquote>
 <ol>
 <li>添加User-Defined Setting，如下图：<img src="/2017/06/14/iOS开发之同一应用设置不同图标和名称/user-defined-01.png" alt="user-defined-01" title="user-defined-01">
@@ -428,20 +428,19 @@
 </li>
 </ol>
 </blockquote>
-<h3 id="2-Info-plist"><a href="#2-Info-plist" class="headerlink" title="2. Info.plist"></a>2. Info.plist</h3><p>在创建一个新的Xcode工程后，会在Supporting Files文件夹下自动生成一个名为”&lt;工程名&gt;-Info.plist”的文件，这个是对工程做一些运行期配置的文件。在这个配置文件中，可以配置应用的图标、应用的显示名称和应用的Bundle ID。</p>
+<h3 id="Info-plist"><a href="#Info-plist" class="headerlink" title="Info.plist"></a>Info.plist</h3><p>在创建一个新的Xcode工程后，会在Supporting Files文件夹下自动生成一个名为”&lt;工程名&gt;-Info.plist”的文件，这个是对工程做一些运行期配置的文件。在这个配置文件中，可以配置应用的图标、应用的显示名称和应用的Bundle ID。</p>
 <blockquote>
 <ol>
-<li>配置应用的图标。<br>使用<strong>${APP_ICON_NAME}@1x.png、${APP_ICON_NAME}@2x.png、${APP_ICON_NAME}@3x.png</strong>替代图标的名称。<br>==注意==：保证项目中有对应名称的图片！<img src="/2017/06/14/iOS开发之同一应用设置不同图标和名称/info_plist_icon_name.png" alt="info_plist_icon_name" title="info_plist_icon_name">
+<li><p>配置应用的图标。<br>使用<strong>${APP_ICON_NAME}@1x.png、${APP_ICON_NAME}@2x.png、${APP_ICON_NAME}@3x.png</strong>替代图标的名称。<br>==注意==：保证项目中有对应名称的图片！</p>
+<img src="/2017/06/14/iOS开发之同一应用设置不同图标和名称/info_plist_icon_name.png" alt="info_plist_icon_name" title="info_plist_icon_name">
 </li>
-</ol>
-<ol>
-<li>配置应用的名称<br>设置<strong>Bundle display name</strong>为<strong>${APP_DISPLAY_NAME}</strong>，其中<strong>APP_DISPLAY_NAME</strong>是前面<strong>User-Defined Setting</strong>中设置的应用程序名称的配置项。<img src="/2017/06/14/iOS开发之同一应用设置不同图标和名称/info_plist_display_name.png" alt="info_plist_display_name" title="info_plist_display_name">
+<li><p>配置应用的名称<br>设置<strong>Bundle display name</strong>为<strong>${APP_DISPLAY_NAME}</strong>，其中<strong>APP_DISPLAY_NAME</strong>是前面<strong>User-Defined Setting</strong>中设置的应用程序名称的配置项。</p>
+<img src="/2017/06/14/iOS开发之同一应用设置不同图标和名称/info_plist_display_name.png" alt="info_plist_display_name" title="info_plist_display_name">
 </li>
-</ol>
-<ol>
-<li>配置Bundle ID<br>设置<strong>Bundle identifier</strong>为<strong>${BUNDLE_IDENTIFIER}</strong>，其中<strong>BUNDLE_IDENTIFIER</strong>是前面<strong>User-Defined Setting</strong>中设置的应用程序<strong>Bundle ID</strong>的配置项。</li>
-</ol>
+<li><p>配置Bundle ID<br>设置<strong>Bundle identifier</strong>为<strong>${BUNDLE_IDENTIFIER}</strong>，其中<strong>BUNDLE_IDENTIFIER</strong>是前面<strong>User-Defined Setting</strong>中设置的应用程序<strong>Bundle ID</strong>的配置项。</p>
 <img src="/2017/06/14/iOS开发之同一应用设置不同图标和名称/info_plist_bundle_id.png" alt="info_plist_bundle_id" title="info_plist_bundle_id">
+</li>
+</ol>
 </blockquote>
 <h2 id="实际使用"><a href="#实际使用" class="headerlink" title="实际使用"></a>实际使用</h2><p>以上步骤完成了基本的配置过程，接下来将应用以上的配置，完成不同图标和应用名称的App的运行和打包。</p>
 <blockquote>
@@ -672,7 +671,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建不同的APP-ID"><span class="nav-number">1.</span> <span class="nav-text">创建不同的APP ID</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为不同的版本创建不同的图标"><span class="nav-number">2.</span> <span class="nav-text">为不同的版本创建不同的图标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用不同的配置（Build-Configurations）"><span class="nav-number">3.</span> <span class="nav-text">使用不同的配置（Build Configurations）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#整合所有配置"><span class="nav-number">4.</span> <span class="nav-text">整合所有配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-User-Defined-Setting"><span class="nav-number">4.1.</span> <span class="nav-text">1. User-Defined Setting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Info-plist"><span class="nav-number">4.2.</span> <span class="nav-text">2. Info.plist</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实际使用"><span class="nav-number">5.</span> <span class="nav-text">实际使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">6.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建不同的APP-ID"><span class="nav-number">1.</span> <span class="nav-text">创建不同的APP ID</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为不同的版本创建不同的图标"><span class="nav-number">2.</span> <span class="nav-text">为不同的版本创建不同的图标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用不同的配置（Build-Configurations）"><span class="nav-number">3.</span> <span class="nav-text">使用不同的配置（Build Configurations）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#整合所有配置"><span class="nav-number">4.</span> <span class="nav-text">整合所有配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#User-Defined-Setting"><span class="nav-number">4.1.</span> <span class="nav-text">User-Defined Setting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Info-plist"><span class="nav-number">4.2.</span> <span class="nav-text">Info.plist</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实际使用"><span class="nav-number">5.</span> <span class="nav-text">实际使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">6.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
