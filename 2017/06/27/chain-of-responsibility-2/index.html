@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="技术,计算机,设计模式,iOS开发," />
 
 
 
@@ -96,15 +96,21 @@
 
 
 
-<meta name="description" content="Programmers to be Geek">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Geek">
-<meta property="og:url" content="http://yoursite.com/categories/Technology/index.html">
+<meta name="description" content="上一篇责任链的博文说明了责任链模式的定义、模型、应用场景以及优缺点，这一篇说明责任链模式在iOS事件处理中的具体应用 – iOS之响应链（The Responder Chain）。">
+<meta name="keywords" content="技术,计算机,设计模式,iOS开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式之责任链[下]">
+<meta property="og:url" content="http://yoursite.com/2017/06/27/chain-of-responsibility-2/index.html">
 <meta property="og:site_name" content="Geek">
-<meta property="og:description" content="Programmers to be Geek">
+<meta property="og:description" content="上一篇责任链的博文说明了责任链模式的定义、模型、应用场景以及优缺点，这一篇说明责任链模式在iOS事件处理中的具体应用 – iOS之响应链（The Responder Chain）。">
+<meta property="og:image" content="http://yoursite.com/2017/06/27/chain-of-responsibility-2/view_hierarchy.gif">
+<meta property="og:image" content="http://yoursite.com/2017/06/27/chain-of-responsibility-2/responder_chain_2x.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/27/chain-of-responsibility-2/nondoc_2x.png">
+<meta property="og:updated_time" content="2017-06-27T02:28:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Geek">
-<meta name="twitter:description" content="Programmers to be Geek">
+<meta name="twitter:title" content="设计模式之责任链[下]">
+<meta name="twitter:description" content="上一篇责任链的博文说明了责任链模式的定义、模型、应用场景以及优缺点，这一篇说明责任链模式在iOS事件处理中的具体应用 – iOS之响应链（The Responder Chain）。">
+<meta name="twitter:image" content="http://yoursite.com/2017/06/27/chain-of-responsibility-2/view_hierarchy.gif">
 
 
 
@@ -132,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/Technology/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/27/chain-of-responsibility-2/"/>
 
 
 
 
 
-  <title>分类: Technology | Geek</title>
+  <title>设计模式之责任链[下] | Geek</title>
 
 </head>
 
@@ -165,7 +171,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -313,157 +319,213 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h1>Technology<small>分类</small>
-      </h1>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/06/27/chain-of-responsibility-2/" itemprop="url">
-              
-                <span itemprop="name">设计模式之责任链[下]</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-27T19:27:29+08:00"
-              content="2017-06-27" >
-          06-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/06/20/CSAPP-3-1/" itemprop="url">
-              
-                <span itemprop="name">CSAPP读书笔记 第3章 程序的机器级表示 访问信息</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-20T22:14:32+08:00"
-              content="2017-06-20" >
-          06-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/06/14/iOS开发之同一应用设置不同图标和名称/" itemprop="url">
-              
-                <span itemprop="name">iOS开发之同一应用设置不同图标和名称</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-14T08:45:01+08:00"
-              content="2017-06-14" >
-          06-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/" itemprop="url">
-              
-                <span itemprop="name">设计模式之责任链[上]（Chain of Responsibility）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-06T21:44:15+08:00"
-              content="2017-06-06" >
-          06-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/05/12/GitHub&Hexo 搭建博客/" itemprop="url">
-              
-                <span itemprop="name">GitHub&Hexo 搭建博客</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-12T22:19:48+08:00"
-              content="2017-05-12" >
-          05-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/27/chain-of-responsibility-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huanjian Jiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/me.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Geek">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">设计模式之责任链[下]</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-27T19:27:29+08:00">
+                2017-06-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/" itemprop="url" rel="index">
+                    <span itemprop="name">Technology</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>上一篇责任链的博文说明了责任链模式的定义、模型、应用场景以及优缺点，这一篇说明责任链模式在iOS事件处理中的具体应用 – <em>iOS之响应链</em>（<strong>The Responder Chain</strong>）。</p>
+<img src="/2017/06/27/chain-of-responsibility-2/view_hierarchy.gif" alt="视图层次结构图" title="视图层次结构图">
+<a id="more"></a>
+<h1 id="响应者（Responders）"><a href="#响应者（Responders）" class="headerlink" title="响应者（Responders）"></a>响应者（Responders）</h1><p>响应者是一个对象，它能够通过响应链，直接或者间接地接收事件(events)，只需要继承<a href="https://developer.apple.com/documentation/appkit/nsresponder" target="_blank" rel="external">NSResponder</a>类，它就是责任链模式中的Handler。iOS Cocoa框架下的很多类：NSApplication, NSWindow, NSDrawer, NSWindowController, NSView等都继承NSResponder。NSResponder类定义了处理事件消息的程序化接口和响应动作的大致结构。响应链上有一个第一响应者和后续的一系列响应者。</p>
+<h1 id="第一响应者（First-Reponders）"><a href="#第一响应者（First-Reponders）" class="headerlink" title="第一响应者（First Reponders）"></a>第一响应者（First Reponders）</h1><p>第一响应者一般是与用户交互的对象，比方说用户选择或者操作鼠标、键盘的操作。它往往是响应链中接收事件或者消息的第一个对象。一个NSWindow对象的第一响应者一般是它自己。但是，当应用程序第一次在设备屏幕上显示窗口的时候，你也可以在程序中或者在Interface Builder中手动设置第一响应者。</p>
+<p>当一个NSWindow对象接收到一个鼠标按下的事件时，它一般会设法把NSView对象设置成第一响应者。它首先会询问当前的view是否愿意成为第一响应者，通过使用acceptsFirstResponder方法。这个方法一般返回NO，想要成为第一响应者的响应者需要重写Responder的这个方法，并且返回Yes。此外，当用户通过键盘接口改变第一响应者的时候，acceptsFirstResponder方法也会被调用。</p>
+<p>你可以通过发送makeFirstResponder:消息给一个NSWindow对象，改变第一响应者。这个消息使得一个对象失去了它的第一响应者身份，而另一个对象成为了第一响应者。</p>
+<p>一个NSPanel对象提供了一种第一响应者行为的变种，它允许面板（panels）获得主窗口（main window）的焦点。假设一个面板现在代表一个非活动(inactive)的窗口，当becomesKeyOnlyIfNeeded 方法接收到一个鼠标按下的事件的时候，它返回一个YES。它尝试将鼠标光标下的视图变为第一响应者。当且仅当调用方法 acceptsFirstResponder和needsPanelToBecomeKey返回YES的时候，才能够成功将光标下的视图变为第一响应者。</p>
+<h1 id="下一个响应者（Next-Responders）"><a href="#下一个响应者（Next-Responders）" class="headerlink" title="下一个响应者（Next Responders）"></a>下一个响应者（Next Responders）</h1><p>每个响应对象都有一个能力，就是获得它在响应链上的下一个响应者，也就是责任链中将消息往前推的默认操作。 响应链的最主要的机制，就是返回响应者对象的nextResponder方法。图3-1显示了下一个响应者的序列。</p>
+<img src="/2017/06/27/chain-of-responsibility-2/responder_chain_2x.png" alt="图3-1 响应者链" title="图3-1 响应者链">
+<p>绝大数的响应链上，一个view的下一个响应者一般是它的superview。实际上，一个窗口的所有视图，由它的第一个响应者到它的内容视图链组成。当你用Interface Builder或者手动写代码创建一个窗口或者在已经存在的视图上添加子视图的时候，Application Kit自动将新建的对象添加到响应链中。NSView对象的addSubView:方法自动将接收者设置成新的子视图的superview。当你想要在这些视图之间插入一个不一样的响应者，必须保证正确地修正整个响应链，以适应新的变化。</p>
+<h1 id="响应链"><a href="#响应链" class="headerlink" title="响应链"></a>响应链</h1><p>响应链将一系列的响应对象串联起来，这些响应对象接收事件或者消息的传递。当一个给定的响应对象不处理一个特定的消息的时候，这个对象会将当前消息传递给它在响应链上的继承者（也就是它的下一个响应者）。这就使得响应对象能够代理其他对象的责任，尤其是更高等级的对象。Application Kit按照以下将要说道的方法自动构建响应链，但是你也可以将一般的对象插入到其中。</p>
+<p>一个应用可以包含任何数量的响应链，但是在一个给定的时间，只有一条链是活动的。事件消息和动作消息的响应链是不一样的，下面将详细描述它们的具体操作情况。</p>
+<h2 id="事件消息的响应链"><a href="#事件消息的响应链" class="headerlink" title="事件消息的响应链"></a>事件消息的响应链</h2><p>几乎所有的事件消息都使用一个单一窗口的响应链 – 相关用户事件发生的所在窗口。事件消息的默认响应链从NSWindow第一个传递消息的视图开始。一个键盘按键的默认响应链从一个窗口的第一响应者开始；一个鼠标或者触控板的默认响应链从用户事件发生的视图开始。如果在那儿，事件不被处理，事件消息将会沿着视图层次向前传递。第一个响应者一般是窗口中被选择的视图对象，而且它的下一个响应者是包含它的视图（superview），等等直到NSwindow对象为止。如果一个NSWindowController对象管理这个窗口，它就是最后的响应者。你可以在这些NSView对象之间插入其他响应者，甚至是在NSWindow对象上面，也就是响应链的顶部。这些被插入的响应者既接收事件消息，也接收动作消息。如果没有对象处理事件，那么响应链的最后一个响应者会调用方法noResponderFor:,代表按键按下事件的终止。当然，事件处理对象（一般是NSWindow和NSView的子类）可以重写这个方法，从而执行一些想要执行的附加操作。</p>
+<h2 id="动作消息的响应链"><a href="#动作消息的响应链" class="headerlink" title="动作消息的响应链"></a>动作消息的响应链</h2><p>对于动作信息，Application Kit构建了一个更加详尽的响应链，基于以下两个因素：</p>
+<ul>
+<li>当前应用是否基于文件架构，如果不是，那么它是否使用 NSWindowController 对象构建窗口</li>
+<li>当前应用是否将key window作为主window展示</li>
+</ul>
+<p>由于动作需要更加灵活的运行时机制来决定它们的目标，动作消息拥有更加详细的响应链。它们不像事件消息，仅仅限制在一个窗口中。</p>
+<p>最简单的情况是，一个活动的没有基于文件的窗口，而且没有相关的面板或者次窗口；换句话说，主窗口也是关键窗口(key window)。这种情况下，响应链如下所示：</p>
+<blockquote>
+<ol>
+<li>主窗口的第一响应者和连续的响应对象与视图层次架构一致</li>
+<li>主窗口自己</li>
+<li>主窗口的代理（无需继承NSResponder）</li>
+<li>应用对象，NSApp</li>
+<li>应用对象的代理(无需继承NSResponder)</li>
+</ol>
+</blockquote>
+<p>整条链如图4-1所示</p>
+<img src="/2017/06/27/chain-of-responsibility-2/nondoc_2x.png" alt="图4-1 不基于文件应用的动作消息的的响应者链" title="图4-1 不基于文件应用的动作消息的的响应者链">
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本文说明了责任链模式在iOS框架Cocoa下的应用 – <strong>响应链</strong>。以及，事件消息和动作消息如何在响应链上传递。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/技术/" rel="tag"># 技术</a>
+          
+            <a href="/tags/计算机/" rel="tag"># 计算机</a>
+          
+            <a href="/tags/设计模式/" rel="tag"># 设计模式</a>
+          
+            <a href="/tags/iOS开发/" rel="tag"># iOS开发</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/20/CSAPP-3-1/" rel="next" title="CSAPP读书笔记 第3章 程序的机器级表示 访问信息">
+                <i class="fa fa-chevron-left"></i> CSAPP读书笔记 第3章 程序的机器级表示 访问信息
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -471,6 +533,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -490,8 +556,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/me.JPG"
@@ -582,6 +657,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#响应者（Responders）"><span class="nav-number">1.</span> <span class="nav-text">响应者（Responders）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第一响应者（First-Reponders）"><span class="nav-number">2.</span> <span class="nav-text">第一响应者（First Reponders）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下一个响应者（Next-Responders）"><span class="nav-number">3.</span> <span class="nav-text">下一个响应者（Next Responders）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#响应链"><span class="nav-number">4.</span> <span class="nav-text">响应链</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#事件消息的响应链"><span class="nav-number">4.1.</span> <span class="nav-text">事件消息的响应链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动作消息的响应链"><span class="nav-number">4.2.</span> <span class="nav-text">动作消息的响应链</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -727,6 +818,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
 
   
 
