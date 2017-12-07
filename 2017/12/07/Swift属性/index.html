@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="技术,iOS开发,应用," />
+  <meta name="keywords" content="技术,iOS开发,应用,Swift," />
 
 
 
@@ -96,30 +96,17 @@
 
 
 
-<meta name="description" content="经常在开发过程中会遇到同一个APP有很多个版本，比如开发调试的版本，AppStore上的版本等。为了便于区分和调试，我们可以针对这些不同的版本选择不一样的图标和应用名称，效果如下图所示：">
-<meta name="keywords" content="技术,iOS开发,应用">
+<meta name="description" content="标签（空格分隔）： Swift iOS  属性关联特定类、结构体或枚举的值。Swift主要有存储属性和计算属性。存储属性存储实例的常量或者变量值，然而计算属性主要是计算值（而不是存储值），相当于是附加属性，可以用已有的存储属性计算得到。 计算和存储属性同样一般是关联特定类型的实例。然而，属性同样能够和类型本身关联。这样的属性叫做类型属性。 此外，你还能够定义属性观察器来监视属性值的变化，利用它，你">
+<meta name="keywords" content="技术,iOS开发,应用,Swift">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS开发之同一应用设置不同图标和名称">
-<meta property="og:url" content="http://yoursite.com/2017/06/14/iOS开发之同一应用设置不同图标和名称/index.html">
+<meta property="og:title" content="Swift 属性">
+<meta property="og:url" content="http://yoursite.com/2017/12/07/Swift属性/index.html">
 <meta property="og:site_name" content="Geek">
-<meta property="og:description" content="经常在开发过程中会遇到同一个APP有很多个版本，比如开发调试的版本，AppStore上的版本等。为了便于区分和调试，我们可以针对这些不同的版本选择不一样的图标和应用名称，效果如下图所示：">
-<meta property="og:image" content="http://yoursite.com/2017/06/14/iOS开发之同一应用设置不同图标和名称/f_results.jpg">
-<meta property="og:image" content="http://yoursite.com/2017/06/14/iOS开发之同一应用设置不同图标和名称/results.png">
-<meta property="og:image" content="http://yoursite.com/2017/06/14/iOS开发之同一应用设置不同图标和名称/build_setting_01.png">
-<meta property="og:image" content="http://yoursite.com/2017/06/14/iOS开发之同一应用设置不同图标和名称/build_setting_02.png">
-<meta property="og:image" content="http://yoursite.com/2017/06/14/iOS开发之同一应用设置不同图标和名称/user-defined-01.png">
-<meta property="og:image" content="http://yoursite.com/2017/06/14/iOS开发之同一应用设置不同图标和名称/user-defined-02.png">
-<meta property="og:image" content="http://yoursite.com/2017/06/14/iOS开发之同一应用设置不同图标和名称/info_plist_icon_name.png">
-<meta property="og:image" content="http://yoursite.com/2017/06/14/iOS开发之同一应用设置不同图标和名称/info_plist_display_name.png">
-<meta property="og:image" content="http://yoursite.com/2017/06/14/iOS开发之同一应用设置不同图标和名称/info_plist_bundle_id.png">
-<meta property="og:image" content="http://yoursite.com/2017/06/14/iOS开发之同一应用设置不同图标和名称/scheme_1.jpg">
-<meta property="og:image" content="http://yoursite.com/2017/06/14/iOS开发之同一应用设置不同图标和名称/scheme_2.jpg">
-<meta property="og:image" content="http://yoursite.com/2017/06/14/iOS开发之同一应用设置不同图标和名称/f_results.jpg">
-<meta property="og:updated_time" content="2017-06-16T01:56:16.000Z">
+<meta property="og:description" content="标签（空格分隔）： Swift iOS  属性关联特定类、结构体或枚举的值。Swift主要有存储属性和计算属性。存储属性存储实例的常量或者变量值，然而计算属性主要是计算值（而不是存储值），相当于是附加属性，可以用已有的存储属性计算得到。 计算和存储属性同样一般是关联特定类型的实例。然而，属性同样能够和类型本身关联。这样的属性叫做类型属性。 此外，你还能够定义属性观察器来监视属性值的变化，利用它，你">
+<meta property="og:updated_time" content="2017-12-07T02:59:11.726Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS开发之同一应用设置不同图标和名称">
-<meta name="twitter:description" content="经常在开发过程中会遇到同一个APP有很多个版本，比如开发调试的版本，AppStore上的版本等。为了便于区分和调试，我们可以针对这些不同的版本选择不一样的图标和应用名称，效果如下图所示：">
-<meta name="twitter:image" content="http://yoursite.com/2017/06/14/iOS开发之同一应用设置不同图标和名称/f_results.jpg">
+<meta name="twitter:title" content="Swift 属性">
+<meta name="twitter:description" content="标签（空格分隔）： Swift iOS  属性关联特定类、结构体或枚举的值。Swift主要有存储属性和计算属性。存储属性存储实例的常量或者变量值，然而计算属性主要是计算值（而不是存储值），相当于是附加属性，可以用已有的存储属性计算得到。 计算和存储属性同样一般是关联特定类型的实例。然而，属性同样能够和类型本身关联。这样的属性叫做类型属性。 此外，你还能够定义属性观察器来监视属性值的变化，利用它，你">
 
 
 
@@ -147,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/14/iOS开发之同一应用设置不同图标和名称/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/07/Swift属性/"/>
 
 
 
 
 
-  <title>iOS开发之同一应用设置不同图标和名称 | Geek</title>
+  <title>Swift 属性 | Geek</title>
 
 </head>
 
@@ -338,7 +325,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/14/iOS开发之同一应用设置不同图标和名称/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/07/Swift属性/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Huanjian Jiang">
@@ -355,7 +342,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">iOS开发之同一应用设置不同图标和名称</h1>
+          <h1 class="post-title" itemprop="name headline">Swift 属性</h1>
         
 
         <div class="post-meta">
@@ -367,8 +354,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-14T08:45:01+08:00">
-                2017-06-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-07T10:58:01+08:00">
+                2017-12-07
               </time>
             
 
@@ -429,70 +416,58 @@
       
 
       
-        <p>经常在开发过程中会遇到同一个APP有很多个版本，比如开发调试的版本，AppStore上的版本等。为了便于区分和调试，我们可以针对这些不同的版本选择不一样的图标和应用名称，效果如下图所示：<br><img src="/2017/06/14/iOS开发之同一应用设置不同图标和名称/f_results.jpg" alt="final_result" title="final_result"></p>
-<a id="more"></a>
-<h2 id="创建不同的APP-ID"><a href="#创建不同的APP-ID" class="headerlink" title="创建不同的APP ID"></a>创建不同的APP ID</h2><p>当你安装APP的时候，设备通过它们的APP ID来判断“你是要安装一个新的APP还是要更新一个旧的APP”。所以第一件要做的事情是，在你的个人中心，为你的开发版本创建一个新的APP ID, 也就是我们通常所说的Bundle ID。比方说，你的正式APP ID是com.mycompany.myapp，那么你的调试版本为com.mycompany.myapp-beta或者com.mycompany.myapp-dev。</p>
-<h2 id="为不同的版本创建不同的图标"><a href="#为不同的版本创建不同的图标" class="headerlink" title="为不同的版本创建不同的图标"></a>为不同的版本创建不同的图标</h2><p>为了区分两个版本，需要不同的图标,如下图所示：<br><img src="/2017/06/14/iOS开发之同一应用设置不同图标和名称/results.png" alt="结果" title="结果"></p>
-<p>为了适配不同的大小，可以将你的图标命名为Icon@1x.png, Icon@2x.png, Icon@3x.png, Icon-beta.png and Icon-beta@2x.png, Icon-beta@3x.png.</p>
-<h2 id="使用不同的配置（Build-Configurations）"><a href="#使用不同的配置（Build-Configurations）" class="headerlink" title="使用不同的配置（Build Configurations）"></a>使用不同的配置（Build Configurations）</h2><p>默认的Xcode会为你创建两个版本：Debug 和 Release。由于，公司内部需要有个测试版本，所以我一般加上第三个版本，AppStore版。它们的作用如下:</p>
+        <p>标签（空格分隔）： Swift iOS</p>
+<hr>
+<p><strong>属性</strong>关联特定类、结构体或枚举的值。Swift主要有存储属性和计算属性。存储属性存储实例的常量或者变量值，然而计算属性主要是计算值（而不是存储值），相当于是附加属性，可以用已有的存储属性计算得到。</p>
+<p>计算和存储属性同样一般是关联特定类型的实例。然而，属性同样能够和类型本身关联。这样的属性叫做类型属性。</p>
+<p>此外，你还能够定义属性观察器来监视属性值的变化，利用它，你可以写一些响应的操作。属性观察器既能够自己定义，也能够从父类当中继承得到。</p>
+<h2 id="存储属性"><a href="#存储属性" class="headerlink" title="存储属性"></a>存储属性</h2><p>存储属性，最简单的形式，就是存储在一个特定的类或机构体的实例中的，一个常量或变量。存储属性既可以是变量（由关键字<code>var</code>定义），也可以是常量（由关键字<code>let</code>定义）。</p>
+<p>下面的例子，定义了一个结构FixedLengthRange，描述了一个整型数据的范围，其中的范围长度创建以后就不能改变。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">FixedLengthRange</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> firstValue: <span class="type">Int</span></div><div class="line">    <span class="keyword">let</span> length: <span class="type">Int</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> rangeOfThreeItems = <span class="type">FixedLengthRange</span>(firstValue: <span class="number">0</span>, length: <span class="number">3</span>)</div><div class="line"><span class="comment">// the range represents integer values 0, 1, and 2</span></div><div class="line">rangeOfThreeItems.firstValue = <span class="number">6</span></div><div class="line"><span class="comment">// the range now represents integer values 6, 7, and 8</span></div></pre></td></tr></table></figure>
+<h3 id="常量结构体实例的存储属性"><a href="#常量结构体实例的存储属性" class="headerlink" title="常量结构体实例的存储属性"></a>常量结构体实例的存储属性</h3><p>假如你创建了一个结构体实例，并将它赋给一个常量，那么你就不能改变这个实例的属性，包括变量属性，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let rangeOfFourItems = FixedLengthRange(firstValue: 0, length: 4)</div><div class="line">// this range represents integer values 0, 1, 2, and 3</div><div class="line">rangeOfFourItems.firstValue = 6</div><div class="line">// this will report an error, even though firstValue is a variable property</div></pre></td></tr></table></figure>
+<p>因为<code>rangeOfFourItems</code>被声明为一个常量，所以不可能改变它的<code>firstValue</code>属性，尽管它是一个变量属性。</p>
+<p>这个行为是因为结构体属于<em>值类型</em>。值类型的实例如果标记为常量，那么它的所有属性都是常量。</p>
+<p>这中情况对类并不适用，类是<em>引用类型</em>。假如你将一个引用类型的实例赋给一个常量，你仍然可以改变实例的变量属性。</p>
+<h3 id="懒（加载）存储属性"><a href="#懒（加载）存储属性" class="headerlink" title="懒（加载）存储属性"></a>懒（加载）存储属性</h3><p>懒属性就是一种属性，直到它第一次被使用，它的值才会被计算。</p>
 <blockquote>
+<p>注意点<br><strong>懒属性必须声明为一个变量，因为它的初始值不会被用到，在实例初始化完成后。而常量属性必须在初始化完成以后有值，因此它不能被声明为懒属性</strong></p>
+</blockquote>
+<p>懒属性在以下情况下非常有用：它的值依赖于外在因素，也就是实例初始化完以后，这些外在因素还不知道的情况。还有就是，属性的值计算非常复杂或者计算代价非常高。只有使用它的时候去计算最好。</p>
+<p>下面例子，利用懒存储属性，避免一个复杂类的不必要初始化。这个例子定义两个类<code>DataImporter</code>和<code>DataManager</code>:</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">DataImporter</span> </span>&#123;</div><div class="line">    <span class="comment">/*</span></div><div class="line">     DataImporter is a class to import data from an external file.</div><div class="line">     The class is assumed to take a nontrivial amount of time to initialize.</div><div class="line">     */</div><div class="line">    <span class="keyword">var</span> filename = <span class="string">"data.txt"</span></div><div class="line">    <span class="comment">// the DataImporter class would provide data importing functionality here</span></div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">DataManager</span> </span>&#123;</div><div class="line">    <span class="built_in">lazy</span> <span class="keyword">var</span> importer = <span class="type">DataImporter</span>()</div><div class="line">    <span class="keyword">var</span> data = [<span class="type">String</span>]()</div><div class="line">    <span class="comment">// the DataManager class would provide data management functionality here</span></div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="keyword">let</span> manager = <span class="type">DataManager</span>()</div><div class="line">manager.data.append(<span class="string">"Some data"</span>)</div><div class="line">manager.data.append(<span class="string">"Some more data"</span>)</div><div class="line"><span class="comment">// the DataImporter instance for the importer property has not yet been created</span></div></pre></td></tr></table></figure>
+<p><code>DataManager</code>类用来管理属性<code>data</code>, 一个<code>String</code>数组。</p>
+<p><code>DataManager</code>的部分功能是从文件当中获取<code>data</code>。然后这个功能是由类<code>DataImporter</code>提供的，需要花费相当多的时间进行初始化。这可能是因为<code>DataImporter</code>实例需要打开文件，将文件内容读入到内存等等。</p>
+<p>但是使用了懒属性，使用<code>lazy</code>标记，<code>importer</code>属性对应的<code>DataImporter</code>实例，只有当<code>importer</code>属性第一次被使用的时候才会被创建，比方说它的文件名被访问的时候；<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(manager.importer.filename)</div><div class="line"><span class="comment">// the DataImporter instance for the importer property has now been created</span></div><div class="line"><span class="comment">// Prints "data.txt"</span></div></pre></td></tr></table></figure></p>
+<h2 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h2><p>除了存储属性，类，结构体和枚举也能够定义<em>计算属性</em>，它实际上不存储一个值。相反，它们提供一个获取和可选的设置，用来直接检索或设置属性和值。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> x = <span class="number">0.0</span>, y = <span class="number">0.0</span></div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Size</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> width = <span class="number">0.0</span>, height = <span class="number">0.0</span></div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Rect</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> origin = <span class="type">Point</span>()</div><div class="line">    <span class="keyword">var</span> size = <span class="type">Size</span>()</div><div class="line">    <span class="keyword">var</span> center: <span class="type">Point</span> &#123;</div><div class="line">        <span class="keyword">get</span> &#123;</div><div class="line">            <span class="keyword">let</span> centerX = origin.x + (size.width / <span class="number">2</span>)</div><div class="line">            <span class="keyword">let</span> centerY = origin.y + (size.height / <span class="number">2</span>)</div><div class="line">            <span class="keyword">return</span> <span class="type">Point</span>(x: centerX, y: centerY)</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">set</span>(newCenter) &#123;</div><div class="line">            origin.x = newCenter.x - (size.width / <span class="number">2</span>)</div><div class="line">            origin.y = newCenter.y - (size.height / <span class="number">2</span>)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> square = <span class="type">Rect</span>(origin: <span class="type">Point</span>(x: <span class="number">0.0</span>, y: <span class="number">0.0</span>),</div><div class="line">                  size: <span class="type">Size</span>(width: <span class="number">10.0</span>, height: <span class="number">10.0</span>))</div><div class="line"><span class="keyword">let</span> initialSquareCenter = square.center</div><div class="line">square.center = <span class="type">Point</span>(x: <span class="number">15.0</span>, y: <span class="number">15.0</span>)</div><div class="line"><span class="built_in">print</span>(<span class="string">"square.origin is now at (\(square.origin.x), \(square.origin.y))"</span>)</div><div class="line"><span class="comment">// Prints "square.origin is now at (10.0, 10.0)"</span></div></pre></td></tr></table></figure>
+<p>这个例子定义来地理形状的三个结构：</p>
 <ul>
-<li>Debug版：当我自己编写代码，并且直接用Xcode，将App放置到我的设备上进行调试的时候；</li>
-<li>Release版：当我们小组开发完一个小的迭代版本，需要在公司内部测试的时候，我们一般是打包以后放到<a href="https://fir.im/" target="_blank" rel="external">fir.im</a>上；</li>
-<li>AppStore版：部门内测完成，并解决Bug后，放到AppStore上的版本。</li>
+<li><code>Point</code>封装了一个点的x-和y-坐标</li>
+<li><code>Size</code>封装了长度和宽度</li>
+<li><code>Rect</code>定义了一个长方形通过一个原点的点和尺寸</li>
 </ul>
-</blockquote>
-<p>添加新的配置项的步骤如下：</p>
-<blockquote>
-<ol>
-<li><p>方式一：<br>选中<strong>PROJECT</strong>的名称，然后选中<strong>Info</strong>，点击<strong>Configurations</strong>下面的+选择<strong>Duplicate “Debug” Configuration</strong>, 如下图：</p>
-<img src="/2017/06/14/iOS开发之同一应用设置不同图标和名称/build_setting_01.png" alt="build_setting_01" title="build_setting_01">
-</li>
-<li><p>方式二：<br>选中<strong>PROJECT</strong>的名称，然后选中<strong>Editor-&gt;Add Configuration-&gt;Duplicate “Debug” Configuration</strong>，如下图所示：</p>
-<img src="/2017/06/14/iOS开发之同一应用设置不同图标和名称/build_setting_02.png" alt="build_setting_02" title="build_setting_02">
-</li>
-</ol>
-</blockquote>
-<h2 id="整合所有配置"><a href="#整合所有配置" class="headerlink" title="整合所有配置"></a>整合所有配置</h2><h3 id="User-Defined-Setting"><a href="#User-Defined-Setting" class="headerlink" title="User-Defined Setting"></a>User-Defined Setting</h3><p>在Xcode中使用<strong>User-Defined Setting</strong>可以定义一些Xcode编译使用的宏配置（类似于环境变量），为了实现不同环境下App显示的名称和图标不同，可以在<strong>User-Defined Setting</strong>中定义一些有关应用程序名称和应用图标的配置。</p>
-<blockquote>
-<ol>
-<li>添加User-Defined Setting，如下图：<img src="/2017/06/14/iOS开发之同一应用设置不同图标和名称/user-defined-01.png" alt="user-defined-01" title="user-defined-01">
-注意：需要选中<strong>Target</strong>, 再选中选项<strong>Build Settings</strong>, 才能添加<strong>User-Defined Setting</strong>（户自定义设置）。</li>
-<li>添加APP_DISPLAY_NAME(APP显示名称)、APP_ICON_NAME(APP图标名称)和BUNDLE_IDENTIFIER（APP Bundle ID）三个配置选项，效果如下图：<img src="/2017/06/14/iOS开发之同一应用设置不同图标和名称/user-defined-02.png" alt="user-defined-02" title="user-defined-02">
-</li>
-</ol>
-</blockquote>
-<h3 id="Info-plist"><a href="#Info-plist" class="headerlink" title="Info.plist"></a>Info.plist</h3><p>在创建一个新的Xcode工程后，会在Supporting Files文件夹下自动生成一个名为”&lt;工程名&gt;-Info.plist”的文件，这个是对工程做一些运行期配置的文件。在这个配置文件中，可以配置应用的图标、应用的显示名称和应用的Bundle ID。</p>
-<blockquote>
-<ol>
-<li><p>配置应用的图标。<br>使用<strong>${APP_ICON_NAME}@1x.png、${APP_ICON_NAME}@2x.png、${APP_ICON_NAME}@3x.png</strong>替代图标的名称。<br>==注意==：保证项目中有对应名称的图片！</p>
-<img src="/2017/06/14/iOS开发之同一应用设置不同图标和名称/info_plist_icon_name.png" alt="info_plist_icon_name" title="info_plist_icon_name">
-</li>
-<li><p>配置应用的名称<br>设置<strong>Bundle display name</strong>为<strong>${APP_DISPLAY_NAME}</strong>，其中<strong>APP_DISPLAY_NAME</strong>是前面<strong>User-Defined Setting</strong>中设置的应用程序名称的配置项。</p>
-<img src="/2017/06/14/iOS开发之同一应用设置不同图标和名称/info_plist_display_name.png" alt="info_plist_display_name" title="info_plist_display_name">
-</li>
-<li><p>配置Bundle ID<br>设置<strong>Bundle identifier</strong>为<strong>${BUNDLE_IDENTIFIER}</strong>，其中<strong>BUNDLE_IDENTIFIER</strong>是前面<strong>User-Defined Setting</strong>中设置的应用程序<strong>Bundle ID</strong>的配置项。</p>
-<img src="/2017/06/14/iOS开发之同一应用设置不同图标和名称/info_plist_bundle_id.png" alt="info_plist_bundle_id" title="info_plist_bundle_id">
-</li>
-</ol>
-</blockquote>
-<h2 id="实际使用"><a href="#实际使用" class="headerlink" title="实际使用"></a>实际使用</h2><p>以上步骤完成了基本的配置过程，接下来将应用以上的配置，完成不同图标和应用名称的App的运行和打包。</p>
-<blockquote>
-<ol>
-<li>点击Xcode项目左上角，停止运行按钮旁边的“项目名称”按钮, 打开<strong>Edit Scheme</strong>, 如下图所示：<img src="/2017/06/14/iOS开发之同一应用设置不同图标和名称/scheme_1.jpg" alt="scheme_1" title="scheme_1"></li>
-<li><p>选择对应的配置，项目就会使用不同的配置，如下图：</p>
-<img src="/2017/06/14/iOS开发之同一应用设置不同图标和名称/scheme_2.jpg" alt="scheme_2" title="scheme_2">
-</li>
-<li><p>最后效果如下：</p>
-<img src="/2017/06/14/iOS开发之同一应用设置不同图标和名称/f_results.jpg" alt="final_result" title="final_result">
-</li>
-</ol>
-</blockquote>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
-<li><a href="http://nilsou.com/blog/2013/07/29/how-to-have-two-versions-of-the-same-app-on-your-device/" target="_blank" rel="external">How to Have Two Versions of the Same App on Your Device</a></li>
-<li><a href="http://limlab.io/swift/2016/02/22/xcode-working-with-multiple-environments.html" target="_blank" rel="external">Xcode tricks. Deal with multiple environments easily</a></li>
-<li><a href="http://blog.csdn.net/u011303663/article/details/46503641" target="_blank" rel="external">iOS中-Xcode Debug、Release、Archive、Profile、Analyze的概念和区别</a></li>
-</ol>
+<p><code>Rect</code>结构同样提供了一个计算属性<code>center</code>。这个属性可以依赖orgin和size算出来，设置它，可以通过size，改变origin。也就是计算属性，主要是提供一些不是最原始的属性，但是又可以方便用户使用和设置的一种属性。</p>
+<h3 id="只读计算属性"><a href="#只读计算属性" class="headerlink" title="只读计算属性"></a>只读计算属性</h3><p>计算属性只有获取（getter）就叫做只读计算属性。只读计算属性经常返回一个值，所以可用<strong>点</strong>的语法获取。</p>
+<p>同样，可以用简写的形式，去掉<code>get</code>关键字和它的大括号：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Cuboid</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> width = <span class="number">0.0</span>, height = <span class="number">0.0</span>, depth = <span class="number">0.0</span></div><div class="line">    <span class="keyword">var</span> volume: <span class="type">Double</span> &#123;</div><div class="line">        <span class="keyword">return</span> width * height * depth</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> fourByFiveByTwo = <span class="type">Cuboid</span>(width: <span class="number">4.0</span>, height: <span class="number">5.0</span>, depth: <span class="number">2.0</span>)</div><div class="line"><span class="built_in">print</span>(<span class="string">"the volume of fourByFiveByTwo is \(fourByFiveByTwo.volume)"</span>)</div><div class="line"><span class="comment">// Prints "the volume of fourByFiveByTwo is 40.0"</span></div></pre></td></tr></table></figure>
+<h2 id="属性观察器"><a href="#属性观察器" class="headerlink" title="属性观察器"></a>属性观察器</h2><p>属性观察器观察并对属性值的变化作出响应。属性观察器，在每一次属性值设置的时候都会被调用，即使新的属性值和现在的值一样。</p>
+<p>你可以给任何存储属性添加属性观察器，除了懒加载存储属性。你也可以给任何继承的属性添加属性观察器，通过在子类中重写属性。</p>
+<p>你可以针对一个属性，定义单个或者同时定义两个观察器。</p>
+<ul>
+<li><code>willSet</code>在值被存储前被调用</li>
+<li><code>disSet</code>在新值存储后立即被调用</li>
+</ul>
+<p>如果你实现一个<code>willSet</code>观察器，它会被传递新的属性值作为常量参数，并且你可以对这个人参数指定一个名字。如果你不指定名字，这个参数的默认名字为<code>newValue</code>。</p>
+<p>类似的，如果你实现<code>disSet</code>观察器，它会被传递一个常量参数，包含的是先前的值。你同样可以为这个参数命名，或者使用默认值<code>oldValue</code>。</p>
+<p>接下来，是一个<code>willSet</code>和<code>disSet</code>的例子。这个例子，是一个<code>StepCounter</code>的类，用来记步，它用一个变量<code>totalSteps</code>来记录当前的步数。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">StepCounter</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> totalSteps: <span class="type">Int</span> = <span class="number">0</span> &#123;</div><div class="line">        <span class="keyword">willSet</span>(newTotalSteps) &#123;</div><div class="line">            <span class="built_in">print</span>(<span class="string">"About to set totalSteps to \(newTotalSteps)"</span>)</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">didSet</span> &#123;</div><div class="line">            <span class="keyword">if</span> totalSteps &gt; oldValue  &#123;</div><div class="line">                <span class="built_in">print</span>(<span class="string">"Added \(totalSteps - oldValue) steps"</span>)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> stepCounter = <span class="type">StepCounter</span>()</div><div class="line">stepCounter.totalSteps = <span class="number">200</span></div><div class="line"><span class="comment">// About to set totalSteps to 200</span></div><div class="line"><span class="comment">// Added 200 steps</span></div><div class="line">stepCounter.totalSteps = <span class="number">360</span></div><div class="line"><span class="comment">// About to set totalSteps to 360</span></div><div class="line"><span class="comment">// Added 160 steps</span></div><div class="line">stepCounter.totalSteps = <span class="number">896</span></div><div class="line"><span class="comment">// About to set totalSteps to 896</span></div><div class="line"><span class="comment">// Added 536 steps</span></div></pre></td></tr></table></figure>
+<p>这个类用一个变量<code>totalSteps</code>来记录当前的步数。无论什么时候，只要属性被赋予新值，其中的<code>willSet</code>和<code>disSet</code>观察器都会被调用。<code>willSet</code>中，每次都会输出新的步数。而在<code>didSet</code>中，当新的步数超过旧的步数的时候，就输出新增多少步。</p>
+<h2 id="全局和局部变量"><a href="#全局和局部变量" class="headerlink" title="全局和局部变量"></a>全局和局部变量</h2><p>以上所描述的计算和观察属性对全局和局部变量都试用。全局变量定义在任何函数、方法、闭包或者类型上下文的外面。其它情况，都是局部变量。</p>
+<h2 id="类型属性"><a href="#类型属性" class="headerlink" title="类型属性"></a>类型属性</h2><p>类型属性就是平常说的类属性，和类绑定，而和实例无关。</p>
+<p>类属性，同样也可以是变量或者常量。计算类型属性同样也只能是变量，同一般的实例属性一样。</p>
+<h3 id="类型属性语法"><a href="#类型属性语法" class="headerlink" title="类型属性语法"></a>类型属性语法</h3><p>定义类属性使用<code>static</code>关键字。对于需要继承的可计算类型属性，可以使用<code>class</code>关键字替代。下面是类属性的例子：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SomeStructure</span> </span>&#123;</div><div class="line">    <span class="keyword">static</span> <span class="keyword">var</span> storedTypeProperty = <span class="string">"Some value."</span></div><div class="line">    <span class="keyword">static</span> <span class="keyword">var</span> computedTypeProperty: <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">enum</span> <span class="title">SomeEnumeration</span> </span>&#123;</div><div class="line">    <span class="keyword">static</span> <span class="keyword">var</span> storedTypeProperty = <span class="string">"Some value."</span></div><div class="line">    <span class="keyword">static</span> <span class="keyword">var</span> computedTypeProperty: <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">6</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</div><div class="line">    <span class="keyword">static</span> <span class="keyword">var</span> storedTypeProperty = <span class="string">"Some value."</span></div><div class="line">    <span class="keyword">static</span> <span class="keyword">var</span> computedTypeProperty: <span class="type">Int</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">27</span></div><div class="line">    &#125;</div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">var</span> <span class="title">overrideableComputedTypeProperty</span>: <span class="title">Int</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">107</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -528,6 +503,8 @@
           
             <a href="/tags/应用/" rel="tag"># 应用</a>
           
+            <a href="/tags/Swift/" rel="tag"># Swift</a>
+          
         </div>
       
 
@@ -539,8 +516,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/" rel="next" title="设计模式之责任链[上]（Chain of Responsibility）">
-                <i class="fa fa-chevron-left"></i> 设计模式之责任链[上]（Chain of Responsibility）
+              <a href="/2017/06/27/chain-of-responsibility-2/" rel="next" title="设计模式之责任链[下]">
+                <i class="fa fa-chevron-left"></i> 设计模式之责任链[下]
               </a>
             
           </div>
@@ -548,10 +525,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/20/CSAPP-3-1/" rel="prev" title="CSAPP读书笔记 第3章 程序的机器级表示 访问信息">
-                CSAPP读书笔记 第3章 程序的机器级表示 访问信息 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -709,7 +682,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建不同的APP-ID"><span class="nav-number">1.</span> <span class="nav-text">创建不同的APP ID</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为不同的版本创建不同的图标"><span class="nav-number">2.</span> <span class="nav-text">为不同的版本创建不同的图标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用不同的配置（Build-Configurations）"><span class="nav-number">3.</span> <span class="nav-text">使用不同的配置（Build Configurations）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#整合所有配置"><span class="nav-number">4.</span> <span class="nav-text">整合所有配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#User-Defined-Setting"><span class="nav-number">4.1.</span> <span class="nav-text">User-Defined Setting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Info-plist"><span class="nav-number">4.2.</span> <span class="nav-text">Info.plist</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实际使用"><span class="nav-number">5.</span> <span class="nav-text">实际使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">6.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#存储属性"><span class="nav-number">1.</span> <span class="nav-text">存储属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常量结构体实例的存储属性"><span class="nav-number">1.1.</span> <span class="nav-text">常量结构体实例的存储属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#懒（加载）存储属性"><span class="nav-number">1.2.</span> <span class="nav-text">懒（加载）存储属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算属性"><span class="nav-number">2.</span> <span class="nav-text">计算属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#只读计算属性"><span class="nav-number">2.1.</span> <span class="nav-text">只读计算属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性观察器"><span class="nav-number">3.</span> <span class="nav-text">属性观察器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局和局部变量"><span class="nav-number">4.</span> <span class="nav-text">全局和局部变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型属性"><span class="nav-number">5.</span> <span class="nav-text">类型属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类型属性语法"><span class="nav-number">5.1.</span> <span class="nav-text">类型属性语法</span></a></li></ol></li></ol></div>
             
 
           </div>
