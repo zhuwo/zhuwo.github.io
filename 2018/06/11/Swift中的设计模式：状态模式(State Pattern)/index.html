@@ -1,0 +1,1207 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="技术,iOS开发,Swift,设计模式," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="如果你的对象拥有许多状态，那么你或许可以考虑一下使用状态模式。在这篇博文中，我们将覆盖到一些关于状态模式到一些理论，然后会以一个列子说明如何实现它。希望，阅读完这篇文章以后，你会比较熟悉状态设计模式。 状态设计模式当你在做项目的时候，很有可能碰到一个类有很多内部状态。举个栗子，比方说你有一个从服务器下载大图的类。这个类就有可能处于好几种不同的状态：请求中、下载中、处理中、保存中、、、等等。 在">
+<meta name="keywords" content="技术,iOS开发,Swift,设计模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift下的状态设计模式（State Pattern）">
+<meta property="og:url" content="http://yoursite.com/2018/06/11/Swift中的设计模式：状态模式(State Pattern)/index.html">
+<meta property="og:site_name" content="Geek">
+<meta property="og:description" content="如果你的对象拥有许多状态，那么你或许可以考虑一下使用状态模式。在这篇博文中，我们将覆盖到一些关于状态模式到一些理论，然后会以一个列子说明如何实现它。希望，阅读完这篇文章以后，你会比较熟悉状态设计模式。 状态设计模式当你在做项目的时候，很有可能碰到一个类有很多内部状态。举个栗子，比方说你有一个从服务器下载大图的类。这个类就有可能处于好几种不同的状态：请求中、下载中、处理中、保存中、、、等等。 在">
+<meta property="og:image" content="http://yoursite.com/2018/06/11/Swift中的设计模式：状态模式(State%20Pattern)/states.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/06/11/Swift中的设计模式：状态模式(State%20Pattern)/classdiagram.jpg">
+<meta property="og:updated_time" content="2018-06-11T11:18:56.592Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Swift下的状态设计模式（State Pattern）">
+<meta name="twitter:description" content="如果你的对象拥有许多状态，那么你或许可以考虑一下使用状态模式。在这篇博文中，我们将覆盖到一些关于状态模式到一些理论，然后会以一个列子说明如何实现它。希望，阅读完这篇文章以后，你会比较熟悉状态设计模式。 状态设计模式当你在做项目的时候，很有可能碰到一个类有很多内部状态。举个栗子，比方说你有一个从服务器下载大图的类。这个类就有可能处于好几种不同的状态：请求中、下载中、处理中、保存中、、、等等。 在">
+<meta name="twitter:image" content="http://yoursite.com/2018/06/11/Swift中的设计模式：状态模式(State%20Pattern)/states.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/11/Swift中的设计模式：状态模式(State Pattern)/"/>
+
+
+
+
+
+  <title>Swift下的状态设计模式（State Pattern） | Geek</title>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Geek</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/Swift中的设计模式：状态模式(State Pattern)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huanjian Jiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/me.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Geek">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Swift下的状态设计模式（State Pattern）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-11T19:18:01+08:00">
+                2018-06-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/" itemprop="url" rel="index">
+                    <span itemprop="name">Technology</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>  如果你的对象拥有许多状态，那么你或许可以考虑一下使用<strong>状态</strong>模式。在这篇博文中，我们将覆盖到一些关于<em>状态</em>模式到一些理论，然后会以一个列子说明如何实现它。希望，阅读完这篇文章以后，你会比较熟悉<em>状态</em>设计模式。</p>
+<h2 id="状态设计模式"><a href="#状态设计模式" class="headerlink" title="状态设计模式"></a>状态设计模式</h2><p>当你在做项目的时候，很有可能碰到一个类有很多内部状态。举个栗子，比方说你有一个从服务器下载大图的类。这个类就有可能处于好几种不同的状态：请求中、下载中、处理中、保存中、、、等等。</p>
+<p>在我们的例子中我们将使用一辆汽车。我们的汽车可以处于停止的状态，它也能够处于移动中、或者自动停车状态。这辆汽车将会有它的功能，比方说刹车和停车。根据汽车所处的状态，使用不同的功能将会有不一样的效果。如果对停止状态的汽车发送刹车指令，将没有任何效果；而对一个正在自动停车状态的车发送刹车指令，将会使汽车取消它的停车操作。</p>
+<p>这辆汽车能够内部控制它自己的状态，我们不需要知道，或者无须关心它到底处于什么状态。从本文前面的说明，你知道，调用同一个功能，但对象处于不同的状态的时候，会产生不一样的结果。这也给我们带来了<strong>状态</strong>设计模式带定义如下：</p>
+<blockquote>
+<p>状态设计模式将允许一个对象的行为，当它的内部状态改变的时候。这个改变状态的对象将能够改变它带类。</p>
+</blockquote>
+<p>到这里为止，已经足够覆盖状态设计模式的理论。接下来，让我们先看一下几幅图表。</p>
+<h2 id="汽车状态"><a href="#汽车状态" class="headerlink" title="汽车状态"></a>汽车状态</h2><p>我们将要在一个汽车类上实现“状态设计模式”。我们的汽车将会有三个不一样的状态，如图1-1</p>
+<img src="/2018/06/11/Swift中的设计模式：状态模式(State%20Pattern)/states.jpg" alt="图1-1" title="图1-1">
+<p>汽车能够改变状态，但是有几个规则需要遵守。例如，你不能直接从移动状态变为停车状态，你需要先转换到停止状态。</p>
+<p>如果你正在思考如何将这个动作实现到你的汽车类当中，你也许会想到用一个枚举来存储汽车类的状态信息。想象一下你的函数将会是怎么样的，你的代码中会出现很多siwtch cases。你的汽车类将会变的相当庞大，并且会难以维护。</p>
+<p>我们将要做的是，将每个’cases’或者状态独立成它自己的一个类。汽车类将会有一个对当前状态的引用。这将允许它们控制汽车的当前状态。下面图1-2，是一个关于我们类的层次的简要图。</p>
+<img src="/2018/06/11/Swift中的设计模式：状态模式(State%20Pattern)/classdiagram.jpg" alt="图1-2" title="图1-2">
+<p>让我们具体来研究一下它，并且开始着手写代码。。。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>我们将会尽量保持代码简单，便于理解。我们的汽车类将会有三个函数，一个变量用来存储速度和一些创建状态的工厂方法；</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Foundation</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">VehicleProtocol</span>: <span class="title">class</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// MARK: - Vehicle State</span></div><div class="line">    <span class="keyword">var</span> speed: <span class="type">Int</span> &#123; <span class="keyword">get</span> <span class="keyword">set</span> &#125;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">setState</span><span class="params">(<span class="number">_</span> state: VehicleState)</span></span></div><div class="line">    </div><div class="line">    <span class="comment">// MARK: - Vehicle Controls</span></div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">accelerate</span><span class="params">()</span></span></div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">brake</span><span class="params">()</span></span></div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">park</span><span class="params">()</span></span></div><div class="line">    </div><div class="line">    <span class="comment">// MARK: - State Getters</span></div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">getStoppedState</span><span class="params">()</span></span> -&gt; <span class="type">VehicleState</span></div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">getMovingState</span><span class="params">()</span></span> -&gt; <span class="type">VehicleState</span></div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">getParkingState</span><span class="params">()</span></span> -&gt; <span class="type">VehicleState</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>一个使用汽车的类，一般情况下只有通过调用‘vehicle controls’是那个函数之一，来跟汽车交互。 其他的函数/变量意味着是被状态类使用的。</p>
+<p>调用任何控制函数只是简单的将函数推向那个状态，而当前的汽车状态将会处理它；</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">accelerate</span><span class="params">()</span></span> &#123;</div><div class="line">    state?.accelerate()</div><div class="line">&#125;</div><div class="line">    </div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">brake</span><span class="params">()</span></span> &#123;</div><div class="line">    state?.brake()</div><div class="line">&#125;</div><div class="line">    </div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">park</span><span class="params">()</span></span> &#123;</div><div class="line">    state?.park()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们的汽车同样也会有工厂方法，能够创建汽车状态；</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// MARK: - State Getters</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">getStoppedState</span><span class="params">()</span></span> -&gt; <span class="type">VehicleState</span> &#123;</div><div class="line">    <span class="keyword">return</span> <span class="type">StoppedState</span>(<span class="keyword">self</span>)</div><div class="line">&#125;</div><div class="line">    </div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">getMovingState</span><span class="params">()</span></span> -&gt; <span class="type">VehicleState</span> &#123;</div><div class="line">    <span class="keyword">return</span> <span class="type">MovingState</span>(<span class="keyword">self</span>)</div><div class="line">&#125;</div><div class="line">    </div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">getParkingState</span><span class="params">()</span></span> -&gt; <span class="type">VehicleState</span> &#123;</div><div class="line">    <span class="keyword">return</span> <span class="type">ParkingState</span>(<span class="keyword">self</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>现在你将在这里开始看到模式的合并。每个状态类有一个指回汽车的指针，而且它能够创建新的状态。现在，最终只剩下实现状态类了。</p>
+<h2 id="状态类（State-Classes）"><a href="#状态类（State-Classes）" class="headerlink" title="状态类（State Classes）"></a>状态类（State Classes）</h2><p>我们将针对我们的汽车状态使用一个协议（Protocol）:<br>  <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">  <span class="keyword">import</span> Foundation</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">VehicleState</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">init</span>(<span class="number">_</span> vehicle: <span class="type">VehicleProtocol</span>)</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">accelerate</span><span class="params">()</span></span></div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">brake</span><span class="params">()</span></span></div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">park</span><span class="params">()</span></span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>  每个状态函数将会有一个指回汽车类的引用。并且每个状态类将会实现汽车的控制函数。我们将会在接下来的一刻看到，对每个独立的状态类来说，调用汽车的控制函数，将会有不通的意义。</p>
+<h3 id="停止状态（Stopped）"><a href="#停止状态（Stopped）" class="headerlink" title="停止状态（Stopped）"></a>停止状态（Stopped）</h3><p>  让我们先看一下最简单的状态，停止状态；</p>
+  <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">  <span class="class"><span class="keyword">class</span> <span class="title">StoppedState</span>: <span class="title">VehicleState</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">weak</span> <span class="keyword">var</span> vehicle: <span class="type">VehicleProtocol</span>?</div><div class="line">    </div><div class="line">    <span class="keyword">required</span> <span class="keyword">init</span>(<span class="number">_</span> vehicle: <span class="type">VehicleProtocol</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.vehicle = vehicle</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">accelerate</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="keyword">self</span>.vehicle?.speed += <span class="number">5</span></div><div class="line">        <span class="keyword">if</span> <span class="keyword">let</span> movingState = <span class="keyword">self</span>.vehicle?.getMovingState() &#123;</div><div class="line">            <span class="keyword">self</span>.vehicle?.setState(movingState)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">brake</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"Can't brake... Vehicle is already stopped!"</span>)</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">park</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="keyword">if</span> <span class="keyword">let</span> parkingState = <span class="keyword">self</span>.vehicle?.getParkingState() &#123;</div><div class="line">            <span class="keyword">self</span>.vehicle?.setState(parkingState)</div><div class="line">            parkingState.park()</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>  当汽车在停止状态的时候，调用‘accelerate’方法，将会提高汽车的速度5（kph，具体多少并不重要）。它也同样会使得汽车变成新的状态，也就是移动状态。调用‘brake’函数不会有任何作用，因为汽车已经没有在移动了。而且调用‘park’函数将会开启自动停车的过程。</p>
+<h3 id="停车状态（Parking）"><a href="#停车状态（Parking）" class="headerlink" title="停车状态（Parking）"></a>停车状态（Parking）</h3><p>停车状态稍微有点意思；</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ParkingState</span>: <span class="title">VehicleState</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">weak</span> <span class="keyword">var</span> vehicle: <span class="type">VehicleProtocol</span>?</div><div class="line">    <span class="keyword">private</span> <span class="keyword">var</span> parking: <span class="type">Bool</span> = <span class="literal">false</span></div><div class="line">    </div><div class="line">    <span class="keyword">required</span> <span class="keyword">init</span>(<span class="number">_</span> vehicle: <span class="type">VehicleProtocol</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.vehicle = vehicle</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">accelerate</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"Vehicle is automatically parking, you can't accelerate!"</span>)</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">brake</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"Automatic parking has been aborted"</span>)</div><div class="line">        stopParking()</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">park</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="keyword">guard</span> <span class="keyword">self</span>.parking == <span class="literal">false</span> <span class="keyword">else</span> &#123;</div><div class="line">            <span class="built_in">print</span>(<span class="string">"Vehicle is already parking"</span>)</div><div class="line">            <span class="keyword">return</span></div><div class="line">        &#125;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"Vehicle is now parking"</span>)</div><div class="line">        <span class="keyword">self</span>.parking = <span class="literal">true</span></div><div class="line">        <span class="type">DispatchQueue</span>.global().asyncAfter(deadline: .now() + <span class="number">5</span>) &#123;</div><div class="line">            <span class="keyword">self</span>.stopParking()</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">stopParking</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"Vehicle has stopped parking"</span>)</div><div class="line">        <span class="keyword">self</span>.parking = <span class="literal">false</span></div><div class="line">        <span class="keyword">if</span> <span class="keyword">let</span> stoppedState = <span class="keyword">self</span>.vehicle?.getStoppedState() &#123;</div><div class="line">            <span class="keyword">self</span>.vehicle?.setState(stoppedState)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里，我们可以看到‘brake’函数将会停止汽车的停车过程。而调用‘park’函数将会引发一系列的事件。你可以对这个方法的内容提出异议，也就是针对‘停止状态’可以有更好的方法，但是为了简单，让我们暂时保持这样。</p>
+<h3 id="移动状态（Moving）"><a href="#移动状态（Moving）" class="headerlink" title="移动状态（Moving）"></a>移动状态（Moving）</h3><p>移动状态也同样相当简单；</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MovingState</span>: <span class="title">VehicleState</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">weak</span> <span class="keyword">var</span> vehicle: <span class="type">VehicleProtocol</span>?</div><div class="line">    </div><div class="line">    <span class="keyword">required</span> <span class="keyword">init</span>(<span class="number">_</span> vehicle: <span class="type">VehicleProtocol</span>) &#123;</div><div class="line">        <span class="keyword">self</span>.vehicle = vehicle</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">accelerate</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="keyword">self</span>.vehicle?.speed += <span class="number">5</span></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">brake</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="keyword">self</span>.vehicle?.speed -= <span class="number">5</span></div><div class="line">        <span class="keyword">if</span> <span class="keyword">self</span>.vehicle?.speed == <span class="number">0</span>, <span class="keyword">let</span> stoppedState = <span class="keyword">self</span>.vehicle?.getStoppedState() &#123;</div><div class="line">            <span class="built_in">print</span>(<span class="string">"Vehicle braked to a stop"</span>)</div><div class="line">            <span class="keyword">self</span>.vehicle?.setState(stoppedState)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">park</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"Can't park the vehicle while it's moving. You need to stop first"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们可以在这里看到，我们在‘brake’函数中有一小段逻辑，就是，如果速度掉到0 的时候，将会使得汽车的状态进入到停止状态。</p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>让我们迫不及待的测试一下，我们的汽车：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">testVehicle</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">let</span> vehicle = <span class="type">Vehicle</span>()</div><div class="line">    vehicle.brake()</div><div class="line">    vehicle.accelerate()</div><div class="line">    vehicle.accelerate()</div><div class="line">    vehicle.brake()</div><div class="line">    vehicle.park() <span class="comment">// prints: Can't park the vehicle while it's moving. You need to stop first</span></div><div class="line">    vehicle.brake()</div><div class="line">    vehicle.park()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们可以看到，我们第一次调用‘park’方法将会打印出一条消息，意思是汽车需要是停止状态的，当我们刹车以后，第二次调用，才会产生预期的结果。这个简单的测试表现出了我们的汽车是如何在运行中改变状态的。调用同一个类实例的一个方法会产生不一样的结果。然后，这就是<strong>状态</strong>模式的精髓。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>当你看到一类有很多的<code>switch-case</code>语句的时候，就表示你可以考虑一下使用状态模式。我们可以很简单的使用枚举来表示汽车的当前状态。但是函数会变得很庞大，业务逻辑将会出现在case代码快里边，代码将会很容易的变得杂乱而难以维护。这个简单的设计模式就能解决这个问题。当然你会以更多的类，在你的类图中，但是代码会更加易于理解。</p>
+<p>我希望今天你能在这学到一些新东西，新知识。<br>和往常一样，希望有一个开心的日子😊</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/技术/" rel="tag"># 技术</a>
+          
+            <a href="/tags/iOS开发/" rel="tag"># iOS开发</a>
+          
+            <a href="/tags/Swift/" rel="tag"># Swift</a>
+          
+            <a href="/tags/设计模式/" rel="tag"># 设计模式</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/25/同步和异步/" rel="next" title="同步和异步">
+                <i class="fa fa-chevron-left"></i> 同步和异步
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/me.JPG"
+               alt="Huanjian Jiang" />
+          <p class="site-author-name" itemprop="name">Huanjian Jiang</p>
+           
+              <p class="site-description motion-element" itemprop="description">Programmers to be Geek</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zhuwo" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/huanjianjiang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/zhuwoleap" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#状态设计模式"><span class="nav-number">1.</span> <span class="nav-text">状态设计模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#汽车状态"><span class="nav-number">2.</span> <span class="nav-text">汽车状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#状态类（State-Classes）"><span class="nav-number">4.</span> <span class="nav-text">状态类（State Classes）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#停止状态（Stopped）"><span class="nav-number">4.1.</span> <span class="nav-text">停止状态（Stopped）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#停车状态（Parking）"><span class="nav-number">4.2.</span> <span class="nav-text">停车状态（Parking）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移动状态（Moving）"><span class="nav-number">4.3.</span> <span class="nav-text">移动状态（Moving）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">5.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Huanjian Jiang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (search_path.endsWith("json")) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <script type="text/javascript" src="/js/src/particle.js"></script>
+
+</body>
+</html>
