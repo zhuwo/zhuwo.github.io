@@ -1,0 +1,1322 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="技术,iOS开发,应用,面试," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="从今年8月初开始找工作到现在，历时一个半月，终于进入了收尾的时候。这一个半月经历了很多，学习了很多，也成长了很多，所以做个总结。总结既是对这一个半月学到的东西，进行一个梳理，也是对未来的一个展望：公司需要的是什么样的人才，看中你的什么？自己需要培养什么技能，需要哪些习惯？本文按照三部分来做总结：第一部分，公司需要什么样的人才；第二部分，自己需要培养什么；第三部分，应聘iOS需要掌握些什么。第三部分">
+<meta name="keywords" content="技术,iOS开发,应用,面试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2018年iOS面试总结">
+<meta property="og:url" content="http://yoursite.com/2018/09/20/2018年iOS面试总结/index.html">
+<meta property="og:site_name" content="Geek">
+<meta property="og:description" content="从今年8月初开始找工作到现在，历时一个半月，终于进入了收尾的时候。这一个半月经历了很多，学习了很多，也成长了很多，所以做个总结。总结既是对这一个半月学到的东西，进行一个梳理，也是对未来的一个展望：公司需要的是什么样的人才，看中你的什么？自己需要培养什么技能，需要哪些习惯？本文按照三部分来做总结：第一部分，公司需要什么样的人才；第二部分，自己需要培养什么；第三部分，应聘iOS需要掌握些什么。第三部分">
+<meta property="og:updated_time" content="2018-09-20T04:45:39.240Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2018年iOS面试总结">
+<meta name="twitter:description" content="从今年8月初开始找工作到现在，历时一个半月，终于进入了收尾的时候。这一个半月经历了很多，学习了很多，也成长了很多，所以做个总结。总结既是对这一个半月学到的东西，进行一个梳理，也是对未来的一个展望：公司需要的是什么样的人才，看中你的什么？自己需要培养什么技能，需要哪些习惯？本文按照三部分来做总结：第一部分，公司需要什么样的人才；第二部分，自己需要培养什么；第三部分，应聘iOS需要掌握些什么。第三部分">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/20/2018年iOS面试总结/"/>
+
+
+
+
+
+  <title>2018年iOS面试总结 | Geek</title>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Geek</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/20/2018年iOS面试总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huanjian Jiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/me.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Geek">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">2018年iOS面试总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-20T12:45:54+08:00">
+                2018-09-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Technology/" itemprop="url" rel="index">
+                    <span itemprop="name">Technology</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>从今年8月初开始找工作到现在，历时一个半月，终于进入了收尾的时候。这一个半月经历了很多，学习了很多，也成长了很多，所以做个总结。总结既是对这一个半月学到的东西，进行一个梳理，也是对未来的一个展望：公司需要的是什么样的人才，看中你的什么？自己需要培养什么技能，需要哪些习惯？本文按照三部分来做总结：第一部分，公司需要什么样的人才；第二部分，自己需要培养什么；第三部分，应聘iOS需要掌握些什么。第三部分，思路是按照第一部分和第二部分的总结，针对iOS需要的一个梳理。本文是从面试iOS的角度出发的，接下来的博文中的一些表达和思考可能会与计算机专业和iOS相关性比较大。</p>
+<h1 id="公司需要什么样的人才"><a href="#公司需要什么样的人才" class="headerlink" title="公司需要什么样的人才"></a>公司需要什么样的人才</h1><h2 id="有哪些公司（目标）"><a href="#有哪些公司（目标）" class="headerlink" title="有哪些公司（目标）"></a>有哪些公司（目标）</h2><p>根据我面试的经历，我这边把公司分为四类，A类、B类、C类、D类，知名度和难度都是依次递减。A类是属于技术行业领先、知名度行业领先、公司业务发展行业领先，就我们行业论，BAT自是无话可说（这边不考虑巨头如Google、Facebook），还有已经被人熟知的京东，网易等，以及近几年崛起的如今日头条、滴滴、美团、饿了么等等。B类是，近两年发展很迅速，前景还不错的公司，如拼多多、爱奇艺。C类是已经稳定发展的创业公司，业务和各方面都还不错，资金都很充足。最后一类D类，可能是属于一些创业公司比较初期，或者是一些大公司旗下的子公司，也有可能是一些海外公司在国内拓展业务的子公司，这一类相对来说，人员不是很充足，团队也还需要壮大，一般比较冒险。</p>
+<h2 id="公司是怎么样的要求"><a href="#公司是怎么样的要求" class="headerlink" title="公司是怎么样的要求"></a>公司是怎么样的要求</h2><p>这边，都是根据我自己面试经验的总结和推敲，不同类的公司，一般是怎么样的要求，如果有不对或不合理的地方，恳请指正。</p>
+<p>由于有些要求是类似的，或者必须的，如果自上而下（A类-&gt;D类）介绍可能会有重复累赘，所以这边自下而上介绍。</p>
+<p>首先是D类，这类公司一般会有一个明确的，需要的业务，比方说我面过的一家，是想自己包装一个浏览器，针对用户流量做一些事情。所以它可能会需要至少它业务相关方面的知识储备是有的，比方说对网络协议比较清楚，DNS比较了解。然后你去了，可能也不仅仅是做一个方向的事情，比方说你做APP客户端，如果会后台，也需要帮衬一下，可能相对会有一些杂事。然后，一些框架，前后端的架构，很有可能是用一些比较现成的。总的来说，要求不高，但还是可能会考你一些很基础的东西，简单的算法题，网络和操作系统的一些知识。</p>
+<p>接下来是C类，这类公司业务比较成熟，技术团队规模不会太大，但一般都是相对有经验的人。它们的要求，除了你拥有基础以外，更多的可能是，实际经验，业务能力。我觉得，这方面短时间，比较难以补出来，所以还是有一定难度的。它们一般对基础不会问的太深入，但是会给你一个业务场景，需要你去实现这种业务场景。可能更需要的是，你平常对技术有研究，比方说热更新，平常业务可能很少用到，但是你如果去研究这种技术，看相关源码和实现，甚至动手写Demo，做实验，有这样的积累也是不错的。总之，要么你之前的公司很多业务，技术都是比较丰富的，要么自己研究的比较多。</p>
+<p>然后再来看B类，这类公司发展和前景都不错，而且处于扩张期，粗放增长。它们对人才的需求量比较大，既有一定的基础，又有大量的业务。所以，对人才一般来说，基础会多看重些，经验可以相对少一些。它们的面试一般，会偏向计算机基础，但是会比较深入，算法要求会比较高。当然，对你所从事的方向的知识，考察的也会比较多。</p>
+<p>最后是A类，这一类基本算是TOP了，既然是Top，要求也是Top了。不但对你的计算机基础，算法功底要求很高；对你从事方向的知识掌握也要比较全面；还有对你解决问题的能力要求都比较高。当然，经验充足，基础扎实，技术栈丰富。这些，都是作为一个技术人员，不断追求的目标。<strong>基础</strong>，是解决问题的能力和思路来源；<em>经验</em>，是解决问题的能力体现和积累；技术栈或知识储备，是未来发展方向和Idea的来源。</p>
+<h1 id="自己需要培养什么"><a href="#自己需要培养什么" class="headerlink" title="自己需要培养什么"></a>自己需要培养什么</h1><p>总结，上文的公司要求，自己需要培养的能力和积累的东西，主要有: 基础，从事方向基础和原理，经验+及时更新自己的知识库，跟上最新的技术潮流。</p>
+<p>首先是基础，计算机基础无非是：操作系统（编译链接），网络，算法和数据结构。</p>
+<h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><p>主要考察最多的是：线程、进程。</p>
+<h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3><p>考察线程的东西最多</p>
+<ol>
+<li>线程和进程的区别和联系</li>
+<li>多线程的实现方法</li>
+<li>如何保证线程安全？加锁有哪几种方式/锁的实现方式有哪些？</li>
+<li>死锁是什么？发生的条件？</li>
+</ol>
+<h3 id="编译连接"><a href="#编译连接" class="headerlink" title="编译连接"></a>编译连接</h3><ol>
+<li>C程序是如何一步一步变为可执行文件的？</li>
+<li>虚拟内存是什么，一个程序的内存分配是怎么样的？</li>
+<li>编译器做的什么？链接期又做的什么？</li>
+<li>静态库和动态库的区别？为什么要有动态库？</li>
+<li>main函数是什么，为什么C程序的入口默认是main函数？</li>
+</ol>
+<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><p>基础的五层网络模型，TCP三次握手（四次挥手），上层的应用层（比较常见的有HTTP）</p>
+<h3 id="TCP-UDP"><a href="#TCP-UDP" class="headerlink" title="TCP/UDP"></a>TCP/UDP</h3><ol>
+<li>TCP和UDP的区别，哪些场景适合用UDP？</li>
+<li>TCP如何进行拥塞避免？</li>
+<li>滑动窗口是什么？具体是怎么样的？</li>
+</ol>
+<h3 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h3><p>详细列举一下HTTP的关键知识： HTTP是一种无状态和无连接的协议（原因？）</p>
+<ol>
+<li>HTTP发送和接收的消息是如何包装的：头部+主体</li>
+<li>HTTP头部有哪些组成成分（最主要的是哪些）？</li>
+<li>HTTPS和HTTP的区别，HTTPS具体是怎么样实现请求的？</li>
+</ol>
+<h2 id="算法和数据结构"><a href="#算法和数据结构" class="headerlink" title="算法和数据结构"></a>算法和数据结构</h2><p>数据结构都是一些常用的，算法是需要不断练，也就是刷题的，这里推荐一些书籍。’</p>
+<p>如果你对基础算法还不是很了解，《数据结构与算法分析》，有C语言版和Java版，简单易懂，看完就会对基本的数据结构比较了解，还有一些不太常用的数据结构也有介绍，希尔排序、不相交集、B树等。</p>
+<p>如果想要进阶，肯定是《算法导论》，相对比较深奥，难以理解，可以挑自己感兴趣的，比方说，算法导论里的快排，简短精妙，短短几行代码就写完了，而且对复杂度的分析、改版都很透彻。</p>
+<p>还有就是一些刷题的OJ，找工作本人比较推荐LeetCode。LeetCode的题分三个等级，Easy\Medium\Hard。如果你很久没写算法题，推荐先从Easy刷起，Easy和Medium的题一般考察的是对基本的算法和数据结构的掌握，所以一般基础相对薄弱的，就刷Easy和Medium就行了；Hard级别的偶尔想要挑战一下的时候，可以试一下。<br>然后刷题有几点建议：1. 推荐C++刷题：C++既需要你对算法有一定的思考（不那么方便），C++又有STL，有一些基本数据结构和算法可以拿来直接用，是锻炼算法的最佳（我认为）语言。 2. 不要用IDE，直接用LeetCode的编辑器：不借助IDE，有助于记住基本的API，忘记了就去cplusplus（C++）查询 ，培养手写代码的能力 3. 尽量自己写出来，实在写不出来，先看Hint；还不行，再看Discuss, 可以找Votes比较高的；最后写完了，或者写不出来，再看Solution。<br>LeetCode还有一个功能就是Tag, 按数据结构分: Tree、Stack、Graph等；所以还有一种思路，你可以先看完《数据结构与算法分析》的某一章，比方说“树”，然后专门刷Tree的题，巩固和提高对它的掌握。</p>
+<h1 id="应聘iOS需要掌握些什么"><a href="#应聘iOS需要掌握些什么" class="headerlink" title="应聘iOS需要掌握些什么"></a>应聘iOS需要掌握些什么</h1><p>上面部分主要是作为计算机（IT）面试都需要掌握的知识，只是不同方向，不同公司可能深浅不一，我也只是从我的面试经历总结，可能会有偏颇和遗漏。接下来的部分，是我作为一个iOS开发，面试iOS岗位的一些知识的总结。</p>
+<p>我按三个部分来讲，原理，架构和其他，其他部分比较杂，但是是一些做iOS都会用到的知识和技能。</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><ol>
+<li>Objective-C Runtime</li>
+<li>iOS Runloop</li>
+<li>事件响应链</li>
+<li>内存管理：MRC，ARC，autorelease</li>
+<li>Block</li>
+<li>GCD</li>
+<li>JSCore(Exception)</li>
+</ol>
+<h3 id="Objective-C-Runtime"><a href="#Objective-C-Runtime" class="headerlink" title="Objective-C Runtime"></a>Objective-C Runtime</h3><p>最基本的，要对Runtime有一定了解，OC的Runtime是什么？消息是如何转发的？</p>
+<p>会问到的一些问题：</p>
+<blockquote>
+<ol>
+<li>你怎么理解OC的动态性?</li>
+<li>系统有哪些利用Runtime的应用？（KVO， Category）</li>
+<li>KVO是怎么实现的？</li>
+<li>Category可以添加方法吗？可以添加属性吗？为什么?</li>
+<li>Runtime有哪些应用？</li>
+<li>NSProxy了解吗？</li>
+<li>RunTime中涉及到的结构体是怎么样的？</li>
+</ol>
+</blockquote>
+<h3 id="iOS-Runloop"><a href="#iOS-Runloop" class="headerlink" title="iOS Runloop"></a>iOS Runloop</h3><p>基本的，要对Runloop了解？Runloop是什么？它的结构是怎么样的？Runloop的内部逻辑（流程）？</p>
+<p>会问到的一些问题：</p>
+<blockquote>
+<ol>
+<li>如何把一个任务放到下一个Runloop执行？</li>
+<li>为什么Tableview下拉刷新的时候，timer会失效？解决方法？</li>
+<li>Timer放在主线程和子线程一样吗？如果不一样，有什么区别？</li>
+<li>为什么Timer必须要invalidate?</li>
+</ol>
+</blockquote>
+<h3 id="事件响应链"><a href="#事件响应链" class="headerlink" title="事件响应链"></a>事件响应链</h3><p>基本的，描述iOS事件传递的整个过程？</p>
+<p>会问到的一些问题：</p>
+<blockquote>
+<ol>
+<li>有这样一个应用场景。一个应用的Tabbar上，有几个按钮，但是按钮的一部分在Tabbar范围外，如何做到点击按钮Tabbar范围外的地方，也能响应？</li>
+<li>给一个Tableview的Cell添加手势，事件响应链会有怎么样的变化？会先响应手势呢，还是Cell会先响应？</li>
+<li>UIControl在事件响应链中的作用，以及它的优先级？</li>
+</ol>
+</blockquote>
+<h3 id="内存管理：MRC，ARC，autorelease"><a href="#内存管理：MRC，ARC，autorelease" class="headerlink" title="内存管理：MRC，ARC，autorelease"></a>内存管理：MRC，ARC，autorelease</h3><p>内存管理，基本的，iOS的内存管理是怎么样的?然后比较多问的，是问OC属性相关引发的问题</p>
+<p>会问到的一些问题：</p>
+<blockquote>
+<ol>
+<li>OC的属性中，哪些和内存相关？</li>
+<li>哪些类型需要用copy属性？</li>
+<li>assign一般修饰什么？它可以修饰对象吗？</li>
+<li>strong和weak的区别？weak是如何实现的？</li>
+<li>如何避免循环引用？</li>
+<li>weak和unsafe_unretained有什么区别？什么情况下会用到unsafe_unretained？</li>
+<li>autoreleasepool了解吗？什么情况下会需要用到？</li>
+</ol>
+</blockquote>
+<h3 id="Block"><a href="#Block" class="headerlink" title="Block"></a>Block</h3><p>基本的，Block是什么,为什么要有Block？Block是如何实现的？它放在内存的哪个区域？</p>
+<p>会问到的一些问题：</p>
+<blockquote>
+<ol>
+<li>什么情况下需要用<strong>block，</strong>block是如何实现的，对应的对象是放在堆上还是栈上？</li>
+<li>block会造成循环引用吗？什么情况下会造成？有哪些方法解决循环引用？</li>
+<li>block为何一般需要copy属性？</li>
+</ol>
+</blockquote>
+<h3 id="GCD"><a href="#GCD" class="headerlink" title="GCD"></a>GCD</h3><p>GCD和多线程相关，所以会问一些线程相关的东西引入。比方说iOS有哪几种多线程的方式？OperationQueue和GCD的区别？GCD的优势和劣势？</p>
+<p>会问到的一些问题：</p>
+<blockquote>
+<ol>
+<li>如何理解dispatch_async和dispatch_sync？</li>
+<li>什么情况下会用到dispatch_group？</li>
+<li>如何理解串行队列和并行队列？它是怎么实现的？</li>
+<li>main_queue和global_queue是什么？分别是串行的，还是并行的？</li>
+<li>如果一个通知在global_queue中添加observer，然后又再main_queue中发送通知，那么这个通知的任务最后在主线程，还是子线程执行？</li>
+<li>dispatch_once是如何保证原子性的？</li>
+<li>每创建一个新的队列就会产生一个新的线程吗？线程数量是有限的吗？如果要你定一个线程池的大小，你会选择多大？理由？</li>
+</ol>
+</blockquote>
+<h3 id="JSCore"><a href="#JSCore" class="headerlink" title="JSCore"></a>JSCore</h3><p>JSCore相比于前面的原理不是那么重要，但是很多与JS打交道的东西都和它有关，比方说热更新的一些方案，JS_bridge的实现方案，RN、Weekx，都是基于它的；还有，最基本的，iOS的浏览器内核，主要是WebKit，主要的组成就是JSCore。主要是要搞清楚Webkit的组成，JSCore在其中扮演的角色，它是干什么的?</p>
+<h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><p>iOS主要架构有MVC、MVP、MVVM，还有VIPER。可以找一些相关的博文深入理解和分析一下。关于MVVM，推荐Limboy的博客，介绍MVVM和使用RAC实现MVVM讲得很详细。</p>
+<p>可能会问的问题：</p>
+<ol>
+<li>你怎么理解MVC和MVVM？</li>
+<li>我们知道RxSwift可以很容易实现数据的绑定，那么你知道它的原理吗？它是基于RAC的，对RAC的实现了解吗？</li>
+</ol>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ol>
+<li>组件化</li>
+<li>热更新</li>
+<li>持续化集成（CI）</li>
+<li>设计模式</li>
+<li>第三方库</li>
+</ol>
+<h3 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h3><p>组件化是17年比较火的一个概念，最早是由蘑菇街的Limboy提出组件化的方案和思路，然后Casa针对Limboy的方案提出一些改进和建议的思路，并给出了简单的Demo, 然后Bang在前三篇文章基础之上做了清晰的总结；然后，就掀起了一片讨论和热潮。我这边就不详细讨论了，研究得也还不是很透彻，所以，就简单贴几个链接。如果作者觉得侵权了，可以随时联系我删除。</p>
+<ol>
+<li><a href="http://limboy.me/tech/2016/03/10/mgj-components.html" target="_blank" rel="external">蘑菇街组件化之路</a></li>
+<li><a href="https://casatwy.com/iOS-Modulization.html" target="_blank" rel="external">iOS应用架构谈 组件化方案</a></li>
+<li><a href="http://limboy.me/tech/2016/03/14/mgj-components-continued.html" target="_blank" rel="external">蘑菇街 App 的组件化之路·续</a></li>
+<li><a href="http://blog.cnbang.net/tech/3080/" target="_blank" rel="external">iOS 组件化方案探索</a></li>
+</ol>
+<h3 id="热更新"><a href="#热更新" class="headerlink" title="热更新"></a>热更新</h3><p>热更新，是利用Objective-C的动态性，加上JSCore，实现对已有代码的更新和修复。所以，主要利用了OC的runtime和JSCore实现。使用最广泛第三方库实现是JSPatch，作者有对它实现整个库的过程和原理，有详细的博文说明。通过阅读它的源码和分析，基本上可以对热更新这一技术有一个比较全面的了解。</p>
+<h3 id="持续化集成（continue-integrate）"><a href="#持续化集成（continue-integrate）" class="headerlink" title="持续化集成（continue integrate）"></a>持续化集成（continue integrate）</h3><p>持续化集成，是一个能够极大提高生产效率的一个思路。由于，很多公司的项目庞大，编译一次可能耗时几小时，甚至几天的时间。所以，能够在合适的时间自动编译，自动部署可以大幅度的减少一些重复和不必要的工作。目前iOS用的比较多的，有Jenkins和Fastlane。本人研究还不够深入，所以暂时不详细阐述。</p>
+<h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><p>设计模式，其实面是向对象开发过程中，为了提高代码的复用性、可读性和可靠性，一套被反复使用的、许多程序猿验证使用、并梳理分类过的总结。苹果在iOS系统上，自己本身就应用了很多常见的设计模式。关于设计模式，网上介绍的有一大堆，但真实能否用起来，理解可能光看这些还不够。</p>
+<p>我这边推荐一本书，《设计模式:可复用面向对象软件的基础(英文版)》，它囊括了基本所有常见的设计模式，而且每个设计模式，都是按目的、动机、结构、应用场景、优缺点和实际例子，还有常见的具体应用来讲述的。稍稍有点比较晦涩难懂，是因为它需要一定的抽象能力，但是你一旦理解了，对这个设计模式掌握得也就比较透彻了。书中的例子都是用C++写的，想必程序员对C++都应该不会陌生。</p>
+<h3 id="第三方库"><a href="#第三方库" class="headerlink" title="第三方库"></a>第三方库</h3><p>第三方库，平常开发过程中经常会用到第三方库，由于它们的各种优点：易用、安全、高效等。其实，一些优秀的第三方库有很多值得我们学习和借鉴的地方，平常如果经常阅读它们的源代码可以学到很多东西。它们实现某个功能的思路，和解决问题的方法，还有一些良好的代码习惯，甚至是应对一些小点的一些Trick。有些第三方库的作者，不仅开源它们的代码，还自己写博客分析它们的库和写库的经历。作为一个程序员，学习和模仿是必备技能，而阅读第三方库，是一个相对比较高效和受益颇多的方法。</p>
+<p>扯完淡，讲点实在的，简单介绍一下iOS常用的第三方库。</p>
+<p>AFNetwork，客户端与后台、或固件的交互都是基于网络请求的，苹果系统自带就有网络请求库，URLConnection、URLSession，那么既然系统自带，为什么不用系统的呢？通过阅读AFNetwork，你能知道一个HTTP请求构成，需要哪些步骤，消息如何封装，还能看到它使如何处理和安排上层的多个请求的，还能够大致了解和掌握HTTPS的一个过程。</p>
+<p>YYCache，YYCache的作者，自己就有分享它写这个库的过程和考量，以及自己解决问题的思路和最后的方案。通过学习YYCache，你可以对缓存设计有一定的思路和了解。</p>
+<p>JSPatch，热更新的一个广泛备用的开源库。这个库的作者，也详细介绍了它写这个库的初衷，想法，初始设计和存在问题、解决问题的过程。通过他的介绍，你会对这种热更新有个全面的认识，也会对JS和客户端交互的一些方法有些了解，还有更加体会到OC Runtime的好处和精髓。</p>
+<p>然后，还有很多很多，优秀的库值得我们学习。。。</p>
+<h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>最后，写一些这一趟面试下来，觉得作为一个程序员需要培养注意的东西和养成的一些习惯，主要是用来提醒自己，和同样需要在这个方向不断前行的小伙伴。</p>
+<blockquote>
+<ol>
+<li>多逛社区，阅读博客，跟上最新的技术潮流，学习新的技术</li>
+<li>多看开源库，学习优秀代码</li>
+<li>多写代码实践和验证一些理论，积攒经验和掌握理论</li>
+<li>多做题，锻炼自己解决问题和巩固算法数据结构</li>
+<li>多写博客，总结、分享自己的工作和研究</li>
+<li>多和其他技术人员交流，分享自己的学习和知识（多写PPT演讲）</li>
+</ol>
+</blockquote>
+<p> 最后的最后，感谢你看到这儿，有什么问题，欢迎指出和纠正；有什么建议，欢迎提出和讨论。<br> 我的Email地址: huanjianjiang@gmail.com</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/技术/" rel="tag"># 技术</a>
+          
+            <a href="/tags/iOS开发/" rel="tag"># iOS开发</a>
+          
+            <a href="/tags/应用/" rel="tag"># 应用</a>
+          
+            <a href="/tags/面试/" rel="tag"># 面试</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/11/SwiftStatePattern/" rel="next" title="Swift下的状态设计模式（State Pattern）">
+                <i class="fa fa-chevron-left"></i> Swift下的状态设计模式（State Pattern）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/me.JPG"
+               alt="Huanjian Jiang" />
+          <p class="site-author-name" itemprop="name">Huanjian Jiang</p>
+           
+              <p class="site-description motion-element" itemprop="description">Programmers to be Geek</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zhuwo" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/huanjianjiang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/zhuwoleap" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#公司需要什么样的人才"><span class="nav-number">1.</span> <span class="nav-text">公司需要什么样的人才</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#有哪些公司（目标）"><span class="nav-number">1.1.</span> <span class="nav-text">有哪些公司（目标）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公司是怎么样的要求"><span class="nav-number">1.2.</span> <span class="nav-text">公司是怎么样的要求</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自己需要培养什么"><span class="nav-number">2.</span> <span class="nav-text">自己需要培养什么</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统"><span class="nav-number">2.1.</span> <span class="nav-text">操作系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#线程"><span class="nav-number">2.1.1.</span> <span class="nav-text">线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译连接"><span class="nav-number">2.1.2.</span> <span class="nav-text">编译连接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络"><span class="nav-number">2.2.</span> <span class="nav-text">网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-UDP"><span class="nav-number">2.2.1.</span> <span class="nav-text">TCP/UDP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP"><span class="nav-number">2.2.2.</span> <span class="nav-text">HTTP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法和数据结构"><span class="nav-number">2.3.</span> <span class="nav-text">算法和数据结构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#应聘iOS需要掌握些什么"><span class="nav-number">3.</span> <span class="nav-text">应聘iOS需要掌握些什么</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">3.1.</span> <span class="nav-text">原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Objective-C-Runtime"><span class="nav-number">3.1.1.</span> <span class="nav-text">Objective-C Runtime</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iOS-Runloop"><span class="nav-number">3.1.2.</span> <span class="nav-text">iOS Runloop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件响应链"><span class="nav-number">3.1.3.</span> <span class="nav-text">事件响应链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存管理：MRC，ARC，autorelease"><span class="nav-number">3.1.4.</span> <span class="nav-text">内存管理：MRC，ARC，autorelease</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Block"><span class="nav-number">3.1.5.</span> <span class="nav-text">Block</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GCD"><span class="nav-number">3.1.6.</span> <span class="nav-text">GCD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSCore"><span class="nav-number">3.1.7.</span> <span class="nav-text">JSCore</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#架构"><span class="nav-number">3.2.</span> <span class="nav-text">架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">3.3.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#组件化"><span class="nav-number">3.3.1.</span> <span class="nav-text">组件化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#热更新"><span class="nav-number">3.3.2.</span> <span class="nav-text">热更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#持续化集成（continue-integrate）"><span class="nav-number">3.3.3.</span> <span class="nav-text">持续化集成（continue integrate）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计模式"><span class="nav-number">3.3.4.</span> <span class="nav-text">设计模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三方库"><span class="nav-number">3.3.5.</span> <span class="nav-text">第三方库</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#写在最后"><span class="nav-number">4.</span> <span class="nav-text">写在最后</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Huanjian Jiang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (search_path.endsWith("json")) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <script type="text/javascript" src="/js/src/particle.js"></script>
+
+</body>
+</html>
