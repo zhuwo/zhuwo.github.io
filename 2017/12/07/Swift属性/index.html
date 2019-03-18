@@ -2,10 +2,8 @@
 
 
 
-  
 
-
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next pisces" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -32,10 +30,6 @@
 
 
 
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -114,10 +108,10 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Pisces',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
-    fancybox: true,
-    motion: true,
+    fancybox: false,
+    motion: false,
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -281,22 +275,26 @@
   
     <div class="site-search">
       
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
     <span class="popup-btn-close">
       <i class="fa fa-times-circle"></i>
     </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
   </div>
-  <div id="local-search-result"></div>
-</div>
+
 
 
 
@@ -330,7 +328,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Huanjian Jiang">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/me.JPG">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -438,7 +436,7 @@
 <p><code>DataManager</code>的部分功能是从文件当中获取<code>data</code>。然后这个功能是由类<code>DataImporter</code>提供的，需要花费相当多的时间进行初始化。这可能是因为<code>DataImporter</code>实例需要打开文件，将文件内容读入到内存等等。</p>
 <p>但是使用了懒属性，使用<code>lazy</code>标记，<code>importer</code>属性对应的<code>DataImporter</code>实例，只有当<code>importer</code>属性第一次被使用的时候才会被创建，比方说它的文件名被访问的时候；<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(manager.importer.filename)</div><div class="line"><span class="comment">// the DataImporter instance for the importer property has now been created</span></div><div class="line"><span class="comment">// Prints "data.txt"</span></div></pre></td></tr></table></figure></p>
 <h2 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h2><p>除了存储属性，类，结构体和枚举也能够定义<em>计算属性</em>，它实际上不存储一个值。相反，它们提供一个获取和可选的设置，用来直接检索或设置属性和值。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> x = <span class="number">0.0</span>, y = <span class="number">0.0</span></div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Size</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> width = <span class="number">0.0</span>, height = <span class="number">0.0</span></div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Rect</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> origin = <span class="type">Point</span>()</div><div class="line">    <span class="keyword">var</span> size = <span class="type">Size</span>()</div><div class="line">    <span class="keyword">var</span> center: <span class="type">Point</span> &#123;</div><div class="line">        <span class="keyword">get</span> &#123;</div><div class="line">            <span class="keyword">let</span> centerX = origin.x + (size.width / <span class="number">2</span>)</div><div class="line">            <span class="keyword">let</span> centerY = origin.y + (size.height / <span class="number">2</span>)</div><div class="line">            <span class="keyword">return</span> <span class="type">Point</span>(x: centerX, y: centerY)</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">set</span>(newCenter) &#123;</div><div class="line">            origin.x = newCenter.x - (size.width / <span class="number">2</span>)</div><div class="line">            origin.y = newCenter.y - (size.height / <span class="number">2</span>)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> square = <span class="type">Rect</span>(origin: <span class="type">Point</span>(x: <span class="number">0.0</span>, y: <span class="number">0.0</span>),</div><div class="line">                  size: <span class="type">Size</span>(width: <span class="number">10.0</span>, height: <span class="number">10.0</span>))</div><div class="line"><span class="keyword">let</span> initialSquareCenter = square.center</div><div class="line">square.center = <span class="type">Point</span>(x: <span class="number">15.0</span>, y: <span class="number">15.0</span>)</div><div class="line"><span class="built_in">print</span>(<span class="string">"square.origin is now at (<span class="subst">\(square.origin.x)</span>, <span class="subst">\(square.origin.y)</span>)"</span>)</div><div class="line"><span class="comment">// Prints "square.origin is now at (10.0, 10.0)"</span></div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> x = <span class="number">0.0</span>, y = <span class="number">0.0</span></div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Size</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> width = <span class="number">0.0</span>, height = <span class="number">0.0</span></div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Rect</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> origin = <span class="type">Point</span>()</div><div class="line">    <span class="keyword">var</span> size = <span class="type">Size</span>()</div><div class="line">    <span class="keyword">var</span> center: <span class="type">Point</span> &#123;</div><div class="line">        <span class="keyword">get</span> &#123;</div><div class="line">            <span class="keyword">let</span> centerX = origin.x + (size.width / <span class="number">2</span>)</div><div class="line">            <span class="keyword">let</span> centerY = origin.y + (size.height / <span class="number">2</span>)</div><div class="line">            <span class="keyword">return</span> <span class="type">Point</span>(x: centerX, y: centerY)</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">set</span>(newCenter) &#123;</div><div class="line">            origin.x = newCenter.x - (size.width / <span class="number">2</span>)</div><div class="line">            origin.y = newCenter.y - (size.height / <span class="number">2</span>)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> square = <span class="type">Rect</span>(origin: <span class="type">Point</span>(x: <span class="number">0.0</span>, y: <span class="number">0.0</span>),</div><div class="line">                  size: <span class="type">Size</span>(width: <span class="number">10.0</span>, height: <span class="number">10.0</span>))</div><div class="line"><span class="keyword">let</span> initialSquareCenter = square.center</div><div class="line">square.center = <span class="type">Point</span>(x: <span class="number">15.0</span>, y: <span class="number">15.0</span>)</div><div class="line"><span class="built_in">print</span>(<span class="string">"square.origin is now at (\(square.origin.x), \(square.origin.y))"</span>)</div><div class="line"><span class="comment">// Prints "square.origin is now at (10.0, 10.0)"</span></div></pre></td></tr></table></figure>
 <p>这个例子定义来地理形状的三个结构：</p>
 <ul>
 <li><code>Point</code>封装了一个点的x-和y-坐标</li>
@@ -448,7 +446,7 @@
 <p><code>Rect</code>结构同样提供了一个计算属性<code>center</code>。这个属性可以依赖orgin和size算出来，设置它，可以通过size，改变origin。也就是计算属性，主要是提供一些不是最原始的属性，但是又可以方便用户使用和设置的一种属性。</p>
 <h3 id="只读计算属性"><a href="#只读计算属性" class="headerlink" title="只读计算属性"></a>只读计算属性</h3><p>计算属性只有获取（getter）就叫做只读计算属性。只读计算属性经常返回一个值，所以可用<strong>点</strong>的语法获取。</p>
 <p>同样，可以用简写的形式，去掉<code>get</code>关键字和它的大括号：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Cuboid</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> width = <span class="number">0.0</span>, height = <span class="number">0.0</span>, depth = <span class="number">0.0</span></div><div class="line">    <span class="keyword">var</span> volume: <span class="type">Double</span> &#123;</div><div class="line">        <span class="keyword">return</span> width * height * depth</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> fourByFiveByTwo = <span class="type">Cuboid</span>(width: <span class="number">4.0</span>, height: <span class="number">5.0</span>, depth: <span class="number">2.0</span>)</div><div class="line"><span class="built_in">print</span>(<span class="string">"the volume of fourByFiveByTwo is <span class="subst">\(fourByFiveByTwo.volume)</span>"</span>)</div><div class="line"><span class="comment">// Prints "the volume of fourByFiveByTwo is 40.0"</span></div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Cuboid</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> width = <span class="number">0.0</span>, height = <span class="number">0.0</span>, depth = <span class="number">0.0</span></div><div class="line">    <span class="keyword">var</span> volume: <span class="type">Double</span> &#123;</div><div class="line">        <span class="keyword">return</span> width * height * depth</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> fourByFiveByTwo = <span class="type">Cuboid</span>(width: <span class="number">4.0</span>, height: <span class="number">5.0</span>, depth: <span class="number">2.0</span>)</div><div class="line"><span class="built_in">print</span>(<span class="string">"the volume of fourByFiveByTwo is \(fourByFiveByTwo.volume)"</span>)</div><div class="line"><span class="comment">// Prints "the volume of fourByFiveByTwo is 40.0"</span></div></pre></td></tr></table></figure>
 <h2 id="属性观察器"><a href="#属性观察器" class="headerlink" title="属性观察器"></a>属性观察器</h2><p>属性观察器观察并对属性值的变化作出响应。属性观察器，在每一次属性值设置的时候都会被调用，即使新的属性值和现在的值一样。</p>
 <p>你可以给任何存储属性添加属性观察器，除了懒加载存储属性。你也可以给任何继承的属性添加属性观察器，通过在子类中重写属性。</p>
 <p>你可以针对一个属性，定义单个或者同时定义两个观察器。</p>
@@ -459,7 +457,7 @@
 <p>如果你实现一个<code>willSet</code>观察器，它会被传递新的属性值作为常量参数，并且你可以对这个人参数指定一个名字。如果你不指定名字，这个参数的默认名字为<code>newValue</code>。</p>
 <p>类似的，如果你实现<code>disSet</code>观察器，它会被传递一个常量参数，包含的是先前的值。你同样可以为这个参数命名，或者使用默认值<code>oldValue</code>。</p>
 <p>接下来，是一个<code>willSet</code>和<code>disSet</code>的例子。这个例子，是一个<code>StepCounter</code>的类，用来记步，它用一个变量<code>totalSteps</code>来记录当前的步数。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">StepCounter</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> totalSteps: <span class="type">Int</span> = <span class="number">0</span> &#123;</div><div class="line">        <span class="keyword">willSet</span>(newTotalSteps) &#123;</div><div class="line">            <span class="built_in">print</span>(<span class="string">"About to set totalSteps to <span class="subst">\(newTotalSteps)</span>"</span>)</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">didSet</span> &#123;</div><div class="line">            <span class="keyword">if</span> totalSteps &gt; oldValue  &#123;</div><div class="line">                <span class="built_in">print</span>(<span class="string">"Added <span class="subst">\(totalSteps - oldValue)</span> steps"</span>)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> stepCounter = <span class="type">StepCounter</span>()</div><div class="line">stepCounter.totalSteps = <span class="number">200</span></div><div class="line"><span class="comment">// About to set totalSteps to 200</span></div><div class="line"><span class="comment">// Added 200 steps</span></div><div class="line">stepCounter.totalSteps = <span class="number">360</span></div><div class="line"><span class="comment">// About to set totalSteps to 360</span></div><div class="line"><span class="comment">// Added 160 steps</span></div><div class="line">stepCounter.totalSteps = <span class="number">896</span></div><div class="line"><span class="comment">// About to set totalSteps to 896</span></div><div class="line"><span class="comment">// Added 536 steps</span></div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">StepCounter</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> totalSteps: <span class="type">Int</span> = <span class="number">0</span> &#123;</div><div class="line">        <span class="keyword">willSet</span>(newTotalSteps) &#123;</div><div class="line">            <span class="built_in">print</span>(<span class="string">"About to set totalSteps to \(newTotalSteps)"</span>)</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">didSet</span> &#123;</div><div class="line">            <span class="keyword">if</span> totalSteps &gt; oldValue  &#123;</div><div class="line">                <span class="built_in">print</span>(<span class="string">"Added \(totalSteps - oldValue) steps"</span>)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> stepCounter = <span class="type">StepCounter</span>()</div><div class="line">stepCounter.totalSteps = <span class="number">200</span></div><div class="line"><span class="comment">// About to set totalSteps to 200</span></div><div class="line"><span class="comment">// Added 200 steps</span></div><div class="line">stepCounter.totalSteps = <span class="number">360</span></div><div class="line"><span class="comment">// About to set totalSteps to 360</span></div><div class="line"><span class="comment">// Added 160 steps</span></div><div class="line">stepCounter.totalSteps = <span class="number">896</span></div><div class="line"><span class="comment">// About to set totalSteps to 896</span></div><div class="line"><span class="comment">// Added 536 steps</span></div></pre></td></tr></table></figure>
 <p>这个类用一个变量<code>totalSteps</code>来记录当前的步数。无论什么时候，只要属性被赋予新值，其中的<code>willSet</code>和<code>disSet</code>观察器都会被调用。<code>willSet</code>中，每次都会输出新的步数。而在<code>didSet</code>中，当新的步数超过旧的步数的时候，就输出新增多少步。</p>
 <h2 id="全局和局部变量"><a href="#全局和局部变量" class="headerlink" title="全局和局部变量"></a>全局和局部变量</h2><p>以上所描述的计算和观察属性对全局和局部变量都试用。全局变量定义在任何函数、方法、闭包或者类型上下文的外面。其它情况，都是局部变量。</p>
 <h2 id="类型属性"><a href="#类型属性" class="headerlink" title="类型属性"></a>类型属性</h2><p>类型属性就是平常说的类属性，和类绑定，而和实例无关。</p>
@@ -586,7 +584,7 @@
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/uploads/me.JPG"
+               src="/uploads/avatar.jpg"
                alt="Huanjian Jiang" />
           <p class="site-author-name" itemprop="name">Huanjian Jiang</p>
            
@@ -722,7 +720,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Pisces
   </a>
 </div>
 
@@ -778,8 +776,6 @@
 
 
 
-  
-
 
 
 
@@ -806,9 +802,6 @@
   
   <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
 
   
 
@@ -821,6 +814,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
@@ -1188,6 +1188,19 @@
   </script>
 
 
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.1"></script>
 
 
 
