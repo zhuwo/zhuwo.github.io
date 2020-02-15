@@ -408,19 +408,19 @@
 
       
         <h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>为了避免请求的发送者和接收者耦合在一起，让多个对象都有可能处理请求。将这些接收对象连结成一条链，并且沿着这条链传递请求，直到有对象处理它为止。</p>
-<img src="/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/home.png" alt="ATM" title="ATM">
+<img src="/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/home.png" title="ATM">
 <a id="more"></a>
 <h2 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h2><p>考虑用户图形界面中，最简单的一个例子，帮助工具。使用应用的用户，只要点击界面的任何地方，就可以获得他需要的帮助信息。帮助的具体信息取决于界面被选择的地方，例如：有一个对话窗口的帮助按钮和主窗口的帮助按钮，它们的位置和形状类似，但它们提供的帮助信息完全不一样。如果某部分界面不需要特定的帮助信息，那么应用应该展示更加一般化的帮助信息，例如：应用的版本、开发人员等等。</p>
 <p>因此，我们可以根据界面的一般性组织帮助信息。用户界面中存在很多对象，但是，很显然，一个帮助请求只会被其中的一个对象处理。</p>
 <p>这里存在一个问题，发出帮助请求的对象（按钮）并不知道提供帮助的对象具体是哪个。责任链模式要做的事情是，使得发出这个帮助请求的对象和实际可能提供帮助的对象尽可能的减少耦合关系。</p>
 <p>责任链模式的大致思路是，通过给多个对象提供处理请求的机会，使得发送者和接收者解耦合。这个请求会沿着责任链传递，直到链上的一个对象处理它。这里给出一个简单的用户界面的责任链交互图，如图2-1所示。</p>
-<img src="/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/2-1.png" alt="图2-1" title="图2-1">
+<img src="/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/2-1.png" title="图2-1">
 <p>这个链的第一个对象首先接收到请求，它处理请求，或者把请求推送给下一个候选者；接收到请求的候选者按照相同的逻辑处理请求，以此类推。发出请求的对象并不清楚谁会处理请求——也就是说请求都有一个<strong>被隐藏的接收者</strong>。</p>
 <p>现在我们假设，用户点击一个“打印帮助”的按钮，用来获得打印相关帮助。这个按钮包含在一个对话窗口的实例当中，而这个对话窗口知道它自己属于哪个窗口对象（应用的工具栏）。图2-2的交互图说明了帮助请求是如何沿着责任链向前传递的。</p>
-<img src="/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/2-2.png" alt="图2-2" title="图2-2">
+<img src="/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/2-2.png" title="图2-2">
 <p>在这个例子中，既不是“aPrintButton”，也不是“aPrintDialog”处理这个请求；在“anApplication”的地方停止了请求的传递，“anApplication”对象最终处理它或者忽略它。产生请求的对象并没有直接引用能够最终处理请求的对象。</p>
 <p>为了将这个请求沿着责任链往前传递，并且保持接收者处于隐藏状态，在这个链上的每个对象都需要使用一个共同的接口，用来处理请求和获取它在链上的<strong>继承者</strong>，以便传递请求。例如，帮助系统可以定义一个“HelpHandler”类，这个类有“HandleHelp”的成员函数。“HelpHandler”可以是候选类的父类,也可以被是一个混入类<strong>（MIXIN Class）</strong>。接着，想要处理请求的类就继承 “HelpHandler”类，具体类图如图2-3所示。</p>
-<img src="/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/2-3.png" alt="图2-3" title="图2-3">
+<img src="/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/2-3.png" title="图2-3">
 <p>按钮、对话框和应用类，用“HelpHandler”的“HandleHelp”操作函数来处理帮助请求。“HelpHandler”的 “HandHelp”操作函数，默认将请求向前传递。子类可以重写这个操作，以便在合适的环境下提供帮助；或者，它们可以采用用默认方式将请求向前传递。</p>
 <h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><p>一般遇到下列情况时，使用责任链模式：</p>
 <blockquote>
@@ -430,24 +430,29 @@
 <li>可以动态的指定处理请求的对象。</li>
 </ul>
 </blockquote>
-<h2 id="责任链结构图"><a href="#责任链结构图" class="headerlink" title="责任链结构图"></a>责任链结构图</h2><img src="/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/4-1.png" alt="图4-1" title="图4-1">
+<h2 id="责任链结构图"><a href="#责任链结构图" class="headerlink" title="责任链结构图"></a>责任链结构图</h2><img src="/2017/06/06/设计模式之责任链（Chain-of-Responsibility）/4-1.png" title="图4-1">
 <h2 id="参与者"><a href="#参与者" class="headerlink" title="参与者"></a>参与者</h2><blockquote>
 <ul>
-<li><p>Handler(HelpHandler)</p>
-<ul>
+<li>Handler(HelpHandler)<ul>
 <li>定义处理请求的接口 </li>
 <li>[可选]实现继承者传递链</li>
 </ul>
 </li>
-<li><p>ConcreteHandler(PrintButton, PrintDialog)</p>
+</ul>
+</blockquote>
+<blockquote>
 <ul>
+<li>ConcreteHandler(PrintButton, PrintDialog)<ul>
 <li>处理请求</li>
 <li>获取继承者</li>
 <li>如果ConcreteHandler能够处理请求，那么它处理；否则，它向前传递请求</li>
 </ul>
 </li>
-<li><p>Client</p>
+</ul>
+</blockquote>
+<blockquote>
 <ul>
+<li>Client<ul>
 <li>发起请求，并将请求传递给责任链上的第一个ConcreteHandler</li>
 </ul>
 </li>
@@ -535,7 +540,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/12/GitHub&Hexo 搭建博客/" rel="next" title="GitHub&Hexo 搭建博客">
+              <a href="/2017/05/12/BlogWithGithubAndHexo/" rel="next" title="GitHub&Hexo 搭建博客">
                 <i class="fa fa-chevron-left"></i> GitHub&Hexo 搭建博客
               </a>
             
