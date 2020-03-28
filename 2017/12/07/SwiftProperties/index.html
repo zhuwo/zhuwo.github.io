@@ -1,414 +1,187 @@
 <!DOCTYPE html>
+<html lang="en">
 
-
-
-  
-
-
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<!-- Head tag -->
 <head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="theme-color" content="#222">
 
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="技术,iOS开发,应用,Swift,">
-
-
-
-
-
-
-
-
-
-
-<meta name="description" content="属性关联特定类、结构体或枚举的值。Swift主要有存储属性和计算属性。存储属性存储实例的常量或者变量值，然而计算属性主要是计算值（而不是存储值），相当于是附加属性，可以用已有的存储属性计算得到。 计算和存储属性同样一般是关联特定类型的实例。然而，属性同样能够和类型本身关联。这样的属性叫做类型属性。 此外，你还能够定义属性观察器来监视属性值的变化，利用它，你可以写一些响应的操作。属性观察器既能够自己">
-<meta name="keywords" content="技术,iOS开发,应用,Swift">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Swift 属性">
-<meta property="og:url" content="http://yoursite.com/2017/12/07/SwiftProperties/index.html">
-<meta property="og:site_name" content="Geek">
-<meta property="og:description" content="属性关联特定类、结构体或枚举的值。Swift主要有存储属性和计算属性。存储属性存储实例的常量或者变量值，然而计算属性主要是计算值（而不是存储值），相当于是附加属性，可以用已有的存储属性计算得到。 计算和存储属性同样一般是关联特定类型的实例。然而，属性同样能够和类型本身关联。这样的属性叫做类型属性。 此外，你还能够定义属性观察器来监视属性值的变化，利用它，你可以写一些响应的操作。属性观察器既能够自己">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-02-15T05:14:33.903Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Swift 属性">
-<meta name="twitter:description" content="属性关联特定类、结构体或枚举的值。Swift主要有存储属性和计算属性。存储属性存储实例的常量或者变量值，然而计算属性主要是计算值（而不是存储值），相当于是附加属性，可以用已有的存储属性计算得到。 计算和存储属性同样一般是关联特定类型的实例。然而，属性同样能够和类型本身关联。这样的属性叫做类型属性。 此外，你还能够定义属性观察器来监视属性值的变化，利用它，你可以写一些响应的操作。属性观察器既能够自己">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://yoursite.com/2017/12/07/SwiftProperties/">
-
-
-
-
-
-  <title>Swift 属性 | Geek</title>
-  
-
-
-
-
-
-
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="记录技术学习所得，记录随想，记录旅游所见所闻">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="zhuwp">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Swift 属性">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="记录技术学习所得，记录随想，记录旅游所见所闻">
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Geek">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+
+    
+        <meta name="twitter:card" content="summary">
+    
+    
+    
+
+    <!-- Title -->
+    
+    <title>Swift 属性 - Geek</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
 
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  
-  
-    
-  
+<body>
 
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Geek</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
 </div>
 
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
-            
-            关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-commonweal">
-          <a href="/404.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
-            
-            公益404
-          </a>
-        </li>
-      
-
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
-            
-            搜索
-          </a>
-        </li>
-      
-    </ul>
-  
-
-  
-    <div class="site-search">
-      
-  
-  <div class="algolia-popup popup search-popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
-
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
-
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-  </div>
-
-
-
-
-    </div>
-  
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
 </nav>
 
+<div class="container">
 
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
 
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/07/SwiftProperties/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Huanjian Jiang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Geek">
-    </span>
-
-    
-      <header class="post-header">
-
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
         
-        
-          <h1 class="post-title" itemprop="name headline">Swift 属性</h1>
-        
+    </div>
+</header>
 
-        <div class="post-meta">
-          <span class="post-time">
+        <section class="main">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-07T10:58:01+08:00">
-                2017-12-07
-              </time>
-            
+<div class="post">
 
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2017/12/07/SwiftProperties/">
+                Swift 属性
+            </a>
+        </h1>
+        <div class="post-info">
             
-
+                <span class="date">2017-12-07</span>
             
-          </span>
-
-          
-            <span class="post-category">
             
-              <span class="post-meta-divider">|</span>
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Technology/" itemprop="url" rel="index">
-                    <span itemprop="name">Technology</span>
-                  </a>
+                <span class="category">
+                    <a href="/categories/Technology/">Technology</a>
                 </span>
-
-                
-                
-              
-            </span>
-          
-
-          
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/12/07/SwiftProperties/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2017/12/07/SwiftProperties/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/12/07/SwiftProperties/" class="leancloud_visitors" data-flag-title="Swift 属性">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+    </div>
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+    <div class="content">
 
-      
-      
+        <!-- Gallery -->
+        
 
-      
+        <!-- Post Content -->
         <p><strong>属性</strong>关联特定类、结构体或枚举的值。Swift主要有存储属性和计算属性。存储属性存储实例的常量或者变量值，然而计算属性主要是计算值（而不是存储值），相当于是附加属性，可以用已有的存储属性计算得到。</p>
 <p>计算和存储属性同样一般是关联特定类型的实例。然而，属性同样能够和类型本身关联。这样的属性叫做类型属性。</p>
 <p>此外，你还能够定义属性观察器来监视属性值的变化，利用它，你可以写一些响应的操作。属性观察器既能够自己定义，也能够从父类当中继承得到。</p>
 <h2 id="存储属性"><a href="#存储属性" class="headerlink" title="存储属性"></a>存储属性</h2><p>存储属性，最简单的形式，就是存储在一个特定的类或机构体的实例中的，一个常量或变量。存储属性既可以是变量（由关键字<code>var</code>定义），也可以是常量（由关键字<code>let</code>定义）。</p>
 <p>下面的例子，定义了一个结构FixedLengthRange，描述了一个整型数据的范围，其中的范围长度创建以后就不能改变。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">FixedLengthRange</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> firstValue: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">let</span> length: <span class="type">Int</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> rangeOfThreeItems = <span class="type">FixedLengthRange</span>(firstValue: <span class="number">0</span>, length: <span class="number">3</span>)</span><br><span class="line"><span class="comment">// the range represents integer values 0, 1, and 2</span></span><br><span class="line">rangeOfThreeItems.firstValue = <span class="number">6</span></span><br><span class="line"><span class="comment">// the range now represents integer values 6, 7, and 8</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">FixedLengthRange</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> firstValue: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">let</span> length: <span class="type">Int</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> rangeOfThreeItems = <span class="type">FixedLengthRange</span>(firstValue: <span class="number">0</span>, length: <span class="number">3</span>)</span><br><span class="line"><span class="comment">// the range represents integer values 0, 1, and 2</span></span><br><span class="line">rangeOfThreeItems.firstValue = <span class="number">6</span></span><br><span class="line"><span class="comment">// the range now represents integer values 6, 7, and 8</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h3 id="常量结构体实例的存储属性"><a href="#常量结构体实例的存储属性" class="headerlink" title="常量结构体实例的存储属性"></a>常量结构体实例的存储属性</h3><p>假如你创建了一个结构体实例，并将它赋给一个常量，那么你就不能改变这个实例的属性，包括变量属性，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let rangeOfFourItems = FixedLengthRange(firstValue: 0, length: 4)</span><br><span class="line">// this range represents integer values 0, 1, 2, and 3</span><br><span class="line">rangeOfFourItems.firstValue = 6</span><br><span class="line">// this will report an error, even though firstValue is a variable property</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> rangeOfFourItems = <span class="type">FixedLengthRange</span>(firstValue: <span class="number">0</span>, length: <span class="number">4</span>)</span><br><span class="line"><span class="comment">// this range represents integer values 0, 1, 2, and 3</span></span><br><span class="line">rangeOfFourItems.firstValue = <span class="number">6</span></span><br><span class="line"><span class="comment">// this will report an error, even though firstValue is a variable property</span></span><br></pre></td></tr></table></figure>
 <p>因为<code>rangeOfFourItems</code>被声明为一个常量，所以不可能改变它的<code>firstValue</code>属性，尽管它是一个变量属性。</p>
 <p>这个行为是因为结构体属于<em>值类型</em>。值类型的实例如果标记为常量，那么它的所有属性都是常量。</p>
 <p>这中情况对类并不适用，类是<em>引用类型</em>。假如你将一个引用类型的实例赋给一个常量，你仍然可以改变实例的变量属性。</p>
@@ -418,12 +191,12 @@
 </blockquote>
 <p>懒属性在以下情况下非常有用：它的值依赖于外在因素，也就是实例初始化完以后，这些外在因素还不知道的情况。还有就是，属性的值计算非常复杂或者计算代价非常高。只有使用它的时候去计算最好。</p>
 <p>下面例子，利用懒存储属性，避免一个复杂类的不必要初始化。这个例子定义两个类<code>DataImporter</code>和<code>DataManager</code>:</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DataImporter</span> </span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     DataImporter is a class to import data from an external file.</span></span><br><span class="line"><span class="comment">     The class is assumed to take a nontrivial amount of time to initialize.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">var</span> filename = <span class="string">"data.txt"</span></span><br><span class="line">    <span class="comment">// the DataImporter class would provide data importing functionality here</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DataManager</span> </span>&#123;</span><br><span class="line">    <span class="built_in">lazy</span> <span class="keyword">var</span> importer = <span class="type">DataImporter</span>()</span><br><span class="line">    <span class="keyword">var</span> data = [<span class="type">String</span>]()</span><br><span class="line">    <span class="comment">// the DataManager class would provide data management functionality here</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">let</span> manager = <span class="type">DataManager</span>()</span><br><span class="line">manager.data.append(<span class="string">"Some data"</span>)</span><br><span class="line">manager.data.append(<span class="string">"Some more data"</span>)</span><br><span class="line"><span class="comment">// the DataImporter instance for the importer property has not yet been created</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DataImporter</span> </span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     DataImporter is a class to import data from an external file.</span></span><br><span class="line"><span class="comment">     The class is assumed to take a nontrivial amount of time to initialize.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">var</span> filename = <span class="string">"data.txt"</span></span><br><span class="line">    <span class="comment">// the DataImporter class would provide data importing functionality here</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DataManager</span> </span>&#123;</span><br><span class="line">    <span class="built_in">lazy</span> <span class="keyword">var</span> importer = <span class="type">DataImporter</span>()</span><br><span class="line">    <span class="keyword">var</span> data = [<span class="type">String</span>]()</span><br><span class="line">    <span class="comment">// the DataManager class would provide data management functionality here</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">let</span> manager = <span class="type">DataManager</span>()</span><br><span class="line">manager.data.append(<span class="string">"Some data"</span>)</span><br><span class="line">manager.data.append(<span class="string">"Some more data"</span>)</span><br><span class="line"><span class="comment">// the DataImporter instance for the importer property has not yet been created</span></span><br></pre></td></tr></table></figure>
 <p><code>DataManager</code>类用来管理属性<code>data</code>, 一个<code>String</code>数组。</p>
 <p><code>DataManager</code>的部分功能是从文件当中获取<code>data</code>。然后这个功能是由类<code>DataImporter</code>提供的，需要花费相当多的时间进行初始化。这可能是因为<code>DataImporter</code>实例需要打开文件，将文件内容读入到内存等等。</p>
 <p>但是使用了懒属性，使用<code>lazy</code>标记，<code>importer</code>属性对应的<code>DataImporter</code>实例，只有当<code>importer</code>属性第一次被使用的时候才会被创建，比方说它的文件名被访问的时候；<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(manager.importer.filename)</span><br><span class="line"><span class="comment">// the DataImporter instance for the importer property has now been created</span></span><br><span class="line"><span class="comment">// Prints "data.txt"</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="计算属性"><a href="#计算属性" class="headerlink" title="计算属性"></a>计算属性</h2><p>除了存储属性，类，结构体和枚举也能够定义<em>计算属性</em>，它实际上不存储一个值。相反，它们提供一个获取和可选的设置，用来直接检索或设置属性和值。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">0.0</span>, y = <span class="number">0.0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Size</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> width = <span class="number">0.0</span>, height = <span class="number">0.0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Rect</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> origin = <span class="type">Point</span>()</span><br><span class="line">    <span class="keyword">var</span> size = <span class="type">Size</span>()</span><br><span class="line">    <span class="keyword">var</span> center: <span class="type">Point</span> &#123;</span><br><span class="line">        <span class="keyword">get</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> centerX = origin.x + (size.width / <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">let</span> centerY = origin.y + (size.height / <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="type">Point</span>(x: centerX, y: centerY)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span>(newCenter) &#123;</span><br><span class="line">            origin.x = newCenter.x - (size.width / <span class="number">2</span>)</span><br><span class="line">            origin.y = newCenter.y - (size.height / <span class="number">2</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> square = <span class="type">Rect</span>(origin: <span class="type">Point</span>(x: <span class="number">0.0</span>, y: <span class="number">0.0</span>),</span><br><span class="line">                  size: <span class="type">Size</span>(width: <span class="number">10.0</span>, height: <span class="number">10.0</span>))</span><br><span class="line"><span class="keyword">let</span> initialSquareCenter = square.center</span><br><span class="line">square.center = <span class="type">Point</span>(x: <span class="number">15.0</span>, y: <span class="number">15.0</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"square.origin is now at (\(square.origin.x), \(square.origin.y))"</span>)</span><br><span class="line"><span class="comment">// Prints "square.origin is now at (10.0, 10.0)"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">0.0</span>, y = <span class="number">0.0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Size</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> width = <span class="number">0.0</span>, height = <span class="number">0.0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Rect</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> origin = <span class="type">Point</span>()</span><br><span class="line">    <span class="keyword">var</span> size = <span class="type">Size</span>()</span><br><span class="line">    <span class="keyword">var</span> center: <span class="type">Point</span> &#123;</span><br><span class="line">        <span class="keyword">get</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> centerX = origin.x + (size.width / <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">let</span> centerY = origin.y + (size.height / <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="type">Point</span>(x: centerX, y: centerY)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span>(newCenter) &#123;</span><br><span class="line">            origin.x = newCenter.x - (size.width / <span class="number">2</span>)</span><br><span class="line">            origin.y = newCenter.y - (size.height / <span class="number">2</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> square = <span class="type">Rect</span>(origin: <span class="type">Point</span>(x: <span class="number">0.0</span>, y: <span class="number">0.0</span>),</span><br><span class="line">                  size: <span class="type">Size</span>(width: <span class="number">10.0</span>, height: <span class="number">10.0</span>))</span><br><span class="line"><span class="keyword">let</span> initialSquareCenter = square.center</span><br><span class="line">square.center = <span class="type">Point</span>(x: <span class="number">15.0</span>, y: <span class="number">15.0</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"square.origin is now at (\(square.origin.x), \(square.origin.y))"</span>)</span><br><span class="line"><span class="comment">// Prints "square.origin is now at (10.0, 10.0)"</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>这个例子定义来地理形状的三个结构：</p>
 <ul>
 <li><code>Point</code>封装了一个点的x-和y-坐标</li>
@@ -433,7 +206,7 @@
 <p><code>Rect</code>结构同样提供了一个计算属性<code>center</code>。这个属性可以依赖orgin和size算出来，设置它，可以通过size，改变origin。也就是计算属性，主要是提供一些不是最原始的属性，但是又可以方便用户使用和设置的一种属性。</p>
 <h3 id="只读计算属性"><a href="#只读计算属性" class="headerlink" title="只读计算属性"></a>只读计算属性</h3><p>计算属性只有获取（getter）就叫做只读计算属性。只读计算属性经常返回一个值，所以可用<strong>点</strong>的语法获取。</p>
 <p>同样，可以用简写的形式，去掉<code>get</code>关键字和它的大括号：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Cuboid</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> width = <span class="number">0.0</span>, height = <span class="number">0.0</span>, depth = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">var</span> volume: <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> width * height * depth</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> fourByFiveByTwo = <span class="type">Cuboid</span>(width: <span class="number">4.0</span>, height: <span class="number">5.0</span>, depth: <span class="number">2.0</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"the volume of fourByFiveByTwo is \(fourByFiveByTwo.volume)"</span>)</span><br><span class="line"><span class="comment">// Prints "the volume of fourByFiveByTwo is 40.0"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Cuboid</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> width = <span class="number">0.0</span>, height = <span class="number">0.0</span>, depth = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">var</span> volume: <span class="type">Double</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> width * height * depth</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> fourByFiveByTwo = <span class="type">Cuboid</span>(width: <span class="number">4.0</span>, height: <span class="number">5.0</span>, depth: <span class="number">2.0</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"the volume of fourByFiveByTwo is \(fourByFiveByTwo.volume)"</span>)</span><br><span class="line"><span class="comment">// Prints "the volume of fourByFiveByTwo is 40.0"</span></span><br></pre></td></tr></table></figure>
 <h2 id="属性观察器"><a href="#属性观察器" class="headerlink" title="属性观察器"></a>属性观察器</h2><p>属性观察器观察并对属性值的变化作出响应。属性观察器，在每一次属性值设置的时候都会被调用，即使新的属性值和现在的值一样。</p>
 <p>你可以给任何存储属性添加属性观察器，除了懒加载存储属性。你也可以给任何继承的属性添加属性观察器，通过在子类中重写属性。</p>
 <p>你可以针对一个属性，定义单个或者同时定义两个观察器。</p>
@@ -444,573 +217,219 @@
 <p>如果你实现一个<code>willSet</code>观察器，它会被传递新的属性值作为常量参数，并且你可以对这个人参数指定一个名字。如果你不指定名字，这个参数的默认名字为<code>newValue</code>。</p>
 <p>类似的，如果你实现<code>disSet</code>观察器，它会被传递一个常量参数，包含的是先前的值。你同样可以为这个参数命名，或者使用默认值<code>oldValue</code>。</p>
 <p>接下来，是一个<code>willSet</code>和<code>disSet</code>的例子。这个例子，是一个<code>StepCounter</code>的类，用来记步，它用一个变量<code>totalSteps</code>来记录当前的步数。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StepCounter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> totalSteps: <span class="type">Int</span> = <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">willSet</span>(newTotalSteps) &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"About to set totalSteps to \(newTotalSteps)"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">didSet</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> totalSteps &gt; oldValue  &#123;</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">"Added \(totalSteps - oldValue) steps"</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> stepCounter = <span class="type">StepCounter</span>()</span><br><span class="line">stepCounter.totalSteps = <span class="number">200</span></span><br><span class="line"><span class="comment">// About to set totalSteps to 200</span></span><br><span class="line"><span class="comment">// Added 200 steps</span></span><br><span class="line">stepCounter.totalSteps = <span class="number">360</span></span><br><span class="line"><span class="comment">// About to set totalSteps to 360</span></span><br><span class="line"><span class="comment">// Added 160 steps</span></span><br><span class="line">stepCounter.totalSteps = <span class="number">896</span></span><br><span class="line"><span class="comment">// About to set totalSteps to 896</span></span><br><span class="line"><span class="comment">// Added 536 steps</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StepCounter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> totalSteps: <span class="type">Int</span> = <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">willSet</span>(newTotalSteps) &#123;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"About to set totalSteps to \(newTotalSteps)"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">didSet</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> totalSteps &gt; oldValue  &#123;</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">"Added \(totalSteps - oldValue) steps"</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> stepCounter = <span class="type">StepCounter</span>()</span><br><span class="line">stepCounter.totalSteps = <span class="number">200</span></span><br><span class="line"><span class="comment">// About to set totalSteps to 200</span></span><br><span class="line"><span class="comment">// Added 200 steps</span></span><br><span class="line">stepCounter.totalSteps = <span class="number">360</span></span><br><span class="line"><span class="comment">// About to set totalSteps to 360</span></span><br><span class="line"><span class="comment">// Added 160 steps</span></span><br><span class="line">stepCounter.totalSteps = <span class="number">896</span></span><br><span class="line"><span class="comment">// About to set totalSteps to 896</span></span><br><span class="line"><span class="comment">// Added 536 steps</span></span><br></pre></td></tr></table></figure>
 <p>这个类用一个变量<code>totalSteps</code>来记录当前的步数。无论什么时候，只要属性被赋予新值，其中的<code>willSet</code>和<code>disSet</code>观察器都会被调用。<code>willSet</code>中，每次都会输出新的步数。而在<code>didSet</code>中，当新的步数超过旧的步数的时候，就输出新增多少步。</p>
 <h2 id="全局和局部变量"><a href="#全局和局部变量" class="headerlink" title="全局和局部变量"></a>全局和局部变量</h2><p>以上所描述的计算和观察属性对全局和局部变量都试用。全局变量定义在任何函数、方法、闭包或者类型上下文的外面。其它情况，都是局部变量。</p>
 <h2 id="类型属性"><a href="#类型属性" class="headerlink" title="类型属性"></a>类型属性</h2><p>类型属性就是平常说的类属性，和类绑定，而和实例无关。</p>
 <p>类属性，同样也可以是变量或者常量。计算类型属性同样也只能是变量，同一般的实例属性一样。</p>
 <h3 id="类型属性语法"><a href="#类型属性语法" class="headerlink" title="类型属性语法"></a>类型属性语法</h3><p>定义类属性使用<code>static</code>关键字。对于需要继承的可计算类型属性，可以使用<code>class</code>关键字替代。下面是类属性的例子：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SomeStructure</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> storedTypeProperty = <span class="string">"Some value."</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> computedTypeProperty: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">SomeEnumeration</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> storedTypeProperty = <span class="string">"Some value."</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> computedTypeProperty: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">6</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> storedTypeProperty = <span class="string">"Some value."</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> computedTypeProperty: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">27</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">var</span> <span class="title">overrideableComputedTypeProperty</span>: <span class="title">Int</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">107</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SomeStructure</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> storedTypeProperty = <span class="string">"Some value."</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> computedTypeProperty: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">SomeEnumeration</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> storedTypeProperty = <span class="string">"Some value."</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> computedTypeProperty: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">6</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> storedTypeProperty = <span class="string">"Some value."</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> computedTypeProperty: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">27</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">var</span> <span class="title">overrideableComputedTypeProperty</span>: <span class="title">Int</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">107</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
-    
-    
-    
 
     
 
     
-      <div>
-        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div>坚持创作，您的支持是我坚持的动力!!!</div>
-  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-    <span>打赏</span>
-  </button>
-  <div id="QR" style="display: none;">
-
-    
-      <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/my_images/wechatpay.jpg" alt="Huanjian Jiang 微信支付">
-        <p>微信支付</p>
-      </div>
-    
-
-    
-      <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/my_images/alipay.jpg" alt="Huanjian Jiang 支付宝">
-        <p>支付宝</p>
-      </div>
-    
-
-    
-
-  </div>
-</div>
-
-      </div>
-    
-
-    
-
-    <footer class="post-footer">
-      
         <div class="post-tags">
-          
-            <a href="/tags/技术/" rel="tag"># 技术</a>
-          
-            <a href="/tags/iOS开发/" rel="tag"># iOS开发</a>
-          
-            <a href="/tags/应用/" rel="tag"># 应用</a>
-          
-            <a href="/tags/Swift/" rel="tag"># Swift</a>
-          
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/技术/">#技术</a> <a href="/tags/iOS开发/">#iOS开发</a> <a href="/tags/应用/">#应用</a> <a href="/tags/Swift/">#Swift</a>
         </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/06/27/chain-of-responsibility-2/" rel="next" title="设计模式之责任链[下]">
-                <i class="fa fa-chevron-left"></i> 设计模式之责任链[下]
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/25/SyncAndAsync/" rel="prev" title="同步和异步">
-                同步和异步 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-
-  
-    <div class="comments" id="comments">
-    </div>
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
     
-    <div class="sidebar-inner">
 
-      
+    <!-- Comments -->
+    
 
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">Huanjian Jiang</p>
-              <p class="site-description motion-element" itemprop="description">Programmers to be Geek</p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives">
-              
-                  <span class="site-state-item-count">12</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
-          
-
-          
-            <div class="links-of-author motion-element">
-                
-                  <span class="links-of-author-item">
-                    <a href="https://github.com/zhuwo" target="_blank" title="GitHub">
-                      
-                        <i class="fa fa-fw fa-github"></i>GitHub</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="mailto:huanjianjiang@gmail.com" target="_blank" title="E-Mail">
-                      
-                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="https://twitter.com/huanjianjiang" target="_blank" title="Twitter">
-                      
-                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
-                  </span>
-                
-            </div>
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#存储属性"><span class="nav-number">1.</span> <span class="nav-text">存储属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常量结构体实例的存储属性"><span class="nav-number">1.1.</span> <span class="nav-text">常量结构体实例的存储属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#懒（加载）存储属性"><span class="nav-number">1.2.</span> <span class="nav-text">懒（加载）存储属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算属性"><span class="nav-number">2.</span> <span class="nav-text">计算属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#只读计算属性"><span class="nav-number">2.1.</span> <span class="nav-text">只读计算属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性观察器"><span class="nav-number">3.</span> <span class="nav-text">属性观察器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局和局部变量"><span class="nav-number">4.</span> <span class="nav-text">全局和局部变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型属性"><span class="nav-number">5.</span> <span class="nav-text">类型属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类型属性语法"><span class="nav-number">5.1.</span> <span class="nav-text">类型属性语法</span></a></li></ol></li></ol></div>
-            
-
-          </div>
+</div>
         </section>
-      <!--/noindex-->
-      
-
-      
 
     </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Huanjian Jiang</span>
-
-  
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    This theme was developed by <a href="https://github.com/klugjo">Jonathan Klughertz</a>. The source code is available on Github. Create Websites. Make Magic.
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2019/09/20/Mourning/">悼念</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/09/20/InterviewIn2018/">2018年iOS面试总结</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/06/11/SwiftStatePattern/">Swift下的状态设计模式</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/01/25/SyncAndAsync/">同步和异步</a>
+            </li>
+            
+        </ul>
+    </div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
-
-
-
-
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
         
-
-
-
-
-
-
-
+        <li>
+            <a class="footer-post" href="/categories/Idea/">Idea</a>
+        </li>
         
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
+        <li>
+            <a class="footer-post" href="/categories/Ramble/">Ramble</a>
+        </li>
         
-      </div>
-    
+        <li>
+            <a class="footer-post" href="/categories/Technology/">Technology</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/klugjo/hexo-theme-alpha-dust">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://twitter.com/?lang=en">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.facebook.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-facebook"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.instagram.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-instagram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://dribbble.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-dribbble"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://plus.google.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-google-plus"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://www.behance.net/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-behance"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="https://500px.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-500px"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:test@example.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @Untitled. All right reserved | Design & Hexo <a href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 
-    
+<!-- After footer scripts -->
 
-  </div>
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 
-  
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 
+<!-- Custom JavaScript -->
+<script src="/js/main.js"></script>
 
+<!-- Disqus Comments -->
 
 
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-  
-  <script type="text/javascript">
-    var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(item=>{
-      return GUEST.indexOf(item)>-1;
-    });
-    new Valine({
-        el: '#comments' ,
-        verify: false,
-        notify: false,
-        appId: 'dTWLI6lO9kGxvQ5R8UN9tcbS-gzGzoHsz',
-        appKey: 'z9tVMxTcIqAdccNmGpaO1VBR',
-        placeholder: 'Write your Comments',
-        avatar:'mm',
-        guest_info:guest,
-        pageSize:'10' || 10,
-    });
-  </script>
-
-
-
-  
-
-
-
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
-
-
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-  
-  	<!-- custom analytics part create by xiamo -->
-<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-<script>AV.initialize("q5X47gk3skAAeMqJ8wdIcjPa-gzGzoHsz", "iRowpWKv9gfdPdItAwnsbaPj");</script>
-<script>
-function showTime(Counter) {
-	var query = new AV.Query(Counter);
-	$(".leancloud_visitors").each(function() {
-		var url = $(this).attr("id").trim();
-		query.equalTo("url", url);
-		query.find({
-			success: function(results) {
-				if (results.length == 0) {
-					var content = $(document.getElementById(url)).text() + ': 0';
-					$(document.getElementById(url)).text(content);
-					return;
-				}
-				for (var i = 0; i < results.length; i++) {
-					var object = results[i];
-					var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
-					$(document.getElementById(url)).text(content);
-				}
-			},
-			error: function(object, error) {
-				console.log("Error: " + error.code + " " + error.message);
-			}
-		});
-
-	});
-}
-
-function addCount(Counter) {
-	var Counter = AV.Object.extend("Counter");
-	url = $(".leancloud_visitors").attr('id').trim();
-	title = $(".leancloud_visitors").attr('data-flag-title').trim();
-	var query = new AV.Query(Counter);
-	query.equalTo("url", url);
-	query.find({
-		success: function(results) {
-			if (results.length > 0) {
-				var counter = results[0];
-				counter.fetchWhenSave(true);
-				counter.increment("time");
-				counter.save(null, {
-					success: function(counter) {
-						var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
-						$(document.getElementById(url)).text(content);
-					},
-					error: function(counter, error) {
-						console.log('Failed to save Visitor num, with error message: ' + error.message);
-					}
-				});
-			} else {
-				var newcounter = new Counter();
-				newcounter.set("title", title);
-				newcounter.set("url", url);
-				newcounter.set("time", 1);
-				newcounter.save(null, {
-					success: function(newcounter) {
-					    console.log("newcounter.get('time')="+newcounter.get('time'));
-						var content = $(document.getElementById(url)).text() + ': ' + newcounter.get('time');
-						$(document.getElementById(url)).text(content);
-					},
-					error: function(newcounter, error) {
-						console.log('Failed to create');
-					}
-				});
-			}
-		},
-		error: function(error) {
-			console.log('Error:' + error.code + " " + error.message);
-		}
-	});
-}
-$(function() {
-	var Counter = AV.Object.extend("Counter");
-	if ($('.leancloud_visitors').length == 1) {
-		addCount(Counter);
-	} else if ($('.post-title-link').length > 1) {
-		showTime(Counter);
-	}
-});
-</script>
-
-
-  
 
 </body>
+
 </html>
