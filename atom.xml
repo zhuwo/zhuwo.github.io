@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-28T07:23:19.674Z</updated>
+  <updated>2020-03-28T07:28:20.532Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2020/03/28/ShanghaiSafariPark2019/"/>
     <id>http://yoursite.com/2020/03/28/ShanghaiSafariPark2019/</id>
     <published>2020-03-28T07:10:12.000Z</published>
-    <updated>2020-03-28T07:23:19.674Z</updated>
+    <updated>2020-03-28T07:28:20.532Z</updated>
     
     <content type="html"><![CDATA[<p>Photo in Shanghai Safari Park in 2019</p>]]></content>
     
@@ -39,7 +39,9 @@
       <category term="Gallery" scheme="http://yoursite.com/categories/Gallery/"/>
     
     
-      <category term="Photo SonyA2" scheme="http://yoursite.com/tags/Photo-SonyA2/"/>
+      <category term="Photo" scheme="http://yoursite.com/tags/Photo/"/>
+    
+      <category term="SonyA2" scheme="http://yoursite.com/tags/SonyA2/"/>
     
   </entry>
   
