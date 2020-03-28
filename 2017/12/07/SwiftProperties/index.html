@@ -224,6 +224,7 @@
 <p>类属性，同样也可以是变量或者常量。计算类型属性同样也只能是变量，同一般的实例属性一样。</p>
 <h3 id="类型属性语法"><a href="#类型属性语法" class="headerlink" title="类型属性语法"></a>类型属性语法</h3><p>定义类属性使用<code>static</code>关键字。对于需要继承的可计算类型属性，可以使用<code>class</code>关键字替代。下面是类属性的例子：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SomeStructure</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> storedTypeProperty = <span class="string">"Some value."</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> computedTypeProperty: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">SomeEnumeration</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> storedTypeProperty = <span class="string">"Some value."</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> computedTypeProperty: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">6</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> storedTypeProperty = <span class="string">"Some value."</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> computedTypeProperty: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">27</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">var</span> <span class="title">overrideableComputedTypeProperty</span>: <span class="title">Int</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">107</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
     </div>
 
     
@@ -231,7 +232,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/技术/">#技术</a> <a href="/tags/iOS开发/">#iOS开发</a> <a href="/tags/应用/">#应用</a> <a href="/tags/Swift/">#Swift</a>
+            <a href="/tags/技术/">#技术</a> <a href="/tags/iOS/">#iOS</a> <a href="/tags/Swift/">#Swift</a>
         </div>
     
 
@@ -289,10 +290,6 @@
 <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
     <h2>Categories</h2>
     <ul>
-        
-        <li>
-            <a class="footer-post" href="/categories/Idea/">Idea</a>
-        </li>
         
         <li>
             <a class="footer-post" href="/categories/Ramble/">Ramble</a>
