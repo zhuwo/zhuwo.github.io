@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-28T07:04:24.826Z</updated>
+  <updated>2020-03-28T07:23:19.674Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,19 +17,46 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>ChinaJoy2018</title>
-    <link href="http://yoursite.com/2020/03/28/ChinaJoy2018/"/>
-    <id>http://yoursite.com/2020/03/28/ChinaJoy2018/</id>
-    <published>2020-03-28T05:41:45.000Z</published>
-    <updated>2020-03-28T07:04:24.826Z</updated>
+    <title>Shanghai SafariPark 2019</title>
+    <link href="http://yoursite.com/2020/03/28/ShanghaiSafariPark2019/"/>
+    <id>http://yoursite.com/2020/03/28/ShanghaiSafariPark2019/</id>
+    <published>2020-03-28T07:10:12.000Z</published>
+    <updated>2020-03-28T07:23:19.674Z</updated>
     
-    <content type="html"><![CDATA[<p>  Photo By ChinaJoy in Shanghai 2018</p>]]></content>
+    <content type="html"><![CDATA[<p>Photo in Shanghai Safari Park in 2019</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;  Photo By ChinaJoy in Shanghai 2018&lt;/p&gt;
+        &lt;p&gt;Photo in Shanghai Safari Park in 2019&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="Gallery" scheme="http://yoursite.com/categories/Gallery/"/>
+    
+    
+      <category term="Photo SonyA2" scheme="http://yoursite.com/tags/Photo-SonyA2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ChinaJoy 2018</title>
+    <link href="http://yoursite.com/2020/03/28/ChinaJoy2018/"/>
+    <id>http://yoursite.com/2020/03/28/ChinaJoy2018/</id>
+    <published>2020-03-28T05:41:45.000Z</published>
+    <updated>2020-03-28T07:24:25.200Z</updated>
+    
+    <content type="html"><![CDATA[<p>  Photo at ChinaJoy in Shanghai 2018</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;  Photo at ChinaJoy in Shanghai 2018&lt;/p&gt;
 
       
     
@@ -275,34 +302,6 @@
       <category term="设计模式" scheme="http://yoursite.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
       <category term="计算机" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GitHub&amp;Hexo 搭建博客</title>
-    <link href="http://yoursite.com/2017/05/12/BlogWithGithubAndHexo/"/>
-    <id>http://yoursite.com/2017/05/12/BlogWithGithubAndHexo/</id>
-    <published>2017-05-12T14:19:48.000Z</published>
-    <updated>2020-03-28T02:20:30.857Z</updated>
-    
-    <content type="html"><![CDATA[<p>  初入公司，第一个任务就是自己搭建一个博客。其实之前就一直想试一试自己搭建个博客，但出于懒，一直没有动手。直到，刚入职场，公司老板布置了搭建技术博客的任务，才正式对待这个问题。废话不多说，下面就用Github➕ Hexo的方法搭建一个简单的、属于自己的、可定制的博客。</p><img src="/2017/05/12/BlogWithGithubAndHexo/home.png" title="Hexo + Github"><a id="more"></a><p>==注意==：本文主要针对<strong>Mac</strong>版本，windows版方法类似。</p><h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>本文利用Github Pages进行远端部署博客后台，用Node.js的一个命令行工具hexo生成博客所需的静态页面。</p><h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><p>网上搜索git for mac[windows], 根据你的操作系统安装不同版本的git，建议地址: <a href="http://adrai.github.io/flowchart.js/" target="_blank" rel="noopener">Git_For_Mac</a></p><h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><p>Node.js官网<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a>下载<strong>最新版</strong>。Mac下可先安装<a href="http://mxcl.github.com/homebrew/" target="_blank" rel="noopener">Home brew</a>包管理器，然后用命令安装最新版。</p><pre><code>brew install node</code></pre><p>如果能够正常使用命令npm，代表安装成功。</p><pre><code>npm --version</code></pre><h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>安装完Node.js后，用Node自带的包管理器安装hexo。</p><pre><code>npm install hexo-cli -g</code></pre><p>能正常使用hexo命令，代表安装成功。</p><pre><code>hexo --version</code></pre><p>至此，环境已经搭建完成。接下来是对环境的补充说明，觉得没有必要的可以掠过这段。但很多人在搭建自己的博客的时候对各个需要搭建的环境并不清晰，我简要地理一下关系。</p><blockquote><ul><li>Git主要是本地生成的静态页面部署到远端（Github）；</li><li>Node.js是Javascript的运行平台，本文是hexo生成静态页面的引擎；</li><li>Hexo是Node.js的一个命令行工具，能够将Markdown编译为静态页面。</li></ul></blockquote><h2 id="Hexo命令和配置"><a href="#Hexo命令和配置" class="headerlink" title="Hexo命令和配置"></a>Hexo命令和配置</h2><h3 id="Hexo-几个常见的命令"><a href="#Hexo-几个常见的命令" class="headerlink" title="Hexo 几个常见的命令"></a>Hexo 几个常见的命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成一个hexo工程，文件夹[blogname]</span></span><br><span class="line">hexo init [blogname]</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成一篇博文，可以路径[blogname]/source/_posts下面找到[passagename].md的文件</span></span><br><span class="line">hexo new [passagename]</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成静态页面</span></span><br><span class="line">hexo generate[g]</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将本地代码部署到远端（这里指Github），需要在配置以后才能进行</span></span><br><span class="line">hexo deploy[d]</span><br></pre></td></tr></table></figure><h3 id="Hexo-配置说明"><a href="#Hexo-配置说明" class="headerlink" title="Hexo 配置说明"></a>Hexo 配置说明</h3><p>在项目的主目录下，可以找到_config.xml，博客主要配置信息。重点说明以下参数：</p><blockquote><ul><li>博客的主要信息：标题、副标题、描述、作者、语言和时区</li></ul></blockquote><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">title: Geek</span><br><span class="line">subtitle:</span><br><span class="line">description:</span><br><span class="line">author: Huanjian Jiang</span><br><span class="line">language:</span><br><span class="line">timezone:</span><br></pre></td></tr></table></figure><blockquote><ul><li>git配置信息：远程类型、仓库地址、分支和提交信息</li></ul></blockquote><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">    type: git</span><br><span class="line">    repo: git@github.com:zhuwo/zhuwo.github.io.git</span><br><span class="line">    branch: master</span><br><span class="line">    message: Final try</span><br></pre></td></tr></table></figure><blockquote><ul><li><strong>主题</strong></li></ul></blockquote><blockquote><ol><li>网上查找Hexo的主题，将主题模版放到路径[blogname]/themes，设置参数theme: master[主题文件夹名]</li><li>本人推荐的最流行的Hexo的主题next(可调整性强、内容丰富)，详情见它的主页：<a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">http://theme-next.iissnan.com/</a></li></ol></blockquote><blockquote><ul><li><strong>图片</strong></li></ul></blockquote><blockquote><p>添加图片的方法可以参考Hexo的官方文档：<a href="https://hexo.io/zh-cn/docs/asset-folders.html" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/asset-folders.html</a></p></blockquote><h4 id="主要过程"><a href="#主要过程" class="headerlink" title="主要过程"></a>主要过程</h4><blockquote><ol><li>hexo init 生成博客</li><li>修改配置文件_config.xml</li><li>hexo deploy 部署到Github</li></ol></blockquote><h4 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h4><blockquote><ol><li>每次添加markdown文件以后都要重新生成静态页面 </li><li>每次本地操作以后都要重新部署到github</li><li>配置项目的”:”后必须跟一个空格，比方说theme:[空格][模版名]</li></ol></blockquote><h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>作为一个程序员，github的使用是必须的，这里并不累赘复述如何注册github账号，如何在github创建仓库等等，只说明创建博客时的注意点。</p><blockquote><ul><li>新建一个仓库后，仓库名必须与GitHub帐户一致，比方说的我的github地址为<a href="https://github.com/zhuwo" target="_blank" rel="noopener">https://github.com/zhuwo</a>, 那么仓库名必须为zhuwo.github.io。这样，最后你的博客地址也就是<a href="https://zhuwo.github.io。" target="_blank" rel="noopener">https://zhuwo.github.io。</a></li><li>使用Git部署之前，需要安装 hexo-deployer-git，命令如下：</li></ul></blockquote><pre><code>$ npm install hexo-deployer-git --save</code></pre><blockquote><ul><li>本地部署到github以后，再在仓库的设置页面，将分支改为master（仓库没有数据的时候不能选择分支，也就没有github page）</li></ul></blockquote><p>最后，在仓库的设置页面可以看到github page的地址，也就是你的博客地址。</p><hr><p>欢迎大家访问我的博客Geek: <a href="https://zhuwo.github.io" target="_blank" rel="noopener">https://zhuwo.github.io</a><br>[//]:&lt;说明&gt; (网易云音乐外链)</p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=5308028&auto=1&height=66"></iframe><h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><ol><li>网易云音乐生成外链，代码直接拷贝Markdown文件中</li></ol><h2 id="博客推荐"><a href="#博客推荐" class="headerlink" title="博客推荐"></a>博客推荐</h2><ol><li><a href="https://notes.wanghao.work/" target="_blank" rel="noopener">https://notes.wanghao.work/</a></li><li><a href="http://www.dingxuewen.com/" target="_blank" rel="noopener">http://www.dingxuewen.com/</a></li><li><a href="https://unindented.org" target="_blank" rel="noopener">https://unindented.org</a></li></ol><p>​<br>​    </p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;  初入公司，第一个任务就是自己搭建一个博客。其实之前就一直想试一试自己搭建个博客，但出于懒，一直没有动手。直到，刚入职场，公司老板布置了搭建技术博客的任务，才正式对待这个问题。废话不多说，下面就用Github➕ Hexo的方法搭建一个简单的、属于自己的、可定制的博客。&lt;/p&gt;
-&lt;img src=&quot;/2017/05/12/BlogWithGithubAndHexo/home.png&quot; title=&quot;Hexo + Github&quot;&gt;
-    
-    </summary>
-    
-    
-      <category term="Technology" scheme="http://yoursite.com/categories/Technology/"/>
-    
-    
-      <category term="技术" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="博客" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
-      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
     
   </entry>
   
