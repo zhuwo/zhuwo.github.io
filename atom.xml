@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-28T07:28:20.532Z</updated>
+  <updated>2020-03-29T03:45:09.101Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Rain Day on Wu Kang Road</title>
+    <link href="http://yoursite.com/2020/03/29/WuKangRoad/"/>
+    <id>http://yoursite.com/2020/03/29/WuKangRoad/</id>
+    <published>2020-03-29T03:43:07.000Z</published>
+    <updated>2020-03-29T03:45:09.101Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Gallery" scheme="http://yoursite.com/categories/Gallery/"/>
+    
+    
+      <category term="Photo" scheme="http://yoursite.com/tags/Photo/"/>
+    
+  </entry>
   
   <entry>
     <title>Shanghai SafariPark 2019</title>
@@ -276,34 +295,6 @@
       <category term="汇编" scheme="http://yoursite.com/tags/%E6%B1%87%E7%BC%96/"/>
     
       <category term="寄存器" scheme="http://yoursite.com/tags/%E5%AF%84%E5%AD%98%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>设计模式之责任链[上]</title>
-    <link href="http://yoursite.com/2017/06/06/ChainOfResponsibility/"/>
-    <id>http://yoursite.com/2017/06/06/ChainOfResponsibility/</id>
-    <published>2017-06-06T13:44:15.000Z</published>
-    <updated>2020-03-28T02:17:00.362Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>为了避免请求的发送者和接收者耦合在一起，让多个对象都有可能处理请求。将这些接收对象连结成一条链，并且沿着这条链传递请求，直到有对象处理它为止。</p><img src="/2017/06/06/ChainOfResponsibility/home.png" title="ATM"><a id="more"></a><h2 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h2><p>考虑用户图形界面中，最简单的一个例子，帮助工具。使用应用的用户，只要点击界面的任何地方，就可以获得他需要的帮助信息。帮助的具体信息取决于界面被选择的地方，例如：有一个对话窗口的帮助按钮和主窗口的帮助按钮，它们的位置和形状类似，但它们提供的帮助信息完全不一样。如果某部分界面不需要特定的帮助信息，那么应用应该展示更加一般化的帮助信息，例如：应用的版本、开发人员等等。</p><p>因此，我们可以根据界面的一般性组织帮助信息。用户界面中存在很多对象，但是，很显然，一个帮助请求只会被其中的一个对象处理。</p><p>这里存在一个问题，发出帮助请求的对象（按钮）并不知道提供帮助的对象具体是哪个。责任链模式要做的事情是，使得发出这个帮助请求的对象和实际可能提供帮助的对象尽可能的减少耦合关系。</p><p>责任链模式的大致思路是，通过给多个对象提供处理请求的机会，使得发送者和接收者解耦合。这个请求会沿着责任链传递，直到链上的一个对象处理它。这里给出一个简单的用户界面的责任链交互图，如图2-1所示。</p><img src="/2017/06/06/ChainOfResponsibility/2-1.png" title="图2-1"><p>这个链的第一个对象首先接收到请求，它处理请求，或者把请求推送给下一个候选者；接收到请求的候选者按照相同的逻辑处理请求，以此类推。发出请求的对象并不清楚谁会处理请求——也就是说请求都有一个<strong>被隐藏的接收者</strong>。</p><p>现在我们假设，用户点击一个“打印帮助”的按钮，用来获得打印相关帮助。这个按钮包含在一个对话窗口的实例当中，而这个对话窗口知道它自己属于哪个窗口对象（应用的工具栏）。图2-2的交互图说明了帮助请求是如何沿着责任链向前传递的。</p><img src="/2017/06/06/ChainOfResponsibility/2-2.png" title="图2-2"><p>在这个例子中，既不是“aPrintButton”，也不是“aPrintDialog”处理这个请求；在“anApplication”的地方停止了请求的传递，“anApplication”对象最终处理它或者忽略它。产生请求的对象并没有直接引用能够最终处理请求的对象。</p><p>为了将这个请求沿着责任链往前传递，并且保持接收者处于隐藏状态，在这个链上的每个对象都需要使用一个共同的接口，用来处理请求和获取它在链上的<strong>继承者</strong>，以便传递请求。例如，帮助系统可以定义一个“HelpHandler”类，这个类有“HandleHelp”的成员函数。“HelpHandler”可以是候选类的父类,也可以被是一个混入类<strong>（MIXIN Class）</strong>。接着，想要处理请求的类就继承 “HelpHandler”类，具体类图如图2-3所示。</p><img src="/2017/06/06/ChainOfResponsibility/2-3.png" title="图2-3"><p>按钮、对话框和应用类，用“HelpHandler”的“HandleHelp”操作函数来处理帮助请求。“HelpHandler”的 “HandHelp”操作函数，默认将请求向前传递。子类可以重写这个操作，以便在合适的环境下提供帮助；或者，它们可以采用用默认方式将请求向前传递。</p><h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><p>一般遇到下列情况时，使用责任链模式：</p><blockquote><ul><li>不止一个对象能够处理请求，而且并不能够提前确定处理者。要保证处理者是自被动识别的；</li><li>你想要把问题交个多个对象处理，而且不用确定接收者;</li><li>可以动态的指定处理请求的对象。</li></ul></blockquote><h2 id="责任链结构图"><a href="#责任链结构图" class="headerlink" title="责任链结构图"></a>责任链结构图</h2><img src="/2017/06/06/ChainOfResponsibility/4-1.png" title="图4-1"><h2 id="参与者"><a href="#参与者" class="headerlink" title="参与者"></a>参与者</h2><blockquote><ul><li>Handler(HelpHandler)<ul><li>定义处理请求的接口 </li><li>[可选]实现继承者传递链</li></ul></li></ul></blockquote><blockquote><ul><li>ConcreteHandler(PrintButton, PrintDialog)<ul><li>处理请求</li><li>获取继承者</li><li>如果ConcreteHandler能够处理请求，那么它处理；否则，它向前传递请求</li></ul></li></ul></blockquote><blockquote><ul><li>Client<ul><li>发起请求，并将请求传递给责任链上的第一个ConcreteHandler</li></ul></li></ul></blockquote><h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p>责任链模式有以下优点：</p><ol><li><p><em>降低耦合度</em>。这个模式使得一个发起请求的对象，无需知道具体是哪一个对象处理请求。发起请求的对象只需要知道，它的请求一定会被<strong>合适</strong>地处理。发送者和接收者都不知道彼此的存在，整个责任链中的对象也不需要知道整个责任链的具体结构是怎么样的。</p></li><li><p><em>增加了分配任务的灵活性</em>。当你要在一些对象之间分发任务的时候，责任链给你提供了较好的灵活性。你可以通过增加处理者或者实时地改变责任链，从而增加或者改变处理请求的对象。你可以将处理请求的方法和子类的方法结合，静态地指定处理者。</p></li><li><p><em>不需要保证接收者</em>。既然一个请求没有明确的接收者，也就是不必保证请求一定会被处理——也就是说请求也许会在链的尽头丢失，一直没有被处理。一个请求也有可能在责任链没有正确配置的情况下丢失。</p></li></ol><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>责任链模式实现的时候需要考虑的问题：</p><ol><li><p>实现继承者链。实现继承者链有两种方法：<br>(a) 定义新的链接<br>(b) 用已经存在的链接<br>我们到目前为止所举的例子，都是用定义新链接的方法，但是通常情况下，你可以通过使用已经存在对象的引用来产生一个继承者链接。使用已经存在的链接，帮助现实你所需要的整条链，优点十分明显。它不但节省了定义链接所需的成本，而且同时节省了大量存储空间。但是当使用这种方法不能够很好的反映你的应用需求的时候，你仍然需要定义一些新链接。</p></li><li><p>链接继承者。如果不存在定义一个链所需要的、已经存在的引用，那么你需要亲自引入它们。这种情况下，处理者（Handler）不仅定义请求的接口，而且通常也维护继承者的产生。这使得处理者有了HandleRequset的一个默认实现，也就是将请求传递给继承者。如果一个“ConcreteHandler”对当前请求不感兴趣，那么它不需要重写向前传递的方法，因为它的默认方法就是把请求向前传递。</p></li><li><p>请求的表达。表达请求有各种不同的方法。最简单的方法，<em>硬编码</em>。这种方法非常便捷和安全, 但是你只能处理“Handler”类定义的一个固定的请求集合内的请求，可扩展性差。另一种方法，使用一个处理函数，以<em>请求码</em>（例如，整数或者字符串）作为参数。这种方法可以增加新的请求，但是需要发送者和接收者遵循一个统一的编码规范。这种方法灵活性更好，但是它需要使用条件语句分发请求。此外，也没有<em>类型安全</em>的方法传递参数，因此请求需要有打包和拆包的过程。很显然，这种方法不太安全。为了定位参数，我们可以使用一个<em>请求对象</em>封装它。一个请求“Request”类能够表示一个请求，而新的请求可以通过继承的方法定义，子类可以添加不同的参数。处理者必需知道请求的类别（具体是哪个子类）。为了确定请求，Request可以定义一个<em>获取</em>函数，用来返回请求类的标识。此外，接收者也可以通RTTI(运行时类别信息)来识别类，只要实际所使用的语言支持。</p></li></ol><h2 id="已知的应用"><a href="#已知的应用" class="headerlink" title="已知的应用"></a>已知的应用</h2><p>MacApp和ET++中的事件处理，NeXT的APPKit的响应器（Responder）。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;目的&quot;&gt;&lt;a href=&quot;#目的&quot; class=&quot;headerlink&quot; title=&quot;目的&quot;&gt;&lt;/a&gt;目的&lt;/h2&gt;&lt;p&gt;为了避免请求的发送者和接收者耦合在一起，让多个对象都有可能处理请求。将这些接收对象连结成一条链，并且沿着这条链传递请求，直到有对象处理它为止。&lt;/p&gt;
-&lt;img src=&quot;/2017/06/06/ChainOfResponsibility/home.png&quot; title=&quot;ATM&quot;&gt;
-    
-    </summary>
-    
-    
-      <category term="Technology" scheme="http://yoursite.com/categories/Technology/"/>
-    
-    
-      <category term="技术" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="设计模式" scheme="http://yoursite.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-      <category term="计算机" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
   </entry>
   
