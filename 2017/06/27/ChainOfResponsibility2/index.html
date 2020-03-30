@@ -176,7 +176,7 @@
 
         <!-- Post Content -->
         <p>上一篇责任链的博文说明了责任链模式的定义、模型、应用场景以及优缺点，这一篇说明责任链模式在iOS事件处理中的具体应用 – <em>iOS之响应链</em>（<strong>The Responder Chain</strong>）。</p>
-<p><br><br><img src="/2017/06/27/ChainOfResponsibility2/view_hierarchy.gif" title="视图层次结构图"></p>
+<p><br><br><img src="/2017/06/27/ChainOfResponsibility2/view_hierarchy.gif" title="视图层次结构图"><br><br></p>
 <a id="more"></a>
 <h1 id="响应者（Responders）"><a href="#响应者（Responders）" class="headerlink" title="响应者（Responders）"></a>响应者（Responders）</h1><p>响应者是一个对象，它能够通过响应链，直接或者间接地接收事件(events)，只需要继承<a href="https://developer.apple.com/documentation/appkit/nsresponder" target="_blank" rel="noopener">NSResponder</a>类，它就是责任链模式中的Handler。iOS Cocoa框架下的很多类：NSApplication, NSWindow, NSDrawer, NSWindowController, NSView等都继承NSResponder。NSResponder类定义了处理事件消息的程序化接口和响应动作的大致结构。响应链上有一个第一响应者和后续的一系列响应者。</p>
 <h1 id="第一响应者（First-Reponders）"><a href="#第一响应者（First-Reponders）" class="headerlink" title="第一响应者（First Reponders）"></a>第一响应者（First Reponders）</h1><p>第一响应者一般是与用户交互的对象，比方说用户选择或者操作鼠标、键盘的操作。它往往是响应链中接收事件或者消息的第一个对象。一个NSWindow对象的第一响应者一般是它自己。但是，当应用程序第一次在设备屏幕上显示窗口的时候，你也可以在程序中或者在Interface Builder中手动设置第一响应者。</p>
