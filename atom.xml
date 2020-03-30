@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-29T06:37:49.366Z</updated>
+  <updated>2020-03-30T03:12:23.394Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS开发调试</title>
+    <link href="http://yoursite.com/2020/03/30/iOSDebug/"/>
+    <id>http://yoursite.com/2020/03/30/iOSDebug/</id>
+    <published>2020-03-30T02:57:50.000Z</published>
+    <updated>2020-03-30T03:12:23.394Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="调试基础"><a href="#调试基础" class="headerlink" title="调试基础"></a>调试基础</h2><p>利用控制台输出的错误信息</p><img src="/2020/03/30/iOSDebug/1.jpg" title="lldb简介"><h2 id="穴居人调试"><a href="#穴居人调试" class="headerlink" title="穴居人调试"></a>穴居人调试</h2><p>Log</p><h3 id="用于调试的字面表达"><a href="#用于调试的字面表达" class="headerlink" title="用于调试的字面表达"></a>用于调试的字面表达</h3><table><thead><tr><th>字面</th><th>类型</th><th>值</th></tr></thead><tbody><tr><td>#file</td><td>String</td><td>表达式所在的文件名</td></tr><tr><td>#line</td><td>Int</td><td>表达式所在的行号</td></tr><tr><td>#column</td><td>Int</td><td>表达式开始的列号</td></tr><tr><td>#function</td><td>String</td><td>表达式声明的名称</td></tr></tbody></table><img src="/2020/03/30/iOSDebug/2.jpg"><h2 id="LLDB"><a href="#LLDB" class="headerlink" title="LLDB"></a>LLDB</h2><h3 id="设置断点"><a href="#设置断点" class="headerlink" title="设置断点"></a>设置断点</h3><ul><li>单击取消</li><li>拖到外边删除</li><li>Control + Click + 断点标记 </li></ul><h3 id="逐步跟踪代码"><a href="#逐步跟踪代码" class="headerlink" title="逐步跟踪代码"></a>逐步跟踪代码</h3><h4 id="在变量视图中查看变量"><a href="#在变量视图中查看变量" class="headerlink" title="在变量视图中查看变量"></a>在变量视图中查看变量</h4><p>空格查看变量具体内容</p><img src="/2020/03/30/iOSDebug/3.jpg"><h4 id="调试栏"><a href="#调试栏" class="headerlink" title="调试栏"></a>调试栏</h4><img src="/2020/03/30/iOSDebug/4.jpg"><ul><li>继续程序执行： 恢复程序的正常执行（到下一个断点）</li><li>Step Over: 执行一行代码，并且不进入任何函数调用</li><li>Step Into: 执行下一行代码，包括进入一个函数调用</li><li>Step out: 继续函数执行直到跳出当前方法或函数调用</li></ul><h4 id="添加特殊动作"><a href="#添加特殊动作" class="headerlink" title="添加特殊动作"></a>添加特殊动作</h4><p>有时候，你希望知道某段代码是否被执行了，但是又不希望程序断掉。比方说，判断循环有没有正确执行。</p><img src="/2020/03/30/iOSDebug/5.jpg"><h4 id="异常断点"><a href="#异常断点" class="headerlink" title="异常断点"></a>异常断点</h4><p>有时候，程序崩溃，但是不知道在哪崩溃？<br>添加异常断点，可以帮助你段到崩溃的位置</p><img src="/2020/03/30/iOSDebug/6.jpg"><h4 id="符号断点"><a href="#符号断点" class="headerlink" title="符号断点"></a>符号断点</h4><p>符号断点是是由函数（方法）名，也就是”符号“指定的断点。符号断点是在函数被调用的时候触发的。</p><p>一般情况下用不到，但是在查看一些系统方法什么时候被触发时可以用到。比方说，要知道ViewController的loadView是在什么时候执行的。</p><img src="/2020/03/30/iOSDebug/7.jpg"><h3 id="LLDB常用命令"><a href="#LLDB常用命令" class="headerlink" title="LLDB常用命令"></a>LLDB常用命令</h3><table><thead><tr><th>命令</th><th>说明</th></tr></thead><tbody><tr><td>po</td><td>打印</td></tr><tr><td>p</td><td>详细打印</td></tr><tr><td>step</td><td>单步</td></tr><tr><td>expr</td><td>添加代码，修改变量</td></tr><tr><td>continue</td><td>继续执行</td></tr><tr><td>bt</td><td>堆栈信息</td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;调试基础&quot;&gt;&lt;a href=&quot;#调试基础&quot; class=&quot;headerlink&quot; title=&quot;调试基础&quot;&gt;&lt;/a&gt;调试基础&lt;/h2&gt;&lt;p&gt;利用控制台输出的错误信息&lt;/p&gt;
+&lt;img src=&quot;/2020/03/30/iOSDebug/1.jpg&quot; title=&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="Technology" scheme="http://yoursite.com/categories/Technology/"/>
+    
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+      <category term="Debug" scheme="http://yoursite.com/tags/Debug/"/>
+    
+  </entry>
   
   <entry>
     <title>Cat Cafe</title>
@@ -253,36 +282,6 @@
       <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
     
       <category term="Swift" scheme="http://yoursite.com/tags/Swift/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>设计模式之责任链[下]</title>
-    <link href="http://yoursite.com/2017/06/27/ChainOfResponsibility2/"/>
-    <id>http://yoursite.com/2017/06/27/ChainOfResponsibility2/</id>
-    <published>2017-06-27T11:27:29.000Z</published>
-    <updated>2017-06-27T02:28:20.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>上一篇责任链的博文说明了责任链模式的定义、模型、应用场景以及优缺点，这一篇说明责任链模式在iOS事件处理中的具体应用 – <em>iOS之响应链</em>（<strong>The Responder Chain</strong>）。</p><img src="/2017/06/27/ChainOfResponsibility2/view_hierarchy.gif" title="视图层次结构图"><a id="more"></a><h1 id="响应者（Responders）"><a href="#响应者（Responders）" class="headerlink" title="响应者（Responders）"></a>响应者（Responders）</h1><p>响应者是一个对象，它能够通过响应链，直接或者间接地接收事件(events)，只需要继承<a href="https://developer.apple.com/documentation/appkit/nsresponder" target="_blank" rel="noopener">NSResponder</a>类，它就是责任链模式中的Handler。iOS Cocoa框架下的很多类：NSApplication, NSWindow, NSDrawer, NSWindowController, NSView等都继承NSResponder。NSResponder类定义了处理事件消息的程序化接口和响应动作的大致结构。响应链上有一个第一响应者和后续的一系列响应者。</p><h1 id="第一响应者（First-Reponders）"><a href="#第一响应者（First-Reponders）" class="headerlink" title="第一响应者（First Reponders）"></a>第一响应者（First Reponders）</h1><p>第一响应者一般是与用户交互的对象，比方说用户选择或者操作鼠标、键盘的操作。它往往是响应链中接收事件或者消息的第一个对象。一个NSWindow对象的第一响应者一般是它自己。但是，当应用程序第一次在设备屏幕上显示窗口的时候，你也可以在程序中或者在Interface Builder中手动设置第一响应者。</p><p>当一个NSWindow对象接收到一个鼠标按下的事件时，它一般会设法把NSView对象设置成第一响应者。它首先会询问当前的view是否愿意成为第一响应者，通过使用acceptsFirstResponder方法。这个方法一般返回NO，想要成为第一响应者的响应者需要重写Responder的这个方法，并且返回Yes。此外，当用户通过键盘接口改变第一响应者的时候，acceptsFirstResponder方法也会被调用。</p><p>你可以通过发送makeFirstResponder:消息给一个NSWindow对象，改变第一响应者。这个消息使得一个对象失去了它的第一响应者身份，而另一个对象成为了第一响应者。</p><p>一个NSPanel对象提供了一种第一响应者行为的变种，它允许面板（panels）获得主窗口（main window）的焦点。假设一个面板现在代表一个非活动(inactive)的窗口，当becomesKeyOnlyIfNeeded 方法接收到一个鼠标按下的事件的时候，它返回一个YES。它尝试将鼠标光标下的视图变为第一响应者。当且仅当调用方法 acceptsFirstResponder和needsPanelToBecomeKey返回YES的时候，才能够成功将光标下的视图变为第一响应者。</p><h1 id="下一个响应者（Next-Responders）"><a href="#下一个响应者（Next-Responders）" class="headerlink" title="下一个响应者（Next Responders）"></a>下一个响应者（Next Responders）</h1><p>每个响应对象都有一个能力，就是获得它在响应链上的下一个响应者，也就是责任链中将消息往前推的默认操作。 响应链的最主要的机制，就是返回响应者对象的nextResponder方法。图3-1显示了下一个响应者的序列。</p><img src="/2017/06/27/ChainOfResponsibility2/responder_chain_2x.png" title="图3-1 响应者链"><p>绝大数的响应链上，一个view的下一个响应者一般是它的superview。实际上，一个窗口的所有视图，由它的第一个响应者到它的内容视图链组成。当你用Interface Builder或者手动写代码创建一个窗口或者在已经存在的视图上添加子视图的时候，Application Kit自动将新建的对象添加到响应链中。NSView对象的addSubView:方法自动将接收者设置成新的子视图的superview。当你想要在这些视图之间插入一个不一样的响应者，必须保证正确地修正整个响应链，以适应新的变化。</p><h1 id="响应链"><a href="#响应链" class="headerlink" title="响应链"></a>响应链</h1><p>响应链将一系列的响应对象串联起来，这些响应对象接收事件或者消息的传递。当一个给定的响应对象不处理一个特定的消息的时候，这个对象会将当前消息传递给它在响应链上的继承者（也就是它的下一个响应者）。这就使得响应对象能够代理其他对象的责任，尤其是更高等级的对象。Application Kit按照以下将要说道的方法自动构建响应链，但是你也可以将一般的对象插入到其中。</p><p>一个应用可以包含任何数量的响应链，但是在一个给定的时间，只有一条链是活动的。事件消息和动作消息的响应链是不一样的，下面将详细描述它们的具体操作情况。</p><h2 id="事件消息的响应链"><a href="#事件消息的响应链" class="headerlink" title="事件消息的响应链"></a>事件消息的响应链</h2><p>几乎所有的事件消息都使用一个单一窗口的响应链 – 相关用户事件发生的所在窗口。事件消息的默认响应链从NSWindow第一个传递消息的视图开始。一个键盘按键的默认响应链从一个窗口的第一响应者开始；一个鼠标或者触控板的默认响应链从用户事件发生的视图开始。如果在那儿，事件不被处理，事件消息将会沿着视图层次向前传递。第一个响应者一般是窗口中被选择的视图对象，而且它的下一个响应者是包含它的视图（superview），等等直到NSwindow对象为止。如果一个NSWindowController对象管理这个窗口，它就是最后的响应者。你可以在这些NSView对象之间插入其他响应者，甚至是在NSWindow对象上面，也就是响应链的顶部。这些被插入的响应者既接收事件消息，也接收动作消息。如果没有对象处理事件，那么响应链的最后一个响应者会调用方法noResponderFor:,代表按键按下事件的终止。当然，事件处理对象（一般是NSWindow和NSView的子类）可以重写这个方法，从而执行一些想要执行的附加操作。</p><h2 id="动作消息的响应链"><a href="#动作消息的响应链" class="headerlink" title="动作消息的响应链"></a>动作消息的响应链</h2><p>对于动作信息，Application Kit构建了一个更加详尽的响应链，基于以下两个因素：</p><ul><li>当前应用是否基于文件架构，如果不是，那么它是否使用 NSWindowController 对象构建窗口</li><li>当前应用是否将key window作为主window展示</li></ul><p>由于动作需要更加灵活的运行时机制来决定它们的目标，动作消息拥有更加详细的响应链。它们不像事件消息，仅仅限制在一个窗口中。</p><p>最简单的情况是，一个活动的没有基于文件的窗口，而且没有相关的面板或者次窗口；换句话说，主窗口也是关键窗口(key window)。这种情况下，响应链如下所示：</p><blockquote><ol><li>主窗口的第一响应者和连续的响应对象与视图层次架构一致</li><li>主窗口自己</li><li>主窗口的代理（无需继承NSResponder）</li><li>应用对象，NSApp</li><li>应用对象的代理(无需继承NSResponder)</li></ol></blockquote><p>整条链如图4-1所示</p><img src="/2017/06/27/ChainOfResponsibility2/nondoc_2x.png" title="图4-1 不基于文件应用的动作消息的的响应者链"><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本文说明了责任链模式在iOS框架Cocoa下的应用 – <strong>响应链</strong>。以及，事件消息和动作消息如何在响应链上传递。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;上一篇责任链的博文说明了责任链模式的定义、模型、应用场景以及优缺点，这一篇说明责任链模式在iOS事件处理中的具体应用 – &lt;em&gt;iOS之响应链&lt;/em&gt;（&lt;strong&gt;The Responder Chain&lt;/strong&gt;）。&lt;/p&gt;
-&lt;img src=&quot;/2017/06/27/ChainOfResponsibility2/view_hierarchy.gif&quot; title=&quot;视图层次结构图&quot;&gt;
-    
-    </summary>
-    
-    
-      <category term="Technology" scheme="http://yoursite.com/categories/Technology/"/>
-    
-    
-      <category term="技术" scheme="http://yoursite.com/tags/%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="设计模式" scheme="http://yoursite.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-      <category term="计算机" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
     
   </entry>
   

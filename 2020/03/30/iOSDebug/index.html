@@ -20,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="ZhuWo&#39;s Den">
+        <meta property="og:title" content="iOS开发调试">
     
 
     <!--Open Graph Description-->
@@ -33,7 +33,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website">
+        <meta property="og:type" content="article">
     
 
     <!--Page Cover-->
@@ -47,7 +47,7 @@
 
     <!-- Title -->
     
-    <title>技术 - ZhuWo&#39;s Den</title>
+    <title>iOS开发调试 - ZhuWo&#39;s Den</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -135,9 +135,7 @@
 <div class="container">
 
     <!-- Main Content -->
-    
-
-<div class="row">
+    <div class="row">
     <div class="col-sm-12">
 
         <!--Title and Logo-->
@@ -145,88 +143,149 @@
     <div class="logo">
         <a href="/"><i class="logo-icon fa adjust" aria-hidden="true"></i></a>
         
-            <h1 id="main-title" class="title">#技术</h1>
-        
     </div>
 </header>
 
-        <section class="main archive-container">
+        <section class="main">
             
-                <div class="archive-post">
-    <a href="/2017/05/12/BlogWithGithubAndHexo/">
-        <span class="archive-date">
-            May 2017
-        </span>
-        GitHub&Hexo 搭建博客
-    </a>
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2020/03/30/iOSDebug/">
+                iOS开发调试
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2020-03-30</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/Technology/">Technology</a>
+                </span>
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h2 id="调试基础"><a href="#调试基础" class="headerlink" title="调试基础"></a>调试基础</h2><p>利用控制台输出的错误信息</p>
+<img src="/2020/03/30/iOSDebug/1.jpg" title="lldb简介">
+<h2 id="穴居人调试"><a href="#穴居人调试" class="headerlink" title="穴居人调试"></a>穴居人调试</h2><p>Log</p>
+<h3 id="用于调试的字面表达"><a href="#用于调试的字面表达" class="headerlink" title="用于调试的字面表达"></a>用于调试的字面表达</h3><table>
+<thead>
+<tr>
+<th>字面</th>
+<th>类型</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#file</td>
+<td>String</td>
+<td>表达式所在的文件名</td>
+</tr>
+<tr>
+<td>#line</td>
+<td>Int</td>
+<td>表达式所在的行号</td>
+</tr>
+<tr>
+<td>#column</td>
+<td>Int</td>
+<td>表达式开始的列号</td>
+</tr>
+<tr>
+<td>#function</td>
+<td>String</td>
+<td>表达式声明的名称</td>
+</tr>
+</tbody>
+</table>
+<img src="/2020/03/30/iOSDebug/2.jpg">
+<h2 id="LLDB"><a href="#LLDB" class="headerlink" title="LLDB"></a>LLDB</h2><h3 id="设置断点"><a href="#设置断点" class="headerlink" title="设置断点"></a>设置断点</h3><ul>
+<li>单击取消</li>
+<li>拖到外边删除</li>
+<li>Control + Click + 断点标记 </li>
+</ul>
+<h3 id="逐步跟踪代码"><a href="#逐步跟踪代码" class="headerlink" title="逐步跟踪代码"></a>逐步跟踪代码</h3><h4 id="在变量视图中查看变量"><a href="#在变量视图中查看变量" class="headerlink" title="在变量视图中查看变量"></a>在变量视图中查看变量</h4><p>空格查看变量具体内容</p>
+<img src="/2020/03/30/iOSDebug/3.jpg">
+<h4 id="调试栏"><a href="#调试栏" class="headerlink" title="调试栏"></a>调试栏</h4><img src="/2020/03/30/iOSDebug/4.jpg">
+<ul>
+<li>继续程序执行： 恢复程序的正常执行（到下一个断点）</li>
+<li>Step Over: 执行一行代码，并且不进入任何函数调用</li>
+<li>Step Into: 执行下一行代码，包括进入一个函数调用</li>
+<li>Step out: 继续函数执行直到跳出当前方法或函数调用</li>
+</ul>
+<h4 id="添加特殊动作"><a href="#添加特殊动作" class="headerlink" title="添加特殊动作"></a>添加特殊动作</h4><p>有时候，你希望知道某段代码是否被执行了，但是又不希望程序断掉。比方说，判断循环有没有正确执行。</p>
+<img src="/2020/03/30/iOSDebug/5.jpg">
+<h4 id="异常断点"><a href="#异常断点" class="headerlink" title="异常断点"></a>异常断点</h4><p>有时候，程序崩溃，但是不知道在哪崩溃？<br>添加异常断点，可以帮助你段到崩溃的位置</p>
+<img src="/2020/03/30/iOSDebug/6.jpg">
+<h4 id="符号断点"><a href="#符号断点" class="headerlink" title="符号断点"></a>符号断点</h4><p>符号断点是是由函数（方法）名，也就是”符号“指定的断点。符号断点是在函数被调用的时候触发的。</p>
+<p>一般情况下用不到，但是在查看一些系统方法什么时候被触发时可以用到。比方说，要知道ViewController的loadView是在什么时候执行的。</p>
+<img src="/2020/03/30/iOSDebug/7.jpg">
+<h3 id="LLDB常用命令"><a href="#LLDB常用命令" class="headerlink" title="LLDB常用命令"></a>LLDB常用命令</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>po</td>
+<td>打印</td>
+</tr>
+<tr>
+<td>p</td>
+<td>详细打印</td>
+</tr>
+<tr>
+<td>step</td>
+<td>单步</td>
+</tr>
+<tr>
+<td>expr</td>
+<td>添加代码，修改变量</td>
+</tr>
+<tr>
+<td>continue</td>
+<td>继续执行</td>
+</tr>
+<tr>
+<td>bt</td>
+<td>堆栈信息</td>
+</tr>
+</tbody>
+</table>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/iOS/">#iOS</a> <a href="/tags/Debug/">#Debug</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+
 </div>
-            
-                <div class="archive-post">
-    <a href="/2017/06/06/ChainOfResponsibility/">
-        <span class="archive-date">
-            Jun 2017
-        </span>
-        设计模式之责任链[上]
-    </a>
-</div>
-            
-                <div class="archive-post">
-    <a href="/2017/06/20/LearningCSAPP/">
-        <span class="archive-date">
-            Jun 2017
-        </span>
-        CSAPP读书笔记 第3章 程序的机器级表示 访问信息
-    </a>
-</div>
-            
-                <div class="archive-post">
-    <a href="/2017/06/27/ChainOfResponsibility2/">
-        <span class="archive-date">
-            Jun 2017
-        </span>
-        设计模式之责任链[下]
-    </a>
-</div>
-            
-                <div class="archive-post">
-    <a href="/2018/01/25/SyncAndAsync/">
-        <span class="archive-date">
-            Jan 2018
-        </span>
-        同步和异步
-    </a>
-</div>
-            
-                <div class="archive-post">
-    <a href="/2017/12/07/SwiftProperties/">
-        <span class="archive-date">
-            Dec 2017
-        </span>
-        Swift 属性
-    </a>
-</div>
-            
-                <div class="archive-post">
-    <a href="/2018/06/11/SwiftStatePattern/">
-        <span class="archive-date">
-            Jun 2018
-        </span>
-        Swift下的状态设计模式
-    </a>
-</div>
-            
-                <div class="archive-post">
-    <a href="/2018/09/20/InterviewIn2018/">
-        <span class="archive-date">
-            Sep 2018
-        </span>
-        2018年iOS面试总结
-    </a>
-</div>
-            
         </section>
+
     </div>
 </div>
+
 
 </div>
 
